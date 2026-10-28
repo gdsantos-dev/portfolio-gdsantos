@@ -1,0 +1,13 @@
+# Ambiente local / informações privadas
+.env
+.env.*
+!.env.example
+*.sqlite3
+*.db
+.venv/
+__pycache__/
+node_modules/
+.DS_Store
+Thumbs.db
+*.log
+.railway/

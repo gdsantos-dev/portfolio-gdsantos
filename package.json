@@ -1,0 +1,14 @@
+{
+  "name": "gdsantos-dev-portfolio-public",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Portfólio público estático, separado do laboratório privado",
+  "scripts": {
+    "start": "node server.mjs",
+    "check": "node --check server.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
