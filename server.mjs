@@ -71,7 +71,7 @@ http.createServer(async (req, res) => {
     const isHtml = path.extname(file) === '.html';
     res.writeHead(200, {
       'Content-Type': type,
-      'Cache-Control': (isData || isHtml) ? 'no-cache' : 'public, max-age=3600',
+      'Cache-Control': type === 'application/pdf' ? 'no-store' : (isData || isHtml) ? 'no-cache' : 'public, max-age=3600',
     });
     return res.end(req.method === 'HEAD' ? undefined : bytes);
   } catch {
