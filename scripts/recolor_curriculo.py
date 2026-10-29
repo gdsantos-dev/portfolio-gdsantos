@@ -1,6 +1,7 @@
 """Apply the portfolio's Black & Crimson palette to the existing CV PDF.
 
-Updates only PDF color operators. Layout, text and hyperlinks are preserved.
+Updates PDF colors and fixes the alignment of the skills columns.
+Text, fonts and hyperlinks remain unchanged.
 """
 from pathlib import Path
 import os
@@ -21,6 +22,7 @@ COLORS = {
 with fitz.open(CV) as doc:
     assert len(doc) == 1, 'Expected the existing one-page curriculum.'
     changed = 0
+    aligned = 0
     for page in doc:
         for xref in page.get_contents():
             stream = doc.xref_stream(xref)
@@ -28,16 +30,23 @@ with fitz.open(CV) as doc:
             for old, new in COLORS.items():
                 changed += updated.count(old)
                 updated = updated.replace(old, new)
+            # Keep all technology descriptions aligned in one right-hand column.
+            for y in (b'347.239', b'324.239', b'301.239'):
+                old_pos = b'BT/F1 9 Tf 151.95 ' + y + b' Td'
+                new_pos = b'BT/F1 9 Tf 183.95 ' + y + b' Td'
+                old_count, new_count = updated.count(old_pos), updated.count(new_pos)
+                if old_count + new_count != 1:
+                    raise RuntimeError(f'Unexpected skills row at {y!r}: {old_count}, {new_count}.')
+                aligned += old_count
+                updated = updated.replace(old_pos, new_pos)
             if updated != stream:
                 doc.update_stream(xref, updated, compress=True)
-    if changed < 10:
-        raise RuntimeError(f'Expected at least 10 existing color instructions, got {changed}; leaving PDF unchanged.')
-    with tempfile.NamedTemporaryFile(suffix='.pdf', dir=CV.parent, delete=False) as temp:
-        tmp = Path(temp.name)
-    try:
-        doc.save(tmp, garbage=4, deflate=True)
-    except Exception:
-        tmp.unlink(missing_ok=True)
-        raise
-os.replace(tmp, CV)
-print(f'Updated {changed} color instructions in {CV}')
+    if changed or aligned:
+        with tempfile.NamedTemporaryFile(suffix='.pdf', dir=CV.parent, delete=False) as temp:
+            tmp = Path(temp.name)
+        try:
+            doc.save(tmp, garbage=4, deflate=True)
+            os.replace(tmp, CV)
+        finally:
+            tmp.unlink(missing_ok=True)
+print(f'Updated {changed} color and {aligned} alignment instructions in {CV}')
