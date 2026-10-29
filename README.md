@@ -44,7 +44,7 @@ Atualmente, o deploy do site é realizado manualmente no Railway. Alterar o cód
 
 O arquivo `public/data/projects.json` mantém o conteúdo dos projetos próprios exibidos na seção editorial. A apresentação é gerada por `public/projects-cinema.js` e estilizada por `public/projects-cinema.css`. Links para repositórios privados e demonstrações não publicadas ficam de fora da vitrine.
 
-As páginas de case são `/{pt|en|es}/projeto/?id=scoutliq` e `/{pt|en|es}/projeto/?id=dashliq`; o conteúdo fica em `public/data/projects.json` (chave `texts.<idioma>.case`) e é construído por `public/project-case.js`. O script de verificação é `node scripts/validate-project-showcase.mjs`, também executado no GitHub Actions.
+As páginas de case são `/{pt|en|es}/projeto/?id=scoutliq` e `/{pt|en|es}/projeto/?id=dashliq`; o conteúdo fica em `public/data/projects.json` (chave `texts.<idioma>.case`) e é construído por `public/project-case.js`. As páginas internas incluem navegação por capítulos com âncoras, leitura sem bloqueio do scroll e uma explicação da colaboração humano–IA. Não divulgamos nomes de modelos ou ferramentas específicas. O script de verificação é `node scripts/validate-project-showcase.mjs`, também executado no GitHub Actions.
 
 As páginas do site não usam navegação que bloqueie o scroll. As transições são discretas, e `prefers-reduced-motion` é respeitado. A validação visual em desktop e celular deve acontecer antes de integrar esta alteração à branch principal.
 
