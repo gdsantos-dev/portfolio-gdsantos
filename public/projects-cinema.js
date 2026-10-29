@@ -31,6 +31,7 @@
 
     const film = element("article", "project-feature");
     film.dataset.theme = project.theme === "dashliq" ? "dashliq" : "scoutliq";
+    film.id = "projeto-" + project.id;
     film.setAttribute("aria-labelledby", "project-" + project.id + "-title");
 
     const poster = element("div", "project-feature__poster");
@@ -63,7 +64,13 @@
 
     const details = element("details", "project-feature__details");
     details.append(element("summary", "", copy.details), element("p", "", content.details));
-    body.append(current, heading, description, facts, details);
+    const cta = element("a", "project-feature__case-link", {pt:"Explorar projeto",en:"Explore project",es:"Explorar proyecto"}[language]);
+    cta.href = "/" + language + "/projeto/?id=" + encodeURIComponent(project.id);
+    cta.setAttribute("aria-label", ({pt:"Explorar o projeto ",en:"Explore project ",es:"Explorar el proyecto "}[language]) + content.title);
+    const glyph = element("span", "project-feature__case-arrow", "↗");
+    glyph.setAttribute("aria-hidden", "true");
+    cta.append(glyph);
+    body.append(current, heading, description, facts, details, cta);
     film.append(poster, body);
     return film;
   }
