@@ -1,1 +1,89 @@
-[]
+[
+  {
+    "id": "scoutliq",
+    "theme": "scoutliq",
+    "year": "2026",
+    "technologies": [
+      "React",
+      "TypeScript",
+      "FastAPI",
+      "SQLite"
+    ],
+    "repository": "",
+    "texts": {
+      "pt": {
+        "title": "ScoutLIQ",
+        "category": "Prospecção comercial",
+        "phase": "Em desenvolvimento",
+        "scene": "Pesquisa / Análise / Operação",
+        "description": "Uma aplicação para pesquisar empresas, reunir evidências e acompanhar oportunidades comerciais sem dispersar o trabalho entre ferramentas.",
+        "focus": "Busca, qualificação e acompanhamento",
+        "role": "Concepção, desenvolvimento e validação",
+        "details": "A aplicação reúne busca unificada, registros de empresas, Score 3.0, Radar, Pipeline e automações supervisionadas. O desenvolvimento envolve decisões de produto, APIs, persistência, testes e documentação. O código permanece privado enquanto a publicação é revisada."
+      },
+      "en": {
+        "title": "ScoutLIQ",
+        "category": "Commercial prospecting",
+        "phase": "In development",
+        "scene": "Research / Analysis / Operations",
+        "description": "An application for researching businesses, gathering evidence and tracking sales opportunities without scattering work across tools.",
+        "focus": "Search, qualification and follow-up",
+        "role": "Product design, development and validation",
+        "details": "The application includes unified search, business records, Score 3.0, Radar, Pipeline and supervised automation. Development covers product decisions, APIs, persistence, testing and documentation. The source code remains private while publication is under review."
+      },
+      "es": {
+        "title": "ScoutLIQ",
+        "category": "Prospección comercial",
+        "phase": "En desarrollo",
+        "scene": "Búsqueda / Análisis / Operación",
+        "description": "Una aplicación para investigar empresas, reunir evidencias y dar seguimiento a oportunidades comerciales sin dispersar el trabajo entre herramientas.",
+        "focus": "Búsqueda, evaluación y seguimiento",
+        "role": "Diseño del producto, desarrollo y validación",
+        "details": "La aplicación reúne búsqueda unificada, fichas de empresas, Score 3.0, Radar, Pipeline y automatizaciones supervisadas. El desarrollo abarca decisiones de producto, API, persistencia, pruebas y documentación. El código sigue privado mientras se revisa su publicación."
+      }
+    }
+  },
+  {
+    "id": "dashliq",
+    "theme": "dashliq",
+    "year": "2026",
+    "technologies": [
+      "Aplicação web",
+      "Dados",
+      "Automações"
+    ],
+    "repository": "",
+    "texts": {
+      "pt": {
+        "title": "DashLIQ",
+        "category": "Gestão financeira",
+        "phase": "Em desenvolvimento",
+        "scene": "Registros / Indicadores / Rotina",
+        "description": "Um sistema pessoal de acompanhamento financeiro e operacional, com registros, metas e indicadores organizados para consulta no dia a dia.",
+        "focus": "Finanças, operações e acompanhamento",
+        "role": "Concepção, desenvolvimento e evolução do produto",
+        "details": "O projeto reúne módulos de registro, acompanhamento de resultados, metas e notificações. A evolução considera consistência dos dados, clareza das informações e uso em dispositivos móveis. Não há uma versão pública de demonstração neste momento."
+      },
+      "en": {
+        "title": "DashLIQ",
+        "category": "Financial management",
+        "phase": "In development",
+        "scene": "Records / Insights / Workflow",
+        "description": "A personal financial and operational tracking system, bringing records, goals and indicators together for everyday use.",
+        "focus": "Finances, operations and tracking",
+        "role": "Product design, development and iteration",
+        "details": "The project includes records, result tracking, goals and notifications. Ongoing work focuses on data consistency, readable information and mobile use. There is no public demo at this time."
+      },
+      "es": {
+        "title": "DashLIQ",
+        "category": "Gestión financiera",
+        "phase": "En desarrollo",
+        "scene": "Registros / Indicadores / Rutina",
+        "description": "Un sistema personal de seguimiento financiero y operativo, que reúne registros, objetivos e indicadores para el uso diario.",
+        "focus": "Finanzas, operaciones y seguimiento",
+        "role": "Diseño, desarrollo y evolución del producto",
+        "details": "El proyecto incluye registros, seguimiento de resultados, metas y notificaciones. Su evolución prioriza la consistencia de los datos, la claridad y el uso móvil. Por ahora no hay una demostración pública."
+      }
+    }
+  }
+]
