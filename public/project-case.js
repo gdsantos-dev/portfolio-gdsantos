@@ -10,6 +10,7 @@
     es: { back:"Volver a proyectos",home:"Portafolio",section:"Proyecto",process:"Cómo funciona",engineering:"Decisiones",validation:"Validación y límites",status:"Estado",role:"Participación",stack:"Tecnologías",explore:"Explorar proceso",next:"Siguiente proyecto",view:"Ver estudio de caso",missing:"Proyecto no encontrado",missingText:"Puede que la dirección sea incorrecta." }
   }[lang];
   const backLink = "/" + lang + "/#projetos";
+  const chapterCopy = {"pt":{"name":"Capítulos do projeto","labels":["Contexto","Funcionamento","Decisões","Validação"],"collab":"Processo de desenvolvimento"},"en":{"name":"Project chapters","labels":["Context","Workflow","Decisions","Validation"],"collab":"Development process"},"es":{"name":"Capítulos del proyecto","labels":["Contexto","Funcionamiento","Decisiones","Validación"],"collab":"Proceso de desarrollo"}};
   function el(tag,className,text) {
     const node = document.createElement(tag);
     if (className) node.className = className;
@@ -43,6 +44,14 @@
     water.setAttribute("aria-hidden","true");
     hero.append(topline,title,el("p","case-hero__lead",story.lead),link(copy.explore+" ↘","#case-process","case-hero__action"),water);
 
+    const chapters=el("nav","case-chapters");
+    chapters.setAttribute("aria-label",chapterCopy[lang].name);
+    const chapterIds=["case-overview","case-process","case-engineering","case-validation"];
+    chapterIds.forEach((chapterId,i)=>{
+      const anchor=link(chapterCopy[lang].labels[i],"#"+chapterId,"case-chapters__link");
+      if(i===0)anchor.setAttribute("aria-current","location");
+      chapters.append(anchor);
+    });
     const overview=segment("case-overview","case-section case-overview");
     const aside=el("p","case-section__eyebrow","01 / "+copy.section);
     const overviewMain=el("div","case-section__body");
@@ -85,13 +94,34 @@
     const validation=segment("case-validation","case-section case-validation");
     const valBody=el("div","case-section__body");
     valBody.append(el("h2","",story.validationTitle),el("p","case-section__lead",story.validation),el("p","case-validation__note",story.note));
+    if(story.collaboration){
+      const collaboration=el("aside","case-collaboration");
+      collaboration.append(el("h3","",chapterCopy[lang].collab),el("p","",story.collaboration));
+      valBody.append(collaboration);
+    }
     validation.append(el("p","case-section__eyebrow","04 / "+copy.validation),valBody);
 
     const finale=segment("case-next","case-next");
     const nextBody=el("div");
     nextBody.append(el("p","case-next__label",copy.next),el("h2","",other.texts[lang].title));
     finale.append(nextBody,link(copy.view+" ↗","/"+lang+"/projeto/?id="+encodeURIComponent(other.id),"case-next__link"));
-    root.replaceChildren(crumbs,hero,overview,process,engineering,validation,finale);
+    root.replaceChildren(crumbs,hero,chapters,overview,process,engineering,validation,finale);
+    const chapterAnchors=Array.from(chapters.querySelectorAll("a"));
+    const setActive=index=>chapterAnchors.forEach((anchor,i)=>{
+      if(index===i)anchor.setAttribute("aria-current","location");
+      else anchor.removeAttribute("aria-current");
+    });
+    chapterAnchors.forEach((anchor,i)=>anchor.addEventListener("click",()=>setActive(i)));
+    if("IntersectionObserver" in window){
+      const chapterObserver=new IntersectionObserver(entries=>{
+        for(const entry of entries){
+          if(!entry.isIntersecting)continue;
+          const index=chapterIds.indexOf(entry.target.id);
+          if(index>=0)setActive(index);
+        }
+      },{rootMargin:"-18% 0px -65% 0px",threshold:0});
+      [overview,process,engineering,validation].forEach(section=>chapterObserver.observe(section));
+    }
     if (!("IntersectionObserver" in window) || matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     const observer=new IntersectionObserver(entries=>{
       entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add("is-visible");observer.unobserve(entry.target);}});
