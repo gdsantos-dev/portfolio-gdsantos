@@ -1,0 +1,30 @@
+name: Validate portfolio project pages
+on:
+  push:
+    paths:
+      - "public/**"
+      - "scripts/validate-project-showcase.mjs"
+      - ".github/workflows/validate-project-pages.yml"
+  pull_request:
+    paths:
+      - "public/**"
+      - "scripts/validate-project-showcase.mjs"
+      - ".github/workflows/validate-project-pages.yml"
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: JavaScript syntax
+        run: |
+          node --check public/main.js
+          node --check public/projects-cinema.js
+          node --check public/project-case.js
+      - name: Project content and routes
+        run: node scripts/validate-project-showcase.mjs
