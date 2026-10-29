@@ -85,3 +85,14 @@
  .case-hero__topline span:last-child{max-width:110px;text-align:right}
 }
 @media(prefers-reduced-motion:reduce){.case-reveal{opacity:1!important;transform:none!important;transition:none!important}}
+
+/* Chapter navigation: native anchors, without scroll trapping or translucent overlays. */
+.case-chapters{position:sticky;top:88px;z-index:9;display:flex;gap:clamp(20px,3.4vw,56px);overflow-x:auto;overflow-y:hidden;background:var(--bg);border-bottom:1px solid var(--line);scrollbar-width:thin;-webkit-overflow-scrolling:touch}
+.case-chapters__link{display:inline-flex;align-items:center;white-space:nowrap;min-height:57px;font-size:.9rem;font-weight:550;color:var(--muted);border-bottom:2px solid transparent}
+.case-chapters__link:hover,.case-chapters__link:focus-visible{color:var(--text)}
+.case-chapters__link[aria-current="location"]{color:var(--text);border-bottom-color:var(--case-accent)}
+#case-overview,#case-process,#case-engineering,#case-validation{scroll-margin-top:160px}
+.case-collaboration{max-width:65ch;margin-top:54px;padding:28px 0 0;border-top:1px solid var(--line)}
+.case-collaboration h3{font-size:1.18rem;font-weight:600;margin-bottom:10px}
+.case-collaboration p{font-size:1.06rem;line-height:1.75;color:var(--muted);margin:0}
+@media(max-width:700px){.case-chapters{top:72px;gap:26px}.case-chapters__link{font-size:.83rem;min-height:50px}#case-overview,#case-process,#case-engineering,#case-validation{scroll-margin-top:140px}.case-collaboration{margin-top:36px}}
