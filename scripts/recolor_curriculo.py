@@ -1,6 +1,6 @@
 """Apply the portfolio's Black & Crimson palette to the existing CV PDF.
 
-Updates PDF colors and fixes the alignment of the skills columns.
+Keeps the original color scheme and places each skill next to its category.
 Text, fonts and hyperlinks remain unchanged.
 """
 from pathlib import Path
@@ -30,15 +30,26 @@ with fitz.open(CV) as doc:
             for old, new in COLORS.items():
                 changed += updated.count(old)
                 updated = updated.replace(old, new)
-            # Keep all technology descriptions aligned in one right-hand column.
-            for y in (b'347.239', b'324.239', b'301.239'):
-                old_pos = b'151.95 ' + y + b' Td'
-                new_pos = b'183.95 ' + y + b' Td'
-                old_count, new_count = updated.count(old_pos), updated.count(new_pos)
-                if old_count + new_count != 1:
-                    raise RuntimeError(f'Unexpected skills row at {y!r}: {old_count}, {new_count}.')
-                aligned += old_count
-                updated = updated.replace(old_pos, new_pos)
+            # Consistent 13 pt gap after each category, without wide empty columns.
+            skill_positions = {
+                b'347.239': b'77.61',   # Web
+                b'324.239': b'136.54',  # Back-end e dados
+                b'301.239': b'158.60',  # Ferramentas e práticas
+            }
+            for y, target in skill_positions.items():
+                matching = [
+                    x for x in (b'151.95', b'183.95', target)
+                    if updated.count(x + b' ' + y + b' Td') == 1
+                ]
+                if len(matching) != 1:
+                    raise RuntimeError(f'Unexpected skills row at {y!r}: {matching}.')
+                current = matching[0]
+                if current != target:
+                    updated = updated.replace(
+                        current + b' ' + y + b' Td',
+                        target + b' ' + y + b' Td',
+                    )
+                    aligned += 1
             if updated != stream:
                 doc.update_stream(xref, updated, compress=True)
     if changed or aligned:
