@@ -32,8 +32,8 @@ with fitz.open(CV) as doc:
                 updated = updated.replace(old, new)
             # Keep all technology descriptions aligned in one right-hand column.
             for y in (b'347.239', b'324.239', b'301.239'):
-                old_pos = b'BT/F1 9 Tf 151.95 ' + y + b' Td'
-                new_pos = b'BT/F1 9 Tf 183.95 ' + y + b' Td'
+                old_pos = b'151.95 ' + y + b' Td'
+                new_pos = b'183.95 ' + y + b' Td'
                 old_count, new_count = updated.count(old_pos), updated.count(new_pos)
                 if old_count + new_count != 1:
                     raise RuntimeError(f'Unexpected skills row at {y!r}: {old_count}, {new_count}.')
