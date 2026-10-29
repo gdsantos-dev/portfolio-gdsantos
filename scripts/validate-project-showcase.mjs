@@ -25,6 +25,7 @@ for (const project of projects) {
     for (const field of ["lead","question","context","flowTitle","flowDescription","decisionsTitle","decisionsDescription","validationTitle","validation","note"]) {
       assert.ok(typeof c[field] === "string" && c[field].trim(), "Missing " + field + ": " + project.id + "/" + lang);
     }
+    assert.ok(typeof c.collaboration === "string" && c.collaboration.trim(), "Missing human-AI process notes: " + project.id + "/" + lang);
     assert.equal(c.steps.length, 4, "Expected four process stages");
     assert.equal(c.decisions.length, 3, "Expected three engineering decisions");
     for (const row of [...c.steps,...c.decisions]) assert.ok(row.title && row.description);
@@ -45,8 +46,11 @@ for (const [lang, locale] of Object.entries(locales)) {
 }
 assert.ok(read("public/projects-cinema.js").includes('"/projeto/?id="'), "Project detail link missing");
 assert.ok(read("public/project-case.js").includes("encodeURIComponent(project.id)"));
+assert.ok(read("public/project-case.js").includes("case-chapters"), "Case chapter navigation missing");
+assert.ok(read("public/project-case.js").includes("story.collaboration"), "Process transparency missing");
+assert.ok(read("public/project-case.css").includes("scroll-margin-top"), "Anchor offset missing");
 assert.ok(read("public/project-case.css").includes("prefers-reduced-motion"));
 assert.ok(read("public/projects-cinema.css").includes("prefers-reduced-motion"));
 assert.ok(existsSync(path.join(root,"public/pt/index.html")));
 
-console.log("Portfolio projects: 2 cases, PT/EN/ES, assets and navigation OK.");
+console.log("Portfolio projects: 2 cases, PT/EN/ES, chapter navigation and collaboration notes OK.");
