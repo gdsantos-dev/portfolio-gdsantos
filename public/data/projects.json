@@ -176,7 +176,49 @@
           "collaboration": "Defino el problema, los requisitos y las prioridades. Utilizo herramientas de IA como apoyo en la implementación y la documentación, y reviso decisiones, pruebas y resultados antes de aceptar cambios."
         }
       }
-    }
+    },
+    "images": [
+      {
+        "src": "/assets/projects/scoutliq/busca.png",
+        "alt": {
+          "pt": "Tela de busca de empresas do ScoutLIQ durante um teste de interface",
+          "en": "ScoutLIQ business search interface during a UI test",
+          "es": "Interfaz de búsqueda de empresas de ScoutLIQ durante una prueba"
+        },
+        "caption": {
+          "pt": "Busca por localização",
+          "en": "Location-based search",
+          "es": "Búsqueda por ubicación"
+        }
+      },
+      {
+        "src": "/assets/projects/scoutliq/criterios.png",
+        "alt": {
+          "pt": "Tela móvel de critérios de busca do ScoutLIQ em um teste de interface",
+          "en": "ScoutLIQ mobile search criteria during a UI test",
+          "es": "Criterios de búsqueda de ScoutLIQ en móvil durante una prueba"
+        },
+        "caption": {
+          "pt": "Critérios no celular",
+          "en": "Mobile search criteria",
+          "es": "Criterios en móvil"
+        },
+        "type": "mobile"
+      },
+      {
+        "src": "/assets/projects/scoutliq/resultados.png",
+        "alt": {
+          "pt": "Resultados de demonstração do Radar do ScoutLIQ com empresas fictícias de teste",
+          "en": "ScoutLIQ Radar test results featuring sample businesses",
+          "es": "Resultados de prueba de Radar de ScoutLIQ con empresas de ejemplo"
+        },
+        "caption": {
+          "pt": "Resultados com dados de teste",
+          "en": "Results with test data",
+          "es": "Resultados con datos de prueba"
+        }
+      }
+    ]
   },
   {
     "id": "dashliq",
@@ -354,6 +396,7 @@
           "collaboration": "Defino el problema, los requisitos y las prioridades. Utilizo herramientas de IA como apoyo en la implementación y la documentación, y reviso decisiones, pruebas y resultados antes de aceptar cambios."
         }
       }
-    }
+    },
+    "images": []
   }
 ]
