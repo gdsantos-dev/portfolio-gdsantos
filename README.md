@@ -59,3 +59,7 @@ Se o layout após deploy mostrar imagens empilhadas ou fontes sem o estilo esper
 ## Estudos de caso
 
 Os dois estudos de caso usam o mesmo tema Black & Crimson e a hierarquia editorial do portfólio. As linhas decorativas repetidas foram substituídas por espaçamento; só permanecem separações pontuais de hierarquia. O link final exibe “Próximo projeto”, e a seção de validação distingue resultados locais relatados de verificações independentes. A atualização é limitada às páginas de projeto; não modifica os sistemas apresentados.
+
+## Refinamento de linguagem e alinhamento
+
+No estudo de caso do DashLIQ, os textos foram revistos nos três idiomas para explicar organização de receitas, despesas, compromissos e metas pessoais, sem associações com apostas. Os rótulos dos capítulos ficam acima de seus títulos, ambos alinhados à margem esquerda, preservando o visual editorial do portfólio também no mobile. O destaque do capítulo ativo agora acompanha a posição real da leitura e restaura âncoras abertas diretamente por URL.
