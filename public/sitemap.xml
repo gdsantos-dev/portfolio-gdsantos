@@ -1,6 +1,57 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://gdsantos-dev.com/pt/</loc></url>
-  <url><loc>https://gdsantos-dev.com/en/</loc></url>
-  <url><loc>https://gdsantos-dev.com/es/</loc></url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://gdsantos-dev.com/pt/</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://gdsantos-dev.com/pt/" />
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://gdsantos-dev.com/en/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://gdsantos-dev.com/es/" />
+  </url>
+  <url>
+    <loc>https://gdsantos-dev.com/en/</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://gdsantos-dev.com/pt/" />
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://gdsantos-dev.com/en/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://gdsantos-dev.com/es/" />
+  </url>
+  <url>
+    <loc>https://gdsantos-dev.com/es/</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://gdsantos-dev.com/pt/" />
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://gdsantos-dev.com/en/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://gdsantos-dev.com/es/" />
+  </url>
+  <url>
+    <loc>https://gdsantos-dev.com/pt/projeto/?id=scoutliq</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://gdsantos-dev.com/pt/projeto/?id=scoutliq" />
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://gdsantos-dev.com/en/projeto/?id=scoutliq" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://gdsantos-dev.com/es/projeto/?id=scoutliq" />
+  </url>
+  <url>
+    <loc>https://gdsantos-dev.com/en/projeto/?id=scoutliq</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://gdsantos-dev.com/pt/projeto/?id=scoutliq" />
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://gdsantos-dev.com/en/projeto/?id=scoutliq" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://gdsantos-dev.com/es/projeto/?id=scoutliq" />
+  </url>
+  <url>
+    <loc>https://gdsantos-dev.com/es/projeto/?id=scoutliq</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://gdsantos-dev.com/pt/projeto/?id=scoutliq" />
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://gdsantos-dev.com/en/projeto/?id=scoutliq" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://gdsantos-dev.com/es/projeto/?id=scoutliq" />
+  </url>
+  <url>
+    <loc>https://gdsantos-dev.com/pt/projeto/?id=dashliq</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://gdsantos-dev.com/pt/projeto/?id=dashliq" />
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://gdsantos-dev.com/en/projeto/?id=dashliq" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://gdsantos-dev.com/es/projeto/?id=dashliq" />
+  </url>
+  <url>
+    <loc>https://gdsantos-dev.com/en/projeto/?id=dashliq</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://gdsantos-dev.com/pt/projeto/?id=dashliq" />
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://gdsantos-dev.com/en/projeto/?id=dashliq" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://gdsantos-dev.com/es/projeto/?id=dashliq" />
+  </url>
+  <url>
+    <loc>https://gdsantos-dev.com/es/projeto/?id=dashliq</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://gdsantos-dev.com/pt/projeto/?id=dashliq" />
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://gdsantos-dev.com/en/projeto/?id=dashliq" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://gdsantos-dev.com/es/projeto/?id=dashliq" />
+  </url>
 </urlset>

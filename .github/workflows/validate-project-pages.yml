@@ -4,6 +4,9 @@ on:
     paths:
       - "public/**"
       - "scripts/validate-project-showcase.mjs"
+      - "scripts/validate-project-seo.mjs"
+      - "scripts/project-seo.mjs"
+      - "server.mjs"
       - ".github/workflows/validate-project-pages.yml"
   pull_request:
     paths:
@@ -26,5 +29,9 @@ jobs:
           node --check public/main.js
           node --check public/projects-cinema.js
           node --check public/project-case.js
+          node --check scripts/project-seo.mjs
+          node --check server.mjs
       - name: Project content and routes
         run: node scripts/validate-project-showcase.mjs
+      - name: Live SEO and sitemap checks
+        run: node scripts/validate-project-seo.mjs
