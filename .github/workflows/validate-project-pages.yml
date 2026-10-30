@@ -6,6 +6,7 @@ on:
       - "scripts/validate-project-showcase.mjs"
       - "scripts/validate-section-tracker.mjs"
       - "scripts/validate-liquio.mjs"
+      - "scripts/validate-liquio-icons.mjs"
       - "scripts/validate-project-seo.mjs"
       - "scripts/project-seo.mjs"
       - "server.mjs"
@@ -17,6 +18,7 @@ on:
       - "scripts/validate-project-showcase.mjs"
       - "scripts/validate-section-tracker.mjs"
       - "scripts/validate-liquio.mjs"
+      - "scripts/validate-liquio-icons.mjs"
       - "scripts/validate-project-seo.mjs"
       - "scripts/project-seo.mjs"
       - "server.mjs"
@@ -49,6 +51,8 @@ jobs:
         run: node scripts/validate-section-tracker.mjs
       - name: Liquio distribution and contact isolation
         run: node scripts/validate-liquio.mjs
+      - name: Liquio favicons, iOS home-screen metadata and manifest
+        run: node scripts/validate-liquio-icons.mjs
       - name: Docker production smoke test
         shell: bash
         run: |
@@ -70,3 +74,8 @@ jobs:
 
           curl -fsS 'http://127.0.0.1:3100/assets/liquio/1.0.0/liquio.js' >/dev/null
           curl -fsS 'http://127.0.0.1:3100/assets/liquio/1.0.0/sprites/liquio.png' >/dev/null
+          curl -fsS 'http://127.0.0.1:3100/assets/apple-touch-icon.png' >/dev/null
+          curl -fsS 'http://127.0.0.1:3100/assets/icon-192.png' >/dev/null
+          curl -fsS 'http://127.0.0.1:3100/assets/icon-512.png' >/dev/null
+          curl -fsS 'http://127.0.0.1:3100/favicon.ico' >/dev/null
+          curl -fsS 'http://127.0.0.1:3100/manifest.webmanifest' | grep -Fq GDSantos
