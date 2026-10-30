@@ -64,7 +64,8 @@
           "validation": "O HANDOFF da v1.38.7-dev registra 592 testes de backend, 27 testes unitários de frontend e 77 cenários E2E em Chromium. São resultados relatados de validação local, não uma homologação externa ou de produção.",
           "note": "Código e demonstração pública exigem revisão de segurança e preparação do material.",
           "collaboration": "Defino o problema, os requisitos e as prioridades. Uso ferramentas de IA como apoio na implementação e na documentação, depois reviso as decisões, os testes e os resultados antes de aceitar alterações."
-        }
+        },
+        "homeSummary": "Uma ferramenta pessoal para pesquisar empresas, organizar evidências e acompanhar oportunidades comerciais em um só lugar."
       },
       "en": {
         "title": "ScoutLIQ",
@@ -119,7 +120,8 @@
           "validation": "The v1.38.7-dev HANDOFF reports 592 backend tests, 27 frontend unit tests and 77 Chromium E2E scenarios. These are reported local validation results, not external or production certification.",
           "note": "Public source and a demo require a security review and publication-ready material.",
           "collaboration": "I define the problem, requirements and priorities. I use AI tools to support implementation and documentation, then review decisions, tests and outcomes before accepting changes."
-        }
+        },
+        "homeSummary": "A personal tool to research businesses, organize evidence and follow commercial opportunities in one place."
       },
       "es": {
         "title": "ScoutLIQ",
@@ -174,45 +176,11 @@
           "validation": "El HANDOFF de v1.38.7-dev registra 592 pruebas de backend, 27 pruebas unitarias de frontend y 77 escenarios E2E en Chromium. Son resultados comunicados de pruebas locales, no una certificación externa o de producción.",
           "note": "La publicación de código y demostraciones requiere una revisión de seguridad.",
           "collaboration": "Defino el problema, los requisitos y las prioridades. Utilizo herramientas de IA como apoyo en la implementación y la documentación, y reviso decisiones, pruebas y resultados antes de aceptar cambios."
-        }
+        },
+        "homeSummary": "Una herramienta personal para investigar empresas, organizar evidencias y seguir oportunidades comerciales en un mismo lugar."
       }
     },
-    "images": [],
-    "preview": {
-      "pt": {
-        "label": "Interface em evolução",
-        "headline": "Pesquisa e evidências,",
-        "emphasis": "no mesmo fluxo.",
-        "steps": [
-          "Pesquisa unificada",
-          "Qualificação com contexto",
-          "Acompanhamento comercial"
-        ],
-        "note": "A apresentação visual será incorporada após a revisão das telas."
-      },
-      "en": {
-        "label": "Interface in progress",
-        "headline": "Research and evidence,",
-        "emphasis": "in one workflow.",
-        "steps": [
-          "Unified search",
-          "Context-aware qualification",
-          "Commercial follow-up"
-        ],
-        "note": "Screenshots will be added after the interface review."
-      },
-      "es": {
-        "label": "Interfaz en evolución",
-        "headline": "Búsqueda y evidencias,",
-        "emphasis": "en un mismo flujo.",
-        "steps": [
-          "Búsqueda unificada",
-          "Evaluación con contexto",
-          "Seguimiento comercial"
-        ],
-        "note": "Las capturas se añadirán después de revisar la interfaz."
-      }
-    }
+    "images": []
   },
   {
     "id": "dashliq",
@@ -278,7 +246,8 @@
           "validation": "O DashLIQ permanece em desenvolvimento. Ainda não há métricas públicas verificadas, demonstração aberta ou resultados de testes independentes apresentados nesta página.",
           "note": "Uma demonstração será indicada quando existir uma versão adequada para apresentação.",
           "collaboration": "Defino o problema, os requisitos e as prioridades. Uso ferramentas de IA como apoio na implementação e na documentação, depois reviso as decisões, os testes e os resultados antes de aceitar alterações."
-        }
+        },
+        "homeSummary": "Um sistema de uso pessoal para organizar registros financeiros, acompanhar metas e consultar resultados do dia a dia."
       },
       "en": {
         "title": "DashLIQ",
@@ -333,7 +302,8 @@
           "validation": "DashLIQ is still under development. This page does not claim verified public usage metrics, an open demo or independently validated test results.",
           "note": "A demo will be linked when a presentation-ready version is available.",
           "collaboration": "I define the problem, requirements and priorities. I use AI tools to support implementation and documentation, then review decisions, tests and outcomes before accepting changes."
-        }
+        },
+        "homeSummary": "A personal system for organizing financial records, tracking goals and reviewing day-to-day results."
       },
       "es": {
         "title": "DashLIQ",
@@ -388,44 +358,10 @@
           "validation": "DashLIQ sigue en desarrollo. Esta página no presenta cifras públicas verificadas, una demo abierta ni resultados de pruebas independientes.",
           "note": "Se añadirá una demostración cuando exista una versión adecuada.",
           "collaboration": "Defino el problema, los requisitos y las prioridades. Utilizo herramientas de IA como apoyo en la implementación y la documentación, y reviso decisiones, pruebas y resultados antes de aceptar cambios."
-        }
+        },
+        "homeSummary": "Un sistema de uso personal para organizar registros financieros, seguir objetivos y consultar resultados cotidianos."
       }
     },
-    "images": [],
-    "preview": {
-      "pt": {
-        "label": "Interface em evolução",
-        "headline": "Registros e metas,",
-        "emphasis": "em contexto.",
-        "steps": [
-          "Movimentações",
-          "Indicadores",
-          "Acompanhamento"
-        ],
-        "note": "A apresentação visual será incorporada após a revisão das telas."
-      },
-      "en": {
-        "label": "Interface in progress",
-        "headline": "Records and goals,",
-        "emphasis": "in context.",
-        "steps": [
-          "Transactions",
-          "Indicators",
-          "Tracking"
-        ],
-        "note": "Screenshots will be added after the interface review."
-      },
-      "es": {
-        "label": "Interfaz en evolución",
-        "headline": "Registros y objetivos,",
-        "emphasis": "en contexto.",
-        "steps": [
-          "Movimientos",
-          "Indicadores",
-          "Seguimiento"
-        ],
-        "note": "Las capturas se añadirán después de revisar la interfaz."
-      }
-    }
+    "images": []
   }
 ]

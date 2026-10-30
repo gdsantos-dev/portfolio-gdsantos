@@ -16,12 +16,8 @@ for (const project of projects) {
   assert.ok(!ids.has(project.id), "Duplicate project id: " + project.id);
   ids.add(project.id);
   assert.ok(project.year && project.theme && Array.isArray(project.technologies));
-  assert.equal(project.images.length, 0, "Unreviewed product screenshots must remain unpublished");
   for (const lang of Object.keys(locales)) {
-    const preview = project.preview?.[lang];
-    assert.ok(preview && preview.label && preview.headline && preview.emphasis && preview.note, "Incomplete editorial panel: " + project.id + "/" + lang);
-    assert.equal(preview.steps.length, 3, "Editorial panel needs three unnumbered stages");
-    assert.ok(![preview.headline,preview.emphasis].join(" ").includes(project.texts[lang].title), "Do not repeat the project title inside its panel");
+    assert.ok(project.texts?.[lang]?.homeSummary?.trim(), "Missing compact home summary");
   }
   assert.ok(!project.repository || /^https:\/\//.test(project.repository), "Unsafe repository URL");
   for (const lang of Object.keys(locales)) {
@@ -47,28 +43,20 @@ for (const [lang, locale] of Object.entries(locales)) {
   assert.ok(home.includes('id="projetos"'), "No projects section on " + lang);
   assert.ok(home.includes('data-projects-reel'));
   assert.ok(home.includes('/style.css?v=20261029-gallery3'), "Portfolio CSS must have a versioned URL: " + lang);
-  assert.ok(home.includes('/projects-cinema.css?v=20261029-gallery3'), "Gallery CSS must have a versioned URL: " + lang);
-  assert.ok(home.includes('/projects-cinema.js?v=20261029-gallery3'), "Gallery JS must have the same release version: " + lang);
+  assert.ok(home.includes('/projects-cinema.css?v=20261029-home4'), "Gallery CSS must have a versioned URL: " + lang);
+  assert.ok(home.includes('/projects-cinema.js?v=20261029-home4'), "Gallery JS must have the same release version: " + lang);
   assert.ok(detail.includes('/style.css?v=20261029-gallery3') && detail.includes('/project-case.css?v=20261029-gallery3'), "Project case CSS must be versioned: " + lang);
   assert.ok(home.includes('/projects-cinema.js') && home.includes('/projects-cinema.css'));
   assert.ok(!home.includes("projects-cinema__index"), "Old project counter navigation still present");
   assert.ok(detail.includes('data-case-root') && detail.includes('/project-case.js') && detail.includes('/project-case.css'));
   assert.ok(detail.includes('data-case-language="' + lang + '"'));
 }
-assert.ok(read("public/projects-cinema.js").includes('"/projeto/?id="'), "Project detail link missing");
-assert.ok(read("public/projects-cinema.js").includes("project-gallery__rail"), "Horizontal gallery missing");
-assert.ok(read("public/projects-cinema.js").includes("project-preview__statement"), "Editorial placeholders missing");
-assert.ok(!read("public/projects-cinema.js").includes("project-gallery__empty-name"), "Old redundant placeholders are still rendered");
-assert.ok(!read("public/projects-cinema.js").includes("project-feature__art-index"), "Decorative numbers must be removed");
-assert.ok(!read("public/projects-cinema.js").includes("project-feature__case-arrow"), "Decorative arrows must be removed");
-for (const project of projects) {
-  assert.ok(Array.isArray(project.images), "Image collection required");
-  for (const image of project.images) {
-    assert.match(image.src, /^\/assets\/projects\/[a-z0-9-]+\/[a-z0-9-]+\.(png|webp|jpg)$/);
-    assert.ok(existsSync(path.join(root, "public", image.src.replace(/^\//,""))), "Missing gallery image: " + image.src);
-    for (const lang of Object.keys(locales)) assert.ok(image.alt?.[lang] && image.caption?.[lang], "Missing translated image text");
-  }
-}
+const homeJs = read("public/projects-cinema.js");
+assert.ok(homeJs.includes('"/projeto/?id="'), "Project detail link missing");
+assert.ok(homeJs.includes("project-feature__case-link"), "Project CTA missing");
+assert.ok(!homeJs.includes("addGallery") && !homeJs.includes("project-preview"), "Home cannot show galleries or large placeholders");
+assert.ok(!read("public/projects-cinema.css").includes("project-gallery__empty"), "Unused oversized panel CSS remains");
+for (const project of projects) assert.ok(Array.isArray(project.images), "Project media slot must remain available");
 assert.ok(read("public/project-case.js").includes("encodeURIComponent(project.id)"));
 assert.ok(read("public/project-case.js").includes("case-chapters"), "Case chapter navigation missing");
 assert.ok(read("public/project-case.js").includes("story.collaboration"), "Process transparency missing");
@@ -85,4 +73,4 @@ assert.ok(read("public/projects-cinema.css").includes("prefers-reduced-motion"))
 assert.ok(existsSync(path.join(root,"public/pt/index.html")));
 assert.ok(read("server.mjs").includes("isData || isHtml || isCode"), "CSS and JS should revalidate on subsequent visits");
 
-console.log("Portfolio: editorial project panels, gallery support, PT/EN/ES and case chapters OK.");
+console.log("Portfolio: compact project index in PT/EN/ES and case routes OK.");
