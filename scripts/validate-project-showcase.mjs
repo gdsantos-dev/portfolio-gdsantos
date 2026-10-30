@@ -42,7 +42,7 @@ for (const [lang, locale] of Object.entries(locales)) {
   assert.ok(home.includes('lang="' + locale + '"'));
   assert.ok(detail.includes('lang="' + locale + '"'));
   assert.ok(home.includes('id="projetos"'), "No projects section on " + lang);
-  const contactCopy = home.match(/<section id="contato"[\\s\\S]*?<div class="contact-intro">[\\s\\S]*?<\\/div>/)?.[0] || "";
+  const contactCopy = home.split('<section id="contato"')[1]?.split('<div class="contact-links">')[0] || "";
   assert.ok(contactCopy, "Missing contact copy: " + lang);
   assert.ok(!/Procuro um estágio em desenvolvimento de software|I am looking for a software development internship|Busco prácticas en desarrollo de software/i.test(contactCopy), "Unwanted internship sentence in contact: " + lang);
 
