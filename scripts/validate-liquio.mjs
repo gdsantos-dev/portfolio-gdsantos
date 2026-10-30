@@ -12,10 +12,13 @@ assert.equal(manifest.version,version);
 for(const [file,hash]of Object.entries(manifest.files)){
  assert.equal(createHash('sha256').update(await fs.readFile(path.join(base,file))).digest('hex'),hash,file);
 }
+const contactCss=await fs.readFile(path.join(root,'public/assets/liquio-contact.css'));
+const contactCssHash=createHash('sha256').update(contactCss).digest('hex').slice(0,12);
 for(const lang of ['','pt/','en/','es/']){
  const html=await fs.readFile(path.join(root,'public',lang,'index.html'),'utf8');
  assert.equal((html.match(/data-liquio aria-hidden="true"/g)||[]).length,1);
  assert.ok(html.includes('/assets/liquio/'+version+'/liquio.css'));
+ assert.ok(html.includes('/assets/liquio-contact.css?v='+contactCssHash+'"'), 'Contact CSS cache key mismatch: '+lang);
  assert.ok(/<section id="contato"[^>]*><div class="contact-liquio"/.test(html));
 }
 for(const lang of ['pt','en','es']) assert.ok(!(await fs.readFile(path.join(root,'public',lang,'projeto/index.html'),'utf8')).includes('liquio'));
