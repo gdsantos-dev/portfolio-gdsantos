@@ -10,7 +10,7 @@ Portfólio profissional público de Guilherme dos Santos, estudante de Ciência 
 
 - Páginas em português brasileiro, inglês e espanhol.
 - Apresentação, formação, áreas de interesse, projetos e contato.
-- Vitrine editorial para ScoutLIQ e DashLIQ, com conteúdo PT/EN/ES e detalhes acessíveis.
+- Vitrine editorial para ScoutLIQ e DashLIQ, com galeria horizontal por projeto, conteúdo PT/EN/ES e navegação acessível.
 - Estudos de caso em páginas próprias, com contexto, processo, escolhas de engenharia e limites de validação.
 - Currículo em PDF para consulta e download.
 - Layout responsivo e metadados de compartilhamento.
@@ -42,7 +42,7 @@ Este repositório contém **somente a versão pública** do portfólio. O labora
 
 Atualmente, o deploy do site é realizado manualmente no Railway. Alterar o código aqui **não atualiza automaticamente** o site publicado. Para publicar alterações, é necessário fazer novo deploy.
 
-O arquivo `public/data/projects.json` mantém o conteúdo dos projetos próprios exibidos na seção editorial. A apresentação é gerada por `public/projects-cinema.js` e estilizada por `public/projects-cinema.css`. Links para repositórios privados e demonstrações não publicadas ficam de fora da vitrine.
+O arquivo `public/data/projects.json` mantém o conteúdo dos projetos próprios exibidos na seção editorial. A apresentação é gerada por `public/projects-cinema.js` e estilizada por `public/projects-cinema.css`. As imagens reais de teste do ScoutLIQ ficam em `public/assets/projects/scoutliq/`, identificadas como telas de desenvolvimento com dados demonstrativos. O DashLIQ não tem capturas públicas aprovadas nesta versão e exibe um estado editorial discreto, sem simulação de interface. Para incluir imagens, acrescente `images` a cada item do JSON e publique os arquivos correspondentes em `/public/assets/projects/<id>/`. Links para repositórios privados e demonstrações não publicadas ficam de fora da vitrine.
 
 As páginas de case são `/{pt|en|es}/projeto/?id=scoutliq` e `/{pt|en|es}/projeto/?id=dashliq`; o conteúdo fica em `public/data/projects.json` (chave `texts.<idioma>.case`) e é construído por `public/project-case.js`. As páginas internas incluem navegação por capítulos com âncoras, leitura sem bloqueio do scroll e uma explicação da colaboração humano–IA. Não divulgamos nomes de modelos ou ferramentas específicas. O script de verificação é `node scripts/validate-project-showcase.mjs`, também executado no GitHub Actions.
 

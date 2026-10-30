@@ -40,11 +40,22 @@ for (const [lang, locale] of Object.entries(locales)) {
   assert.ok(home.includes('id="projetos"'), "No projects section on " + lang);
   assert.ok(home.includes('data-projects-reel'));
   assert.ok(home.includes('/projects-cinema.js') && home.includes('/projects-cinema.css'));
-  assert.ok(home.includes('href="#projeto-scoutliq"') && home.includes('href="#projeto-dashliq"'));
+  assert.ok(!home.includes("projects-cinema__index"), "Old project counter navigation still present");
   assert.ok(detail.includes('data-case-root') && detail.includes('/project-case.js') && detail.includes('/project-case.css'));
   assert.ok(detail.includes('data-case-language="' + lang + '"'));
 }
 assert.ok(read("public/projects-cinema.js").includes('"/projeto/?id="'), "Project detail link missing");
+assert.ok(read("public/projects-cinema.js").includes("project-gallery__rail"), "Horizontal gallery missing");
+assert.ok(!read("public/projects-cinema.js").includes("project-feature__art-index"), "Decorative numbers must be removed");
+assert.ok(!read("public/projects-cinema.js").includes("project-feature__case-arrow"), "Decorative arrows must be removed");
+for (const project of projects) {
+  assert.ok(Array.isArray(project.images), "Image collection required");
+  for (const image of project.images) {
+    assert.match(image.src, /^\/assets\/projects\/[a-z0-9-]+\/[a-z0-9-]+\.(png|webp|jpg)$/);
+    assert.ok(existsSync(path.join(root, "public", image.src.replace(/^\//,""))), "Missing gallery image: " + image.src);
+    for (const lang of Object.keys(locales)) assert.ok(image.alt?.[lang] && image.caption?.[lang], "Missing translated image text");
+  }
+}
 assert.ok(read("public/project-case.js").includes("encodeURIComponent(project.id)"));
 assert.ok(read("public/project-case.js").includes("case-chapters"), "Case chapter navigation missing");
 assert.ok(read("public/project-case.js").includes("story.collaboration"), "Process transparency missing");
@@ -53,4 +64,4 @@ assert.ok(read("public/project-case.css").includes("prefers-reduced-motion"));
 assert.ok(read("public/projects-cinema.css").includes("prefers-reduced-motion"));
 assert.ok(existsSync(path.join(root,"public/pt/index.html")));
 
-console.log("Portfolio projects: 2 cases, PT/EN/ES, chapter navigation and collaboration notes OK.");
+console.log("Portfolio: galleries, assets, PT/EN/ES, case chapters and collaboration notes OK.");

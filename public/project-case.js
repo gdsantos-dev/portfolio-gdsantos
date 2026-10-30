@@ -35,14 +35,12 @@
     crumbs.append(link(copy.back,backLink),el("span","", "/"),el("span","",t.title));
     const hero=segment("case-intro","case-hero");
     const topline=el("div","case-hero__topline");
-    topline.append(el("span","",String(idx+1).padStart(2,"0")+" / "+copy.section),el("span","",project.year+" · "+t.phase));
+    topline.append(el("span","",copy.section),el("span","",project.year+" · "+t.phase));
     const title=el("h1","case-hero__title");
     const parts=t.title.match(/^(.*?)(LIQ)$/i);
     if (parts) title.append(document.createTextNode(parts[1]),el("em","",parts[2]));
     else title.textContent=t.title;
-    const water=el("span","case-hero__watermark",String(idx+1).padStart(2,"0"));
-    water.setAttribute("aria-hidden","true");
-    hero.append(topline,title,el("p","case-hero__lead",story.lead),link(copy.explore+" ↘","#case-process","case-hero__action"),water);
+    hero.append(topline,title,el("p","case-hero__lead",story.lead),link(copy.explore,"#case-process","case-hero__action"));
 
     const chapters=el("nav","case-chapters");
     chapters.setAttribute("aria-label",chapterCopy[lang].name);
@@ -53,7 +51,7 @@
       chapters.append(anchor);
     });
     const overview=segment("case-overview","case-section case-overview");
-    const aside=el("p","case-section__eyebrow","01 / "+copy.section);
+    const aside=el("p","case-section__eyebrow",copy.section);
     const overviewMain=el("div","case-section__body");
     overviewMain.append(el("h2","case-overview__question",story.question),el("p","case-section__lead",story.context));
     const facts=el("dl","case-facts");
@@ -67,26 +65,26 @@
 
     const process=segment("case-process","case-chapter");
     const processHeading=el("div","case-chapter__heading");
-    processHeading.append(el("p","case-section__eyebrow","02 / "+copy.process),el("div",""));
+    processHeading.append(el("p","case-section__eyebrow",copy.process),el("div",""));
     processHeading.lastChild.append(el("h2","",story.flowTitle),el("p","",story.flowDescription));
     const flow=el("ol","case-flow");
     story.steps.forEach((step,i)=>{
       const item=el("li","case-flow__item");
       const inner=el("div");
       inner.append(el("h3","",step.title),el("p","",step.description));
-      item.append(el("span","case-flow__number",String(i+1).padStart(2,"0")),inner);
+      item.append(inner);
       flow.append(item);
     });
     process.append(processHeading,flow);
 
     const engineering=segment("case-engineering","case-chapter");
     const engineeringHeading=el("div","case-chapter__heading");
-    engineeringHeading.append(el("p","case-section__eyebrow","03 / "+copy.engineering),el("div",""));
+    engineeringHeading.append(el("p","case-section__eyebrow",copy.engineering),el("div",""));
     engineeringHeading.lastChild.append(el("h2","",story.decisionsTitle),el("p","",story.decisionsDescription));
     const decisions=el("div","case-decisions");
     story.decisions.forEach((decision,i)=>{
       const item=el("article","case-decisions__item");
-      item.append(el("span","case-decisions__number",String(i+1).padStart(2,"0")),el("h3","",decision.title),el("p","",decision.description));
+      item.append(el("h3","",decision.title),el("p","",decision.description));
       decisions.append(item);
     });
     engineering.append(engineeringHeading,decisions);
@@ -99,12 +97,12 @@
       collaboration.append(el("h3","",chapterCopy[lang].collab),el("p","",story.collaboration));
       valBody.append(collaboration);
     }
-    validation.append(el("p","case-section__eyebrow","04 / "+copy.validation),valBody);
+    validation.append(el("p","case-section__eyebrow",copy.validation),valBody);
 
     const finale=segment("case-next","case-next");
     const nextBody=el("div");
     nextBody.append(el("p","case-next__label",copy.next),el("h2","",other.texts[lang].title));
-    finale.append(nextBody,link(copy.view+" ↗","/"+lang+"/projeto/?id="+encodeURIComponent(other.id),"case-next__link"));
+    finale.append(nextBody,link(copy.view,"/"+lang+"/projeto/?id="+encodeURIComponent(other.id),"case-next__link"));
     root.replaceChildren(crumbs,hero,chapters,overview,process,engineering,validation,finale);
     const chapterAnchors=Array.from(chapters.querySelectorAll("a"));
     const setActive=index=>chapterAnchors.forEach((anchor,i)=>{
