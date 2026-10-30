@@ -49,10 +49,11 @@ for (const [lang, locale] of Object.entries(locales)) {
   assert.ok(home.includes('data-projects-reel'));
   assert.ok(home.includes('/data/curriculos/guilherme-dos-santos-curriculo-' + lang + '.pdf'), "CV must match selected language: " + lang);
   assert.ok(home.includes('Guilherme-dos-Santos-CV-' + lang.toUpperCase() + '.pdf'), "Localized download name missing: " + lang);
-  assert.ok(home.includes('/style.css?v=20261029-gallery3'), "Portfolio CSS must have a versioned URL: " + lang);
+  const styleUrl = home.match(/\/style\.css\?v=[A-Za-z0-9._-]+/)?.[0];
+  assert.ok(styleUrl, "Portfolio CSS must have a versioned URL: " + lang);
   assert.ok(home.includes('/projects-cinema.css?v=20261029-home4'), "Gallery CSS must have a versioned URL: " + lang);
   assert.ok(home.includes('/projects-cinema.js?v=20261029-home4'), "Gallery JS must have the same release version: " + lang);
-  assert.ok(detail.includes('/style.css?v=20261029-gallery3') && detail.includes('/project-case.css?v=20261029-case7'), "Project case CSS must be versioned: " + lang);
+  assert.ok(detail.includes(styleUrl) && detail.includes('/project-case.css?v=20261029-case7'), "Project case CSS must share the versioned stylesheet: " + lang);
   assert.ok(home.includes('/projects-cinema.js') && home.includes('/projects-cinema.css'));
   assert.ok(!home.includes("projects-cinema__index"), "Old project counter navigation still present");
   assert.ok(detail.includes('data-case-root') && detail.includes('/project-case.js') && detail.includes('/project-case.css'));
