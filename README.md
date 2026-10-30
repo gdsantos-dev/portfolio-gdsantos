@@ -75,3 +75,7 @@ A versão portuguesa é a referência do currículo. O script `scripts/gerar_cur
 ## Metadados e sitemap dos projetos
 
 As páginas iniciais mantêm metadados traduzidos em PT, EN e ES. Para links `/{pt|en|es}/projeto/?id=scoutliq` e `?id=dashliq`, o servidor entrega o título, descrição, tags Open Graph/Twitter, URL canônica e idiomas alternativos específicos diretamente no HTML inicial, antes de executar o JavaScript. Não são criadas imagens fictícias de prévia. O sitemap (`public/sitemap.xml`) inclui as três páginas principais e os seis estudos de caso, com relações `hreflang`. Verifique com `node scripts/validate-project-seo.mjs` (integrado ao CI); publicar exige deploy manual.
+
+## Dependências da imagem de produção
+
+O `server.mjs` importa `scripts/project-seo.mjs` para gerar metadados públicos dos estudos de caso. Por isso, ambos precisam ser copiados no Dockerfile. O GitHub Actions constrói a imagem e testa `/health`, URLs dos casos e `sitemap.xml` antes de aprovar atualizações. A configuração do deploy permanece manual e não inclui o restante dos scripts de desenvolvimento.

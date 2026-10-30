@@ -7,6 +7,7 @@ on:
       - "scripts/validate-project-seo.mjs"
       - "scripts/project-seo.mjs"
       - "server.mjs"
+      - "Dockerfile"
       - ".github/workflows/validate-project-pages.yml"
   pull_request:
     paths:
@@ -15,6 +16,7 @@ on:
       - "scripts/validate-project-seo.mjs"
       - "scripts/project-seo.mjs"
       - "server.mjs"
+      - "Dockerfile"
       - ".github/workflows/validate-project-pages.yml"
 
 jobs:
@@ -38,3 +40,21 @@ jobs:
         run: node scripts/validate-project-showcase.mjs
       - name: Live SEO and sitemap checks
         run: node scripts/validate-project-seo.mjs
+      - name: Docker production smoke test
+        shell: bash
+        run: |
+          set -euo pipefail
+          docker build -t gds-portfolio-smoke .
+          docker run -d --name gds-portfolio-smoke -p 127.0.0.1:3100:3000 gds-portfolio-smoke
+          trap 'docker logs gds-portfolio-smoke; docker rm -f gds-portfolio-smoke' EXIT
+          docker exec gds-portfolio-smoke test -r /app/scripts/project-seo.mjs
+          ok=0
+          for i in $(seq 1 30); do
+            if curl -fsS http://127.0.0.1:3100/health >/dev/null; then ok=1; break; fi
+            sleep 1
+          done
+          test "$ok" -eq 1
+          curl -fsS 'http://127.0.0.1:3100/pt/projeto/?id=scoutliq' | grep -Fq '<title>ScoutLIQ | Guilherme Santos</title>'
+          curl -fsS 'http://127.0.0.1:3100/en/projeto/?id=dashliq' | grep -Fq '<title>DashLIQ | Guilherme Santos</title>'
+          curl -fsS 'http://127.0.0.1:3100/sitemap.xml' | grep -Fq 'id=scoutliq'
+
