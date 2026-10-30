@@ -45,7 +45,7 @@
             }
           ],
           "decisionsTitle": "Decisões de engenharia",
-          "decisionsDescription": "A implementação prioriza continuidade e limites explícitos.",
+          "decisionsDescription": "Três prioridades orientam o desenvolvimento: responsabilidades claras, automações revisáveis e mudanças que possam ser testadas.",
           "decisions": [
             {
               "title": "Separar responsabilidades",
@@ -60,10 +60,11 @@
               "description": "Testes e migrações aditivas protegem funcionalidades existentes."
             }
           ],
-          "validationTitle": "Validação documentada",
-          "validation": "O HANDOFF da v1.38.7-dev registra 592 testes de backend, 27 testes unitários de frontend e 77 cenários E2E em Chromium. São resultados relatados de validação local, não uma homologação externa ou de produção.",
-          "note": "Código e demonstração pública exigem revisão de segurança e preparação do material.",
-          "collaboration": "Defino o problema, os requisitos e as prioridades. Uso ferramentas de IA como apoio na implementação e na documentação, depois reviso as decisões, os testes e os resultados antes de aceitar alterações."
+          "validationTitle": "Testes documentados",
+          "validation": "O relatório da versão v1.38.7-dev registra 592 testes de backend, 27 testes unitários de frontend e 77 cenários E2E em Chromium. São resultados informados de testes locais, não uma avaliação independente.",
+          "note": "A divulgação do código e das capturas depende de revisão de segurança e da preparação das telas.",
+          "collaboration": "Defino os objetivos, requisitos e prioridades do produto. Utilizo IA como apoio na implementação e documentação, revisando as decisões, os testes e os resultados antes de aceitar mudanças.",
+          "availabilityTitle": "Disponibilidade"
         },
         "homeSummary": "Uma ferramenta pessoal para pesquisar empresas, organizar evidências e acompanhar oportunidades comerciais em um só lugar."
       },
@@ -101,7 +102,7 @@
             }
           ],
           "decisionsTitle": "Engineering decisions",
-          "decisionsDescription": "The implementation prioritizes continuity and explicit constraints.",
+          "decisionsDescription": "Three priorities guide the work: clear responsibilities, reviewable automation and changes that can be tested.",
           "decisions": [
             {
               "title": "Clear responsibilities",
@@ -116,10 +117,11 @@
               "description": "Tests and additive migrations protect existing functionality."
             }
           ],
-          "validationTitle": "Documented validation",
-          "validation": "The v1.38.7-dev HANDOFF reports 592 backend tests, 27 frontend unit tests and 77 Chromium E2E scenarios. These are reported local validation results, not external or production certification.",
-          "note": "Public source and a demo require a security review and publication-ready material.",
-          "collaboration": "I define the problem, requirements and priorities. I use AI tools to support implementation and documentation, then review decisions, tests and outcomes before accepting changes."
+          "validationTitle": "Documented tests",
+          "validation": "The v1.38.7-dev report lists 592 backend tests, 27 frontend unit tests and 77 Chromium E2E scenarios. These are reported local results, not an independent assessment.",
+          "note": "Public code and screenshots depend on a security review and publication-ready screens.",
+          "collaboration": "I define product goals, requirements and priorities. AI tools support implementation and documentation, while I review decisions, tests and outcomes before accepting changes.",
+          "availabilityTitle": "Availability"
         },
         "homeSummary": "A personal tool to research businesses, organize evidence and follow commercial opportunities in one place."
       },
@@ -157,7 +159,7 @@
             }
           ],
           "decisionsTitle": "Decisiones de ingeniería",
-          "decisionsDescription": "La implementación prioriza continuidad y límites explícitos.",
+          "decisionsDescription": "Tres prioridades guían el trabajo: responsabilidades claras, automatizaciones revisables y cambios que puedan probarse.",
           "decisions": [
             {
               "title": "Responsabilidades claras",
@@ -172,10 +174,11 @@
               "description": "Pruebas y migraciones aditivas protegen las funciones existentes."
             }
           ],
-          "validationTitle": "Validación documentada",
-          "validation": "El HANDOFF de v1.38.7-dev registra 592 pruebas de backend, 27 pruebas unitarias de frontend y 77 escenarios E2E en Chromium. Son resultados comunicados de pruebas locales, no una certificación externa o de producción.",
-          "note": "La publicación de código y demostraciones requiere una revisión de seguridad.",
-          "collaboration": "Defino el problema, los requisitos y las prioridades. Utilizo herramientas de IA como apoyo en la implementación y la documentación, y reviso decisiones, pruebas y resultados antes de aceptar cambios."
+          "validationTitle": "Pruebas documentadas",
+          "validation": "El informe de v1.38.7-dev registra 592 pruebas de backend, 27 pruebas unitarias de frontend y 77 escenarios E2E en Chromium. Son resultados comunicados de pruebas locales, no una evaluación independiente.",
+          "note": "El código y las capturas públicas requieren una revisión de seguridad y pantallas preparadas para su presentación.",
+          "collaboration": "Defino los objetivos, requisitos y prioridades del producto. Utilizo IA como apoyo en la implementación y documentación, revisando decisiones, pruebas y resultados antes de aceptar cambios.",
+          "availabilityTitle": "Disponibilidad"
         },
         "homeSummary": "Una herramienta personal para investigar empresas, organizar evidencias y seguir oportunidades comerciales en un mismo lugar."
       }
@@ -227,7 +230,7 @@
             }
           ],
           "decisionsTitle": "Decisões de produto",
-          "decisionsDescription": "Clareza e consistência importam mais que concentrar informações em uma única tela.",
+          "decisionsDescription": "A organização dos dados, a preservação do histórico e o uso cotidiano orientam as escolhas do produto.",
           "decisions": [
             {
               "title": "Separar conceitos",
@@ -242,10 +245,11 @@
               "description": "Desktop e celular com legibilidade e controles de acessibilidade."
             }
           ],
-          "validationTitle": "Estado do desenvolvimento",
-          "validation": "O DashLIQ permanece em desenvolvimento. Ainda não há métricas públicas verificadas, demonstração aberta ou resultados de testes independentes apresentados nesta página.",
-          "note": "Uma demonstração será indicada quando existir uma versão adequada para apresentação.",
-          "collaboration": "Defino o problema, os requisitos e as prioridades. Uso ferramentas de IA como apoio na implementação e na documentação, depois reviso as decisões, os testes e os resultados antes de aceitar alterações."
+          "validationTitle": "Situação atual",
+          "validation": "O DashLIQ segue em desenvolvimento. Esta página apresenta seu propósito, as principais decisões e o funcionamento previsto, sem afirmar métricas públicas ou testes independentes que ainda não foram divulgados.",
+          "note": "Uma demonstração e capturas da interface serão incluídas quando houver uma versão revisada para apresentação.",
+          "collaboration": "Defino os objetivos, requisitos e prioridades do produto. Utilizo IA como apoio na implementação e documentação, revisando as decisões, os testes e os resultados antes de aceitar mudanças.",
+          "availabilityTitle": "Disponibilidade"
         },
         "homeSummary": "Um sistema de uso pessoal para organizar registros financeiros, acompanhar metas e consultar resultados do dia a dia."
       },
@@ -283,7 +287,7 @@
             }
           ],
           "decisionsTitle": "Product decisions",
-          "decisionsDescription": "Clarity and consistency matter more than packing everything into one screen.",
+          "decisionsDescription": "Data organization, historical context and everyday usability guide product decisions.",
           "decisions": [
             {
               "title": "Separate concepts",
@@ -298,10 +302,11 @@
               "description": "Desktop and mobile readability, with accessibility controls."
             }
           ],
-          "validationTitle": "Development status",
-          "validation": "DashLIQ is still under development. This page does not claim verified public usage metrics, an open demo or independently validated test results.",
-          "note": "A demo will be linked when a presentation-ready version is available.",
-          "collaboration": "I define the problem, requirements and priorities. I use AI tools to support implementation and documentation, then review decisions, tests and outcomes before accepting changes."
+          "validationTitle": "Current status",
+          "validation": "DashLIQ is still in development. This page presents its purpose, key decisions and intended workflow without claiming public metrics or independent tests that have not been released.",
+          "note": "A demo and interface screenshots will be added once a reviewed presentation version is available.",
+          "collaboration": "I define product goals, requirements and priorities. AI tools support implementation and documentation, while I review decisions, tests and outcomes before accepting changes.",
+          "availabilityTitle": "Availability"
         },
         "homeSummary": "A personal system for organizing financial records, tracking goals and reviewing day-to-day results."
       },
@@ -339,7 +344,7 @@
             }
           ],
           "decisionsTitle": "Decisiones de producto",
-          "decisionsDescription": "La claridad y la consistencia importan más que reunir todo en una sola pantalla.",
+          "decisionsDescription": "La organización de los datos, el historial y la facilidad de uso diario guían las decisiones del producto.",
           "decisions": [
             {
               "title": "Separar conceptos",
@@ -354,10 +359,11 @@
               "description": "Legibilidad en escritorio y móvil, con controles de accesibilidad."
             }
           ],
-          "validationTitle": "Estado del desarrollo",
-          "validation": "DashLIQ sigue en desarrollo. Esta página no presenta cifras públicas verificadas, una demo abierta ni resultados de pruebas independientes.",
-          "note": "Se añadirá una demostración cuando exista una versión adecuada.",
-          "collaboration": "Defino el problema, los requisitos y las prioridades. Utilizo herramientas de IA como apoyo en la implementación y la documentación, y reviso decisiones, pruebas y resultados antes de aceptar cambios."
+          "validationTitle": "Estado actual",
+          "validation": "DashLIQ sigue en desarrollo. Esta página presenta su propósito, decisiones principales y funcionamiento previsto, sin atribuir métricas públicas ni pruebas independientes que aún no se han publicado.",
+          "note": "Se añadirán una demostración y capturas cuando exista una versión revisada para presentación.",
+          "collaboration": "Defino los objetivos, requisitos y prioridades del producto. Utilizo IA como apoyo en la implementación y documentación, revisando decisiones, pruebas y resultados antes de aceptar cambios.",
+          "availabilityTitle": "Disponibilidad"
         },
         "homeSummary": "Un sistema de uso personal para organizar registros financieros, seguir objetivos y consultar resultados cotidianos."
       }

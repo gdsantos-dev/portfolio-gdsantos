@@ -31,6 +31,7 @@ for (const project of projects) {
     assert.ok(typeof c.collaboration === "string" && c.collaboration.trim(), "Missing human-AI process notes: " + project.id + "/" + lang);
     assert.equal(c.steps.length, 4, "Expected four process stages");
     assert.equal(c.decisions.length, 3, "Expected three engineering decisions");
+    assert.ok(c.availabilityTitle, "Availability label missing");
     for (const row of [...c.steps,...c.decisions]) assert.ok(row.title && row.description);
   }
 }
@@ -45,7 +46,7 @@ for (const [lang, locale] of Object.entries(locales)) {
   assert.ok(home.includes('/style.css?v=20261029-gallery3'), "Portfolio CSS must have a versioned URL: " + lang);
   assert.ok(home.includes('/projects-cinema.css?v=20261029-home4'), "Gallery CSS must have a versioned URL: " + lang);
   assert.ok(home.includes('/projects-cinema.js?v=20261029-home4'), "Gallery JS must have the same release version: " + lang);
-  assert.ok(detail.includes('/style.css?v=20261029-gallery3') && detail.includes('/project-case.css?v=20261029-gallery3'), "Project case CSS must be versioned: " + lang);
+  assert.ok(detail.includes('/style.css?v=20261029-gallery3') && detail.includes('/project-case.css?v=20261029-case5'), "Project case CSS must be versioned: " + lang);
   assert.ok(home.includes('/projects-cinema.js') && home.includes('/projects-cinema.css'));
   assert.ok(!home.includes("projects-cinema__index"), "Old project counter navigation still present");
   assert.ok(detail.includes('data-case-root') && detail.includes('/project-case.js') && detail.includes('/project-case.css'));
@@ -61,6 +62,10 @@ assert.ok(read("public/project-case.js").includes("encodeURIComponent(project.id
 assert.ok(read("public/project-case.js").includes("case-chapters"), "Case chapter navigation missing");
 assert.ok(read("public/project-case.js").includes("story.collaboration"), "Process transparency missing");
 assert.ok(read("public/project-case.css").includes("scroll-margin-top"), "Anchor offset missing");
+assert.ok(read("public/project-case.css").includes("--case-accent:var(--accent)"), "Crimson accent should be shared");
+assert.ok(!/#(?:68aaff|a5b7cb|e9f3ff|101a26)/i.test(read("public/project-case.css")), "Blue theme still present");
+assert.ok(read("public/project-case.js").includes("link(copy.next,"), "Next project CTA missing");
+assert.ok(!read("public/project-case.js").includes("Ver estudo de caso"), "Old CTA remains");
 assert.ok(read("public/project-case.css").includes("prefers-reduced-motion"));
 const portfolioCss = read("public/style.css");
 assert.ok(portfolioCss.includes(".education div:last-child{border-bottom:0}"), "Final education row must not have a redundant divider");
@@ -68,7 +73,8 @@ assert.ok(/@container\(max-width:680px\)\{[\s\S]*?\.education div\{border-bottom
 assert.ok(/\.interest-row,\.interest-row:last-child\{[^}]*border-top:0/.test(portfolioCss), "Mobile interest separators must use spacing");
 assert.ok(/\.contact-channel,\.contact-channel:first-child,\.contact-channel:last-child\{[^}]*border-bottom:0/.test(portfolioCss), "Mobile contact lines must use spacing");
 const caseCss = read("public/project-case.css");
-assert.ok(caseCss.includes(".case-facts>div:last-child{border-bottom:0}"), "Case facts should not end with a closing divider");
+assert.ok(caseCss.includes(".case-facts"), "Facts layout missing");
+assert.ok(!caseCss.includes("border-right:1px solid var(--line)"), "Old decorative vertical rules remain");
 assert.ok(read("public/projects-cinema.css").includes("prefers-reduced-motion"));
 assert.ok(existsSync(path.join(root,"public/pt/index.html")));
 assert.ok(read("server.mjs").includes("isData || isHtml || isCode"), "CSS and JS should revalidate on subsequent visits");

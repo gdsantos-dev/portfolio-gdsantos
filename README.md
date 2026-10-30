@@ -55,3 +55,7 @@ As páginas do site não usam navegação que bloqueie o scroll. As transições
 Os arquivos CSS e JavaScript públicos são revalidados pelo servidor para evitar que uma versão antiga de estilos seja combinada com o HTML/JS novo. As páginas referenciam os estilos e scripts da vitrine com uma versão de publicação no URL.
 
 Se o layout após deploy mostrar imagens empilhadas ou fontes sem o estilo esperado, confirme a pasta publicada e recarregue forçando atualização do navegador (`Ctrl + Shift + R` no Chrome desktop). Não altere apenas o HTML sem atualizar os arquivos CSS/JS correspondentes.
+
+## Estudos de caso
+
+Os dois estudos de caso usam o mesmo tema Black & Crimson e a hierarquia editorial do portfólio. As linhas decorativas repetidas foram substituídas por espaçamento; só permanecem separações pontuais de hierarquia. O link final exibe “Próximo projeto”, e a seção de validação distingue resultados locais relatados de verificações independentes. A atualização é limitada às páginas de projeto; não modifica os sistemas apresentados.

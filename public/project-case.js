@@ -5,9 +5,9 @@
   const lang = ["en", "es"].find(code => document.documentElement.lang.startsWith(code)) || "pt";
   const id = new URLSearchParams(location.search).get("id");
   const copy = {
-    pt: { back:"Voltar aos projetos",home:"Portfólio",section:"Projeto",process:"Como funciona",engineering:"Decisões",validation:"Validação e limites",status:"Estado",role:"Participação",stack:"Tecnologias",explore:"Explorar processo",next:"Próximo projeto",view:"Ver estudo de caso",missing:"Projeto não encontrado",missingText:"O endereço pode estar incorreto." },
-    en: { back:"Back to projects",home:"Portfolio",section:"Project",process:"How it works",engineering:"Decisions",validation:"Validation and limits",status:"Status",role:"My role",stack:"Technologies",explore:"Explore the process",next:"Next project",view:"View case study",missing:"Project not found",missingText:"The address might be incorrect." },
-    es: { back:"Volver a proyectos",home:"Portafolio",section:"Proyecto",process:"Cómo funciona",engineering:"Decisiones",validation:"Validación y límites",status:"Estado",role:"Participación",stack:"Tecnologías",explore:"Explorar proceso",next:"Siguiente proyecto",view:"Ver estudio de caso",missing:"Proyecto no encontrado",missingText:"Puede que la dirección sea incorrecta." }
+    pt: { back:"Voltar aos projetos",home:"Portfólio",section:"Projeto",process:"Como funciona",engineering:"Decisões",validation:"Validação e limites",status:"Estado",role:"Participação",stack:"Tecnologias",explore:"Explorar processo",next:"Próximo projeto",missing:"Projeto não encontrado",missingText:"O endereço pode estar incorreto." },
+    en: { back:"Back to projects",home:"Portfolio",section:"Project",process:"How it works",engineering:"Decisions",validation:"Validation and limits",status:"Status",role:"My role",stack:"Technologies",explore:"Explore the process",next:"Next project",missing:"Project not found",missingText:"The address might be incorrect." },
+    es: { back:"Volver a proyectos",home:"Portafolio",section:"Proyecto",process:"Cómo funciona",engineering:"Decisiones",validation:"Validación y límites",status:"Estado",role:"Participación",stack:"Tecnologías",explore:"Explorar proceso",next:"Siguiente proyecto",missing:"Proyecto no encontrado",missingText:"Puede que la dirección sea incorrecta." }
   }[lang];
   const backLink = "/" + lang + "/#projetos";
   const chapterCopy = {"pt":{"name":"Capítulos do projeto","labels":["Contexto","Funcionamento","Decisões","Validação"],"collab":"Processo de desenvolvimento"},"en":{"name":"Project chapters","labels":["Context","Workflow","Decisions","Validation"],"collab":"Development process"},"es":{"name":"Capítulos del proyecto","labels":["Contexto","Funcionamiento","Decisiones","Validación"],"collab":"Proceso de desarrollo"}};
@@ -91,18 +91,25 @@
 
     const validation=segment("case-validation","case-section case-validation");
     const valBody=el("div","case-section__body");
-    valBody.append(el("h2","",story.validationTitle),el("p","case-section__lead",story.validation),el("p","case-validation__note",story.note));
+    valBody.append(el("h2","",story.validationTitle),el("p","case-section__lead",story.validation));
+    const extras=el("div","case-validation__extras");
+    const availability=el("div","case-validation__availability");
+    availability.append(el("h3","",story.availabilityTitle),el("p","",story.note));
+    extras.append(availability);
     if(story.collaboration){
       const collaboration=el("aside","case-collaboration");
       collaboration.append(el("h3","",chapterCopy[lang].collab),el("p","",story.collaboration));
-      valBody.append(collaboration);
+      extras.append(collaboration);
     }
+    valBody.append(extras);
     validation.append(el("p","case-section__eyebrow",copy.validation),valBody);
 
     const finale=segment("case-next","case-next");
     const nextBody=el("div");
-    nextBody.append(el("p","case-next__label",copy.next),el("h2","",other.texts[lang].title));
-    finale.append(nextBody,link(copy.view,"/"+lang+"/projeto/?id="+encodeURIComponent(other.id),"case-next__link"));
+    nextBody.append(el("h2","",other.texts[lang].title));
+    const nextLink=link(copy.next,"/"+lang+"/projeto/?id="+encodeURIComponent(other.id),"case-next__link");
+    nextLink.setAttribute("aria-label",copy.next+": "+other.texts[lang].title);
+    finale.append(nextBody,nextLink);
     root.replaceChildren(crumbs,hero,chapters,overview,process,engineering,validation,finale);
     const chapterAnchors=Array.from(chapters.querySelectorAll("a"));
     const setActive=index=>chapterAnchors.forEach((anchor,i)=>{
