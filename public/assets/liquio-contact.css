@@ -1,22 +1,21 @@
-/* Placement only: no changes to the contact card's dimensions or contents. */
+/* Position only: preserve the contact card and anchor Liquio by its feet. */
 #contato.contact { position: relative; overflow: visible; }
 #contato > .contact-liquio {
   position: absolute;
-  bottom: calc(100% + 6px);
-  right: 24px;
-  width: 405px;
-  height: 506px;
+  bottom: calc(100% + 2px);
+  right: calc(18.8% - 60px);
+  width: 120px;
+  height: 150px;
   pointer-events: none;
   user-select: none;
-  --liquio-width: 405px;
+  --liquio-width: 120px;
 }
-@media (max-width: 900px) {
+@media (max-width: 700px) {
   #contato > .contact-liquio {
-    right: 12px;
-    bottom: calc(100% + 4px);
-    width: min(270px, calc(100% - 24px));
-    height: auto;
-    aspect-ratio: 4 / 5;
-    --liquio-width: 100%;
+    right: 18px;
+    bottom: calc(100% + 2px);
+    width: 80px;
+    height: 100px;
+    --liquio-width: 80px;
   }
 }
