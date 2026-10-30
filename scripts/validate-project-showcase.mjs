@@ -16,6 +16,13 @@ for (const project of projects) {
   assert.ok(!ids.has(project.id), "Duplicate project id: " + project.id);
   ids.add(project.id);
   assert.ok(project.year && project.theme && Array.isArray(project.technologies));
+  assert.equal(project.images.length, 0, "Unreviewed product screenshots must remain unpublished");
+  for (const lang of Object.keys(locales)) {
+    const preview = project.preview?.[lang];
+    assert.ok(preview && preview.label && preview.headline && preview.emphasis && preview.note, "Incomplete editorial panel: " + project.id + "/" + lang);
+    assert.equal(preview.steps.length, 3, "Editorial panel needs three unnumbered stages");
+    assert.ok(![preview.headline,preview.emphasis].join(" ").includes(project.texts[lang].title), "Do not repeat the project title inside its panel");
+  }
   assert.ok(!project.repository || /^https:\/\//.test(project.repository), "Unsafe repository URL");
   for (const lang of Object.keys(locales)) {
     const data = project.texts?.[lang];
@@ -50,6 +57,8 @@ for (const [lang, locale] of Object.entries(locales)) {
 }
 assert.ok(read("public/projects-cinema.js").includes('"/projeto/?id="'), "Project detail link missing");
 assert.ok(read("public/projects-cinema.js").includes("project-gallery__rail"), "Horizontal gallery missing");
+assert.ok(read("public/projects-cinema.js").includes("project-preview__statement"), "Editorial placeholders missing");
+assert.ok(!read("public/projects-cinema.js").includes("project-gallery__empty-name"), "Old redundant placeholders are still rendered");
 assert.ok(!read("public/projects-cinema.js").includes("project-feature__art-index"), "Decorative numbers must be removed");
 assert.ok(!read("public/projects-cinema.js").includes("project-feature__case-arrow"), "Decorative arrows must be removed");
 for (const project of projects) {
@@ -76,4 +85,4 @@ assert.ok(read("public/projects-cinema.css").includes("prefers-reduced-motion"))
 assert.ok(existsSync(path.join(root,"public/pt/index.html")));
 assert.ok(read("server.mjs").includes("isData || isHtml || isCode"), "CSS and JS should revalidate on subsequent visits");
 
-console.log("Portfolio: galleries, assets, PT/EN/ES, case chapters and collaboration notes OK.");
+console.log("Portfolio: editorial project panels, gallery support, PT/EN/ES and case chapters OK.");

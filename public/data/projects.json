@@ -177,48 +177,42 @@
         }
       }
     },
-    "images": [
-      {
-        "src": "/assets/projects/scoutliq/busca.png",
-        "alt": {
-          "pt": "Tela de busca de empresas do ScoutLIQ durante um teste de interface",
-          "en": "ScoutLIQ business search interface during a UI test",
-          "es": "Interfaz de búsqueda de empresas de ScoutLIQ durante una prueba"
-        },
-        "caption": {
-          "pt": "Busca por localização",
-          "en": "Location-based search",
-          "es": "Búsqueda por ubicación"
-        }
+    "images": [],
+    "preview": {
+      "pt": {
+        "label": "Interface em evolução",
+        "headline": "Pesquisa e evidências,",
+        "emphasis": "no mesmo fluxo.",
+        "steps": [
+          "Pesquisa unificada",
+          "Qualificação com contexto",
+          "Acompanhamento comercial"
+        ],
+        "note": "A apresentação visual será incorporada após a revisão das telas."
       },
-      {
-        "src": "/assets/projects/scoutliq/criterios.png",
-        "alt": {
-          "pt": "Tela móvel de critérios de busca do ScoutLIQ em um teste de interface",
-          "en": "ScoutLIQ mobile search criteria during a UI test",
-          "es": "Criterios de búsqueda de ScoutLIQ en móvil durante una prueba"
-        },
-        "caption": {
-          "pt": "Critérios no celular",
-          "en": "Mobile search criteria",
-          "es": "Criterios en móvil"
-        },
-        "type": "mobile"
+      "en": {
+        "label": "Interface in progress",
+        "headline": "Research and evidence,",
+        "emphasis": "in one workflow.",
+        "steps": [
+          "Unified search",
+          "Context-aware qualification",
+          "Commercial follow-up"
+        ],
+        "note": "Screenshots will be added after the interface review."
       },
-      {
-        "src": "/assets/projects/scoutliq/resultados.png",
-        "alt": {
-          "pt": "Resultados de demonstração do Radar do ScoutLIQ com empresas fictícias de teste",
-          "en": "ScoutLIQ Radar test results featuring sample businesses",
-          "es": "Resultados de prueba de Radar de ScoutLIQ con empresas de ejemplo"
-        },
-        "caption": {
-          "pt": "Resultados com dados de teste",
-          "en": "Results with test data",
-          "es": "Resultados con datos de prueba"
-        }
+      "es": {
+        "label": "Interfaz en evolución",
+        "headline": "Búsqueda y evidencias,",
+        "emphasis": "en un mismo flujo.",
+        "steps": [
+          "Búsqueda unificada",
+          "Evaluación con contexto",
+          "Seguimiento comercial"
+        ],
+        "note": "Las capturas se añadirán después de revisar la interfaz."
       }
-    ]
+    }
   },
   {
     "id": "dashliq",
@@ -397,6 +391,41 @@
         }
       }
     },
-    "images": []
+    "images": [],
+    "preview": {
+      "pt": {
+        "label": "Interface em evolução",
+        "headline": "Registros e metas,",
+        "emphasis": "em contexto.",
+        "steps": [
+          "Movimentações",
+          "Indicadores",
+          "Acompanhamento"
+        ],
+        "note": "A apresentação visual será incorporada após a revisão das telas."
+      },
+      "en": {
+        "label": "Interface in progress",
+        "headline": "Records and goals,",
+        "emphasis": "in context.",
+        "steps": [
+          "Transactions",
+          "Indicators",
+          "Tracking"
+        ],
+        "note": "Screenshots will be added after the interface review."
+      },
+      "es": {
+        "label": "Interfaz en evolución",
+        "headline": "Registros y objetivos,",
+        "emphasis": "en contexto.",
+        "steps": [
+          "Movimientos",
+          "Indicadores",
+          "Seguimiento"
+        ],
+        "note": "Las capturas se añadirán después de revisar la interfaz."
+      }
+    }
   }
 ]

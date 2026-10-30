@@ -6,9 +6,9 @@
   const language = document.documentElement.lang.startsWith("en") ? "en"
     : document.documentElement.lang.startsWith("es") ? "es" : "pt";
   const labels = {
-    pt: { gallery:"Galeria de imagens do projeto", action:"Conhecer o projeto", awaiting:"Capturas reais em preparação", fallback:"Não foi possível carregar os projetos.", sample:"Imagens registradas em testes do desenvolvimento." },
-    en: { gallery:"Project image gallery", action:"Explore the project", awaiting:"Real screenshots coming soon", fallback:"Projects could not be loaded.", sample:"Screenshots captured during development tests." },
-    es: { gallery:"Galería de imágenes del proyecto", action:"Conocer el proyecto", awaiting:"Próximamente, capturas reales", fallback:"No se pudieron cargar los proyectos.", sample:"Capturas obtenidas durante pruebas de desarrollo." }
+    pt: { gallery:"Galeria de imagens do projeto", action:"Conhecer o projeto", fallback:"Não foi possível carregar os projetos.", sample:"Capturas de interface aprovadas." },
+    en: { gallery:"Project image gallery", action:"Explore the project", fallback:"Projects could not be loaded.", sample:"Approved interface screenshots." },
+    es: { gallery:"Galería de imágenes del proyecto", action:"Conocer el proyecto", fallback:"No se pudieron cargar los proyectos.", sample:"Capturas de interfaz aprobadas." }
   }[language];
 
   const make = (tag, className, text) => {
@@ -24,10 +24,27 @@
     const files = (Array.isArray(project.images) ? project.images : [])
       .filter(item => item && hasValidPath(item.src, project.id));
     if (!files.length) {
-      const empty = make("div", "project-gallery__empty");
-      empty.append(make("p", "project-gallery__empty-name", title),
-        make("p", "project-gallery__empty-message", labels.awaiting));
-      article.append(empty);
+      // Editorial chapter while the actual product screens are being reviewed.
+      // The project name is already the section title; never repeat it here.
+      const content = project.preview?.[language] || project.preview?.pt;
+      if (!content || !Array.isArray(content.steps)) return;
+      const preview = make("div", "project-preview");
+      preview.setAttribute("role", "group");
+      preview.setAttribute("aria-label", content.label + ": " + title);
+
+      const narrative = make("div", "project-preview__narrative");
+      narrative.append(make("p", "project-preview__label", content.label));
+      const statement = make("p", "project-preview__statement");
+      statement.append(document.createTextNode(content.headline + " "),
+        make("em", "", content.emphasis));
+      narrative.append(statement);
+
+      const context = make("div", "project-preview__context");
+      const steps = make("ul", "project-preview__steps");
+      content.steps.forEach(step => steps.append(make("li", "", step)));
+      context.append(steps, make("p", "project-preview__note", content.note));
+      preview.append(narrative, context);
+      article.append(preview);
       return;
     }
     const gallery = make("div", "project-gallery");
