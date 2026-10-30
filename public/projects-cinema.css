@@ -165,12 +165,12 @@
 }
 .projects-cinema__outro{
   display:flex;
-  justify-content:space-between;
+  justify-content:flex-end;
   align-items:center;
   gap:24px;
-  padding-top:20px;
-  margin-top:clamp(55px,8vw,100px);
-  border-top:1px solid var(--line);
+  padding-top:0;
+  margin-top:clamp(38px,5vw,72px);
+  border-top:0;
   font-size:.93rem;
   color:var(--muted);
 }
