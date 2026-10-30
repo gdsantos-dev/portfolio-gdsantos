@@ -6,6 +6,7 @@ on:
       - "scripts/validate-project-showcase.mjs"
       - "scripts/validate-section-tracker.mjs"
       - "scripts/validate-liquio.mjs"
+      - "scripts/validate-mobile-menu.mjs"
       - "scripts/validate-liquio-icons.mjs"
       - "scripts/validate-project-seo.mjs"
       - "scripts/project-seo.mjs"
@@ -18,6 +19,7 @@ on:
       - "scripts/validate-project-showcase.mjs"
       - "scripts/validate-section-tracker.mjs"
       - "scripts/validate-liquio.mjs"
+      - "scripts/validate-mobile-menu.mjs"
       - "scripts/validate-liquio-icons.mjs"
       - "scripts/validate-project-seo.mjs"
       - "scripts/project-seo.mjs"
@@ -49,6 +51,8 @@ jobs:
         run: node scripts/validate-project-seo.mjs
       - name: Homepage scroll URL state
         run: node scripts/validate-section-tracker.mjs
+      - name: Mobile menu control and locale labels
+        run: node scripts/validate-mobile-menu.mjs
       - name: Liquio distribution and contact isolation
         run: node scripts/validate-liquio.mjs
       - name: Liquio favicons, iOS home-screen metadata and manifest
