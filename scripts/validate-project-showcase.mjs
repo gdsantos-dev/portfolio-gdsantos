@@ -42,6 +42,10 @@ for (const [lang, locale] of Object.entries(locales)) {
   assert.ok(home.includes('lang="' + locale + '"'));
   assert.ok(detail.includes('lang="' + locale + '"'));
   assert.ok(home.includes('id="projetos"'), "No projects section on " + lang);
+  const contactCopy = home.match(/<section id="contato"[\\s\\S]*?<div class="contact-intro">[\\s\\S]*?<\\/div>/)?.[0] || "";
+  assert.ok(contactCopy, "Missing contact copy: " + lang);
+  assert.ok(!/Procuro um estágio em desenvolvimento de software|I am looking for a software development internship|Busco prácticas en desarrollo de software/i.test(contactCopy), "Unwanted internship sentence in contact: " + lang);
+
   assert.ok(home.includes('data-projects-reel'));
   assert.ok(home.includes('/data/curriculos/guilherme-dos-santos-curriculo-' + lang + '.pdf'), "CV must match selected language: " + lang);
   assert.ok(home.includes('Guilherme-dos-Santos-CV-' + lang.toUpperCase() + '.pdf'), "Localized download name missing: " + lang);
