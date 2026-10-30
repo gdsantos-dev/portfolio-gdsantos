@@ -12,6 +12,9 @@ on:
     paths:
       - "public/**"
       - "scripts/validate-project-showcase.mjs"
+      - "scripts/validate-project-seo.mjs"
+      - "scripts/project-seo.mjs"
+      - "server.mjs"
       - ".github/workflows/validate-project-pages.yml"
 
 jobs:
