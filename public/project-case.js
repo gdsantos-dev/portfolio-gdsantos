@@ -117,15 +117,36 @@
       else anchor.removeAttribute("aria-current");
     });
     chapterAnchors.forEach((anchor,i)=>anchor.addEventListener("click",()=>setActive(i)));
-    if("IntersectionObserver" in window){
-      const chapterObserver=new IntersectionObserver(entries=>{
-        for(const entry of entries){
-          if(!entry.isIntersecting)continue;
-          const index=chapterIds.indexOf(entry.target.id);
-          if(index>=0)setActive(index);
+    // Keep the chapter state aligned with the actual reading position.
+    // Intersection callbacks may arrive out of order while crossing sections.
+    if(typeof window.addEventListener==="function"){
+      const sections=[overview,process,engineering,validation];
+      let pending=false;
+      const updateActive=()=>{
+        pending=false;
+        const offset=chapters.getBoundingClientRect().bottom+18;
+        let active=0;
+        sections.forEach((section,index)=>{
+          if(section.getBoundingClientRect().top<=offset)active=index;
+        });
+        setActive(active);
+      };
+      const scheduleActive=()=>{
+        if(pending)return;
+        pending=true;
+        window.requestAnimationFrame(updateActive);
+      };
+      window.addEventListener("scroll",scheduleActive,{passive:true});
+      window.addEventListener("resize",scheduleActive,{passive:true});
+      window.requestAnimationFrame(()=>{
+        // A direct case URL contains dynamic sections that do not exist at
+        // initial HTML parse time. Restore its anchor after rendering.
+        const target=location.hash?.slice(1);
+        if(chapterIds.includes(target)){
+          sections[chapterIds.indexOf(target)].scrollIntoView({block:"start",behavior:"auto"});
         }
-      },{rootMargin:"-18% 0px -65% 0px",threshold:0});
-      [overview,process,engineering,validation].forEach(section=>chapterObserver.observe(section));
+        updateActive();
+      });
     }
     if (!("IntersectionObserver" in window) || matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     const observer=new IntersectionObserver(entries=>{
