@@ -1,0 +1,942 @@
+{
+  "browser": "156.0.8078.74",
+  "checks": [
+    "demo fits 320",
+    "demo no overflow 320",
+    "demo reduced motion disables play 320",
+    "inspect 320 idle",
+    "inspect 320 blink",
+    "inspect 320 look-left",
+    "inspect 320 look-right",
+    "inspect 320 tilt",
+    "inspect 320 ear",
+    "inspect 320 scarf",
+    "inspect 320 sleep",
+    "demo fits 375",
+    "demo no overflow 375",
+    "demo reduced motion disables play 375",
+    "inspect 375 idle",
+    "inspect 375 blink",
+    "inspect 375 look-left",
+    "inspect 375 look-right",
+    "inspect 375 tilt",
+    "inspect 375 ear",
+    "inspect 375 scarf",
+    "inspect 375 sleep",
+    "demo fits 768",
+    "demo no overflow 768",
+    "demo reduced motion disables play 768",
+    "inspect 768 idle",
+    "inspect 768 blink",
+    "inspect 768 look-left",
+    "inspect 768 look-right",
+    "inspect 768 tilt",
+    "inspect 768 ear",
+    "inspect 768 scarf",
+    "inspect 768 sleep",
+    "demo fits 1440",
+    "demo no overflow 1440",
+    "demo reduced motion disables play 1440",
+    "inspect 1440 idle",
+    "inspect 1440 blink",
+    "inspect 1440 look-left",
+    "inspect 1440 look-right",
+    "inspect 1440 tilt",
+    "inspect 1440 ear",
+    "inspect 1440 scarf",
+    "inspect 1440 sleep",
+    "pt 320 isolated accessible decoration",
+    "pt 320 on upper right contact edge",
+    "pt 320 unchanged layout and content",
+    "pt 320 contact links unobstructed",
+    "pt 320 mobile menu",
+    "pt 320 scrolls with contact",
+    "en 320 isolated accessible decoration",
+    "en 320 on upper right contact edge",
+    "en 320 unchanged layout and content",
+    "en 320 contact links unobstructed",
+    "en 320 mobile menu",
+    "en 320 scrolls with contact",
+    "es 320 isolated accessible decoration",
+    "es 320 on upper right contact edge",
+    "es 320 unchanged layout and content",
+    "es 320 contact links unobstructed",
+    "es 320 mobile menu",
+    "es 320 scrolls with contact",
+    "pt 375 isolated accessible decoration",
+    "pt 375 on upper right contact edge",
+    "pt 375 unchanged layout and content",
+    "pt 375 contact links unobstructed",
+    "pt 375 mobile menu",
+    "pt 375 scrolls with contact",
+    "en 375 isolated accessible decoration",
+    "en 375 on upper right contact edge",
+    "en 375 unchanged layout and content",
+    "en 375 contact links unobstructed",
+    "en 375 mobile menu",
+    "en 375 scrolls with contact",
+    "es 375 isolated accessible decoration",
+    "es 375 on upper right contact edge",
+    "es 375 unchanged layout and content",
+    "es 375 contact links unobstructed",
+    "es 375 mobile menu",
+    "es 375 scrolls with contact",
+    "pt 768 isolated accessible decoration",
+    "pt 768 on upper right contact edge",
+    "pt 768 unchanged layout and content",
+    "pt 768 contact links unobstructed",
+    "pt 768 scrolls with contact",
+    "en 768 isolated accessible decoration",
+    "en 768 on upper right contact edge",
+    "en 768 unchanged layout and content",
+    "en 768 contact links unobstructed",
+    "en 768 scrolls with contact",
+    "es 768 isolated accessible decoration",
+    "es 768 on upper right contact edge",
+    "es 768 unchanged layout and content",
+    "es 768 contact links unobstructed",
+    "es 768 scrolls with contact",
+    "pt 1440 isolated accessible decoration",
+    "pt 1440 on upper right contact edge",
+    "pt 1440 unchanged layout and content",
+    "pt 1440 contact links unobstructed",
+    "pt 1440 scrolls with contact",
+    "en 1440 isolated accessible decoration",
+    "en 1440 on upper right contact edge",
+    "en 1440 unchanged layout and content",
+    "en 1440 contact links unobstructed",
+    "en 1440 scrolls with contact",
+    "es 1440 isolated accessible decoration",
+    "es 1440 on upper right contact edge",
+    "es 1440 unchanged layout and content",
+    "es 1440 contact links unobstructed",
+    "es 1440 scrolls with contact",
+    "pt scoutliq no Liquio",
+    "pt dashliq no Liquio",
+    "en scoutliq no Liquio",
+    "en dashliq no Liquio",
+    "es scoutliq no Liquio",
+    "es dashliq no Liquio",
+    "root homepage integrated",
+    "HTTP /health",
+    "HTTP /sitemap.xml",
+    "HTTP /pt/",
+    "HTTP /en/",
+    "HTTP /es/",
+    "HTTP /assets/liquio/1.0.0/liquio.js",
+    "HTTP /assets/liquio/1.0.0/liquio-cycle.js",
+    "HTTP /assets/liquio/1.0.0/liquio.css",
+    "HTTP /assets/liquio/1.0.0/sprites/liquio.png",
+    "HTTP /data/curriculos/guilherme-dos-santos-curriculo-pt.pdf",
+    "HTTP /data/curriculos/guilherme-dos-santos-curriculo-en.pdf",
+    "HTTP /data/curriculos/guilherme-dos-santos-curriculo-es.pdf",
+    "without JS contact remains readable",
+    "browser runs all automatic special types",
+    "browser special timing 10–15 seconds and no consecutive repetition",
+    "demo sequence blink returns to normal",
+    "demo sequence look returns to normal",
+    "demo sequence tilt returns to normal",
+    "demo sequence ear returns to normal",
+    "demo sequence scarf returns to normal",
+    "demo sequence sleep returns to normal",
+    "reduced motion stays pixel-identical for 60 simulated seconds",
+    "reduced motion has no CSS animation",
+    "no external runtime requests",
+    "no browser errors or missing resources"
+  ],
+  "failures": [],
+  "errors": [],
+  "externalRequests": [],
+  "matrix": [
+    {
+      "lang": "pt",
+      "width": 320,
+      "metrics": {
+        "overflow": false,
+        "count": 1,
+        "position": "absolute",
+        "pointer": "none",
+        "hidden": "true",
+        "crisp": "pixelated",
+        "slot": {
+          "x": 231,
+          "y": 4013.1875,
+          "width": 48,
+          "height": 60,
+          "bottom": 4073.1875
+        },
+        "card": {
+          "x": 20,
+          "y": 4070.1875,
+          "width": 280
+        },
+        "controls": 0
+      }
+    },
+    {
+      "lang": "en",
+      "width": 320,
+      "metrics": {
+        "overflow": false,
+        "count": 1,
+        "position": "absolute",
+        "pointer": "none",
+        "hidden": "true",
+        "crisp": "pixelated",
+        "slot": {
+          "x": 231,
+          "y": 3737.703125,
+          "width": 48,
+          "height": 60,
+          "bottom": 3797.703125
+        },
+        "card": {
+          "x": 20,
+          "y": 3794.703125,
+          "width": 280
+        },
+        "controls": 0
+      }
+    },
+    {
+      "lang": "es",
+      "width": 320,
+      "metrics": {
+        "overflow": false,
+        "count": 1,
+        "position": "absolute",
+        "pointer": "none",
+        "hidden": "true",
+        "crisp": "pixelated",
+        "slot": {
+          "x": 231,
+          "y": 4009.890625,
+          "width": 48,
+          "height": 60,
+          "bottom": 4069.890625
+        },
+        "card": {
+          "x": 20,
+          "y": 4066.890625,
+          "width": 280
+        },
+        "controls": 0
+      }
+    },
+    {
+      "lang": "pt",
+      "width": 375,
+      "metrics": {
+        "overflow": false,
+        "count": 1,
+        "position": "absolute",
+        "pointer": "none",
+        "hidden": "true",
+        "crisp": "pixelated",
+        "slot": {
+          "x": 286,
+          "y": 3789.421875,
+          "width": 48,
+          "height": 60,
+          "bottom": 3849.421875
+        },
+        "card": {
+          "x": 20,
+          "y": 3846.421875,
+          "width": 335
+        },
+        "controls": 0
+      }
+    },
+    {
+      "lang": "en",
+      "width": 375,
+      "metrics": {
+        "overflow": false,
+        "count": 1,
+        "position": "absolute",
+        "pointer": "none",
+        "hidden": "true",
+        "crisp": "pixelated",
+        "slot": {
+          "x": 286,
+          "y": 3570.109375,
+          "width": 48,
+          "height": 60,
+          "bottom": 3630.109375
+        },
+        "card": {
+          "x": 20,
+          "y": 3627.109375,
+          "width": 335
+        },
+        "controls": 0
+      }
+    },
+    {
+      "lang": "es",
+      "width": 375,
+      "metrics": {
+        "overflow": false,
+        "count": 1,
+        "position": "absolute",
+        "pointer": "none",
+        "hidden": "true",
+        "crisp": "pixelated",
+        "slot": {
+          "x": 286,
+          "y": 3777.984375,
+          "width": 48,
+          "height": 60,
+          "bottom": 3837.984375
+        },
+        "card": {
+          "x": 20,
+          "y": 3834.984375,
+          "width": 335
+        },
+        "controls": 0
+      }
+    },
+    {
+      "lang": "pt",
+      "width": 768,
+      "metrics": {
+        "overflow": false,
+        "count": 1,
+        "position": "absolute",
+        "pointer": "none",
+        "hidden": "true",
+        "crisp": "pixelated",
+        "slot": {
+          "x": 571.8125,
+          "y": 3017.609375,
+          "width": 64,
+          "height": 80,
+          "bottom": 3097.609375
+        },
+        "card": {
+          "x": 30.71875,
+          "y": 3093.609375,
+          "width": 706.546875
+        },
+        "controls": 0
+      }
+    },
+    {
+      "lang": "en",
+      "width": 768,
+      "metrics": {
+        "overflow": false,
+        "count": 1,
+        "position": "absolute",
+        "pointer": "none",
+        "hidden": "true",
+        "crisp": "pixelated",
+        "slot": {
+          "x": 571.8125,
+          "y": 2832.859375,
+          "width": 64,
+          "height": 80,
+          "bottom": 2912.859375
+        },
+        "card": {
+          "x": 30.71875,
+          "y": 2908.859375,
+          "width": 706.546875
+        },
+        "controls": 0
+      }
+    },
+    {
+      "lang": "es",
+      "width": 768,
+      "metrics": {
+        "overflow": false,
+        "count": 1,
+        "position": "absolute",
+        "pointer": "none",
+        "hidden": "true",
+        "crisp": "pixelated",
+        "slot": {
+          "x": 571.8125,
+          "y": 2956.578125,
+          "width": 64,
+          "height": 80,
+          "bottom": 3036.578125
+        },
+        "card": {
+          "x": 30.71875,
+          "y": 3032.578125,
+          "width": 706.546875
+        },
+        "controls": 0
+      }
+    },
+    {
+      "lang": "pt",
+      "width": 1440,
+      "metrics": {
+        "overflow": false,
+        "count": 1,
+        "position": "absolute",
+        "pointer": "none",
+        "hidden": "true",
+        "crisp": "pixelated",
+        "slot": {
+          "x": 1100.71875,
+          "y": 2795.703125,
+          "width": 64,
+          "height": 80,
+          "bottom": 2875.703125
+        },
+        "card": {
+          "x": 57.59375,
+          "y": 2871.703125,
+          "width": 1324.796875
+        },
+        "controls": 0
+      }
+    },
+    {
+      "lang": "en",
+      "width": 1440,
+      "metrics": {
+        "overflow": false,
+        "count": 1,
+        "position": "absolute",
+        "pointer": "none",
+        "hidden": "true",
+        "crisp": "pixelated",
+        "slot": {
+          "x": 1100.71875,
+          "y": 2733.015625,
+          "width": 64,
+          "height": 80,
+          "bottom": 2813.015625
+        },
+        "card": {
+          "x": 57.59375,
+          "y": 2809.015625,
+          "width": 1324.796875
+        },
+        "controls": 0
+      }
+    },
+    {
+      "lang": "es",
+      "width": 1440,
+      "metrics": {
+        "overflow": false,
+        "count": 1,
+        "position": "absolute",
+        "pointer": "none",
+        "hidden": "true",
+        "crisp": "pixelated",
+        "slot": {
+          "x": 1100.71875,
+          "y": 2827.046875,
+          "width": 64,
+          "height": 80,
+          "bottom": 2907.046875
+        },
+        "card": {
+          "x": 57.59375,
+          "y": 2903.046875,
+          "width": 1324.796875
+        },
+        "controls": 0
+      }
+    }
+  ],
+  "animationEvents": [
+    {
+      "state": "blink",
+      "at": 3160.261916898191
+    },
+    {
+      "state": "idle",
+      "at": 3420.261916898191
+    },
+    {
+      "state": "blink",
+      "at": 6441.164835270494
+    },
+    {
+      "state": "idle",
+      "at": 6701.164835270494
+    },
+    {
+      "state": "blink",
+      "at": 9873.009277040139
+    },
+    {
+      "state": "idle",
+      "at": 10133.009277040139
+    },
+    {
+      "state": "tilt",
+      "at": 12055.881208663806
+    },
+    {
+      "state": "idle",
+      "at": 13025.881208663806
+    },
+    {
+      "state": "blink",
+      "at": 16276.306310620159
+    },
+    {
+      "state": "idle",
+      "at": 16536.30631062016
+    },
+    {
+      "state": "blink",
+      "at": 19320.78099212423
+    },
+    {
+      "state": "idle",
+      "at": 19580.78099212423
+    },
+    {
+      "state": "blink",
+      "at": 22641.652339210734
+    },
+    {
+      "state": "idle",
+      "at": 22901.652339210734
+    },
+    {
+      "state": "blink",
+      "at": 25922.302286157385
+    },
+    {
+      "state": "idle",
+      "at": 26182.302286157385
+    },
+    {
+      "state": "look",
+      "at": 26792.204427922145
+    },
+    {
+      "state": "idle",
+      "at": 27812.204427922145
+    },
+    {
+      "state": "blink",
+      "at": 30607.699836462736
+    },
+    {
+      "state": "idle",
+      "at": 30867.699836462736
+    },
+    {
+      "state": "blink",
+      "at": 33804.24164839834
+    },
+    {
+      "state": "idle",
+      "at": 34064.24164839834
+    },
+    {
+      "state": "blink",
+      "at": 37065.394542718306
+    },
+    {
+      "state": "idle",
+      "at": 37325.394542718306
+    },
+    {
+      "state": "ear",
+      "at": 37429.70460110158
+    },
+    {
+      "state": "idle",
+      "at": 38019.70460110158
+    },
+    {
+      "state": "blink",
+      "at": 41064.37472345121
+    },
+    {
+      "state": "idle",
+      "at": 41324.37472345121
+    },
+    {
+      "state": "blink",
+      "at": 44601.41953296773
+    },
+    {
+      "state": "idle",
+      "at": 44861.41953296773
+    },
+    {
+      "state": "blink",
+      "at": 48014.62080097571
+    },
+    {
+      "state": "idle",
+      "at": 48274.62080097571
+    },
+    {
+      "state": "blink",
+      "at": 51556.8925655894
+    },
+    {
+      "state": "idle",
+      "at": 51816.8925655894
+    },
+    {
+      "state": "look",
+      "at": 52341.17886067182
+    },
+    {
+      "state": "idle",
+      "at": 53361.17886067182
+    },
+    {
+      "state": "blink",
+      "at": 56264.32463945635
+    },
+    {
+      "state": "idle",
+      "at": 56524.32463945635
+    },
+    {
+      "state": "blink",
+      "at": 59793.39674025588
+    },
+    {
+      "state": "idle",
+      "at": 60053.39674025588
+    },
+    {
+      "state": "blink",
+      "at": 63233.620862875134
+    },
+    {
+      "state": "idle",
+      "at": 63493.620862875134
+    },
+    {
+      "state": "tilt",
+      "at": 64866.20676370151
+    },
+    {
+      "state": "idle",
+      "at": 65836.20676370151
+    },
+    {
+      "state": "blink",
+      "at": 68545.58069039881
+    },
+    {
+      "state": "idle",
+      "at": 68805.58069039881
+    },
+    {
+      "state": "blink",
+      "at": 71782.55729553103
+    },
+    {
+      "state": "idle",
+      "at": 72042.55729553103
+    },
+    {
+      "state": "blink",
+      "at": 74767.85579135455
+    },
+    {
+      "state": "idle",
+      "at": 75027.85579135455
+    },
+    {
+      "state": "blink",
+      "at": 78048.25721543096
+    },
+    {
+      "state": "idle",
+      "at": 78308.25721543096
+    },
+    {
+      "state": "ear",
+      "at": 79608.48092466407
+    },
+    {
+      "state": "idle",
+      "at": 80198.48092466407
+    },
+    {
+      "state": "blink",
+      "at": 83057.08008648641
+    },
+    {
+      "state": "idle",
+      "at": 83317.08008648641
+    },
+    {
+      "state": "blink",
+      "at": 86228.55321538448
+    },
+    {
+      "state": "idle",
+      "at": 86488.55321538448
+    },
+    {
+      "state": "blink",
+      "at": 89640.07305783033
+    },
+    {
+      "state": "idle",
+      "at": 89900.07305783033
+    },
+    {
+      "state": "blink",
+      "at": 92807.46102062799
+    },
+    {
+      "state": "idle",
+      "at": 93067.46102062799
+    },
+    {
+      "state": "look",
+      "at": 93857.68423571065
+    },
+    {
+      "state": "idle",
+      "at": 94877.68423571065
+    },
+    {
+      "state": "blink",
+      "at": 98088.2818961963
+    },
+    {
+      "state": "idle",
+      "at": 98348.2818961963
+    },
+    {
+      "state": "blink",
+      "at": 101360.7425649073
+    },
+    {
+      "state": "idle",
+      "at": 101620.7425649073
+    },
+    {
+      "state": "blink",
+      "at": 104456.96951214038
+    },
+    {
+      "state": "idle",
+      "at": 104716.96951214038
+    },
+    {
+      "state": "scarf",
+      "at": 105568.00467210636
+    },
+    {
+      "state": "idle",
+      "at": 106338.00467210636
+    },
+    {
+      "state": "blink",
+      "at": 109252.01166472211
+    },
+    {
+      "state": "idle",
+      "at": 109512.01166472211
+    },
+    {
+      "state": "blink",
+      "at": 112343.03619529866
+    },
+    {
+      "state": "idle",
+      "at": 112603.03619529866
+    },
+    {
+      "state": "blink",
+      "at": 115651.43489761092
+    },
+    {
+      "state": "idle",
+      "at": 115911.43489761092
+    },
+    {
+      "state": "blink",
+      "at": 119103.04199733585
+    },
+    {
+      "state": "idle",
+      "at": 119363.04199733585
+    },
+    {
+      "state": "sleep",
+      "at": 119437.85979777388
+    },
+    {
+      "state": "idle",
+      "at": 121487.85979777388
+    },
+    {
+      "state": "blink",
+      "at": 124751.42384252325
+    },
+    {
+      "state": "idle",
+      "at": 125011.42384252325
+    },
+    {
+      "state": "blink",
+      "at": 127894.65106176957
+    },
+    {
+      "state": "idle",
+      "at": 128154.65106176957
+    },
+    {
+      "state": "scarf",
+      "at": 130349.75569361635
+    },
+    {
+      "state": "idle",
+      "at": 131119.75569361635
+    },
+    {
+      "state": "blink",
+      "at": 134086.53878243454
+    },
+    {
+      "state": "idle",
+      "at": 134346.53878243454
+    },
+    {
+      "state": "blink",
+      "at": 137109.0946679823
+    },
+    {
+      "state": "idle",
+      "at": 137369.0946679823
+    },
+    {
+      "state": "blink",
+      "at": 140246.12685696036
+    },
+    {
+      "state": "idle",
+      "at": 140506.12685696036
+    },
+    {
+      "state": "look",
+      "at": 141515.09478005394
+    },
+    {
+      "state": "idle",
+      "at": 142535.09478005394
+    },
+    {
+      "state": "blink",
+      "at": 145467.88907898404
+    },
+    {
+      "state": "idle",
+      "at": 145727.88907898404
+    },
+    {
+      "state": "blink",
+      "at": 148499.9564768169
+    },
+    {
+      "state": "idle",
+      "at": 148759.9564768169
+    },
+    {
+      "state": "blink",
+      "at": 151586.97501926497
+    },
+    {
+      "state": "idle",
+      "at": 151846.97501926497
+    },
+    {
+      "state": "ear",
+      "at": 154645.71027682908
+    },
+    {
+      "state": "idle",
+      "at": 155235.71027682908
+    },
+    {
+      "state": "blink",
+      "at": 158177.49452202395
+    },
+    {
+      "state": "idle",
+      "at": 158437.49452202395
+    },
+    {
+      "state": "blink",
+      "at": 161199.86829214543
+    },
+    {
+      "state": "idle",
+      "at": 161459.86829214543
+    },
+    {
+      "state": "blink",
+      "at": 164201.22054066323
+    },
+    {
+      "state": "idle",
+      "at": 164461.22054066323
+    },
+    {
+      "state": "scarf",
+      "at": 164772.7139773015
+    },
+    {
+      "state": "idle",
+      "at": 165542.7139773015
+    },
+    {
+      "state": "blink",
+      "at": 168471.31958831847
+    },
+    {
+      "state": "idle",
+      "at": 168731.31958831847
+    },
+    {
+      "state": "blink",
+      "at": 171927.638400428
+    },
+    {
+      "state": "idle",
+      "at": 172187.638400428
+    },
+    {
+      "state": "blink",
+      "at": 174900.00579951145
+    },
+    {
+      "state": "idle",
+      "at": 175160.00579951145
+    },
+    {
+      "state": "blink",
+      "at": 178446.6059635561
+    },
+    {
+      "state": "idle",
+      "at": 178706.6059635561
+    },
+    {
+      "state": "ear",
+      "at": 179122.62805171125
+    },
+    {
+      "state": "idle",
+      "at": 179712.62805171125
+    }
+  ]
+}

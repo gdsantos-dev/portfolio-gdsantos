@@ -1,0 +1,21 @@
+/* Placement only: no changes to the contact card's dimensions or contents. */
+#contato.contact { position: relative; overflow: visible; }
+#contato > .contact-liquio {
+  position: absolute;
+  bottom: calc(100% - 3px);
+  right: calc(18.8% - 32px);
+  width: 64px;
+  height: 80px;
+  pointer-events: none;
+  user-select: none;
+  --liquio-width: 64px;
+}
+@media (max-width: 700px) {
+  #contato > .contact-liquio {
+    right: 20px;
+    bottom: calc(100% - 2px);
+    width: 48px;
+    height: 60px;
+    --liquio-width: 48px;
+  }
+}

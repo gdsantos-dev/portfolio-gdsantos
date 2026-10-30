@@ -1,0 +1,10 @@
+{
+  "name": "Liquio",
+  "version": "1.0.0",
+  "files": {
+    "liquio.js": "6031353e0b9ac0747c82aacce2b6095bddc27459a3739056a0a4b33fcd6003df",
+    "liquio-cycle.js": "e23db1e437073bee2706de19fc952e72d52c8a2516997f5eb7f6467cab8236bf",
+    "liquio.css": "bb56f6eebe5c300d988c84729cc5536d5537f9143ac4d5c536acf5820238fce0",
+    "sprites/liquio.png": "a003984d2a8ccf0ee58a2d3aa471751d5a6f518a8693ae92ef0f5fa498a841b8"
+  }
+}

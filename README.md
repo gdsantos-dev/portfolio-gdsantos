@@ -83,3 +83,7 @@ O `server.mjs` importa `scripts/project-seo.mjs` para gerar metadados públicos 
 ## Navegação por rolagem na página inicial
 
 A URL acompanha a seção realmente visível durante a rolagem, nos três idiomas, utilizando `history.replaceState` para não gerar entradas extras no histórico. Ao voltar ao topo, o fragmento é removido. Clicar em âncoras, recarregar links diretos e o sistema de capítulos das páginas de projetos continuam funcionando. Código em `public/section-tracker.js`, validado por `node scripts/validate-section-tracker.mjs`.
+
+## Liquio no contato
+
+Liquio 1.0.0 foi integrado apenas ao contato em PT, EN e ES, com distribuição independente versionada. Consulte [a documentação de integração](docs/LIQUIO.md) e [a validação local](docs/LIQUIO-VALIDACAO.md). Esta entrega não foi publicada.
