@@ -15,6 +15,15 @@ METADATA = {
     "es": ("Currículum | Guilherme dos Santos", "Currículum profesional"),
 }
 
+def translate_run(original, locale):
+    if original in TRANSLATIONS:
+        return TRANSLATIONS[original][locale], original
+    if original.startswith("  ") and original[2:] in TRANSLATIONS:
+        return "  " + TRANSLATIONS[original[2:]][locale], original[2:]
+    if original.endswith(": ") and original[:-2] in TRANSLATIONS:
+        return TRANSLATIONS[original[:-2]][locale] + ": ", original[:-2]
+    return None, None
+
 def generate(locale):
     if not MASTER.is_file():
         raise FileNotFoundError(f"Portuguese master not found: {MASTER}")
@@ -22,15 +31,17 @@ def generate(locale):
     seen = set()
     for node in doc.element.body.iter(qn("w:t")):
         old = node.text or ""
-        if old in TRANSLATIONS:
-            node.text = TRANSLATIONS[old][locale]
-            seen.add(old)
+        value, key = translate_run(old, locale)
+        if key:
+            node.text = value
+            seen.add(key)
     for section in doc.sections:
         for node in section.footer._element.iter(qn("w:t")):
             old = node.text or ""
-            if old in TRANSLATIONS:
-                node.text = TRANSLATIONS[old][locale]
-                seen.add(old)
+            value, key = translate_run(old, locale)
+            if key:
+                node.text = value
+                seen.add(key)
     missing = set(TRANSLATIONS) - seen
     if missing:
         raise ValueError("Portuguese master changed. Unmatched runs: " + repr(sorted(missing)))
