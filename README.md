@@ -79,3 +79,7 @@ As páginas iniciais mantêm metadados traduzidos em PT, EN e ES. Para links `/{
 ## Dependências da imagem de produção
 
 O `server.mjs` importa `scripts/project-seo.mjs` para gerar metadados públicos dos estudos de caso. Por isso, ambos precisam ser copiados no Dockerfile. O GitHub Actions constrói a imagem e testa `/health`, URLs dos casos e `sitemap.xml` antes de aprovar atualizações. A configuração do deploy permanece manual e não inclui o restante dos scripts de desenvolvimento.
+
+## Navegação por rolagem na página inicial
+
+A URL acompanha a seção realmente visível durante a rolagem, nos três idiomas, utilizando `history.replaceState` para não gerar entradas extras no histórico. Ao voltar ao topo, o fragmento é removido. Clicar em âncoras, recarregar links diretos e o sistema de capítulos das páginas de projetos continuam funcionando. Código em `public/section-tracker.js`, validado por `node scripts/validate-section-tracker.mjs`.
