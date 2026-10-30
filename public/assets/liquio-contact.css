@@ -2,20 +2,21 @@
 #contato.contact { position: relative; overflow: visible; }
 #contato > .contact-liquio {
   position: absolute;
-  bottom: calc(100% - 3px);
-  right: calc(18.8% - 81px);
-  width: 162px;
-  height: 203px;
+  bottom: calc(100% + 6px);
+  right: 24px;
+  width: 405px;
+  height: 506px;
   pointer-events: none;
   user-select: none;
-  --liquio-width: 162px;
+  --liquio-width: 405px;
 }
-@media (max-width: 700px) {
+@media (max-width: 900px) {
   #contato > .contact-liquio {
-    right: 20px;
-    bottom: calc(100% - 2px);
-    width: 108px;
-    height: 135px;
-    --liquio-width: 108px;
+    right: 12px;
+    bottom: calc(100% + 4px);
+    width: min(270px, calc(100% - 24px));
+    height: auto;
+    aspect-ratio: 4 / 5;
+    --liquio-width: 100%;
   }
 }
