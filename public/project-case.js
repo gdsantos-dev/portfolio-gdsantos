@@ -124,7 +124,7 @@
       let pending=false;
       const updateActive=()=>{
         pending=false;
-        const offset=chapters.getBoundingClientRect().bottom+18;
+        const offset=Math.max(chapters.getBoundingClientRect().bottom+50,(window.innerHeight||0)*.52);
         let active=0;
         sections.forEach((section,index)=>{
           if(section.getBoundingClientRect().top<=offset)active=index;
