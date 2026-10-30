@@ -5,6 +5,7 @@ on:
       - "public/**"
       - "scripts/validate-project-showcase.mjs"
       - "scripts/validate-section-tracker.mjs"
+      - "scripts/validate-liquio.mjs"
       - "scripts/validate-project-seo.mjs"
       - "scripts/project-seo.mjs"
       - "server.mjs"
@@ -15,6 +16,7 @@ on:
       - "public/**"
       - "scripts/validate-project-showcase.mjs"
       - "scripts/validate-section-tracker.mjs"
+      - "scripts/validate-liquio.mjs"
       - "scripts/validate-project-seo.mjs"
       - "scripts/project-seo.mjs"
       - "server.mjs"
@@ -45,6 +47,8 @@ jobs:
         run: node scripts/validate-project-seo.mjs
       - name: Homepage scroll URL state
         run: node scripts/validate-section-tracker.mjs
+      - name: Liquio distribution and contact isolation
+        run: node scripts/validate-liquio.mjs
       - name: Docker production smoke test
         shell: bash
         run: |
@@ -63,3 +67,6 @@ jobs:
           curl -fsS 'http://127.0.0.1:3100/en/projeto/?id=dashliq' | grep -Fq '<title>DashLIQ | Guilherme Santos</title>'
           curl -fsS 'http://127.0.0.1:3100/sitemap.xml' | grep -Fq 'id=scoutliq'
 
+
+          curl -fsS 'http://127.0.0.1:3100/assets/liquio/1.0.0/liquio.js' >/dev/null
+          curl -fsS 'http://127.0.0.1:3100/assets/liquio/1.0.0/sprites/liquio.png' >/dev/null

@@ -6,7 +6,8 @@
   "description": "Portfólio público estático, separado do laboratório privado",
   "scripts": {
     "start": "node server.mjs",
-    "check": "node --check server.mjs"
+    "check": "node --check server.mjs",
+    "check:liquio": "node scripts/validate-liquio.mjs"
   },
   "engines": {
     "node": ">=20"

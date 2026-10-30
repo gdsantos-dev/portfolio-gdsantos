@@ -1,0 +1,21 @@
+/* Position only: preserve the contact card and anchor Liquio by its feet. */
+#contato.contact { position: relative; overflow: visible; }
+#contato > .contact-liquio {
+  position: absolute;
+  bottom: calc(100% + 1px);
+  right: calc(18.8% - 60px);
+  width: 120px;
+  height: 150px;
+  pointer-events: none;
+  user-select: none;
+  --liquio-width: 120px;
+}
+@media (max-width: 700px) {
+  #contato > .contact-liquio {
+    right: 18px;
+    bottom: calc(100% + 1px);
+    width: 80px;
+    height: 100px;
+    --liquio-width: 80px;
+  }
+}

@@ -1,0 +1,40 @@
+/* Liquio 1.0.0 — 64 × 80 frames, one local transparent atlas. */
+.liquio {
+  display: block;
+  position: relative;
+  width: var(--liquio-width, 64px);
+  aspect-ratio: 4 / 5;
+  pointer-events: none;
+  user-select: none;
+  contain: layout style;
+}
+.liquio *, .liquio::before, .liquio::after { pointer-events: none; }
+.liquio__sprite {
+  display: block;
+  width: 100%; height: 100%;
+  background-image: url('./sprites/liquio.png');
+  background-repeat: no-repeat;
+  background-size: 800% 100%;
+  background-position: 0 0;
+  image-rendering: pixelated;
+  transform-origin: 50% 96%;
+}
+.liquio__sprite[data-liquio-pose="blink"] { background-position-x: calc(100% / 7); }
+.liquio__sprite[data-liquio-pose="look-left"] { background-position-x: calc(200% / 7); }
+.liquio__sprite[data-liquio-pose="look-right"] { background-position-x: calc(300% / 7); }
+.liquio__sprite[data-liquio-pose="tilt"] { background-position-x: calc(400% / 7); }
+.liquio__sprite[data-liquio-pose="ear"] { background-position-x: calc(500% / 7); }
+.liquio__sprite[data-liquio-pose="scarf"] { background-position-x: calc(600% / 7); }
+.liquio__sprite[data-liquio-pose="sleep"] { background-position-x: 100%; }
+@media (prefers-reduced-motion: no-preference) {
+  .liquio[data-liquio-state="idle"][data-liquio-paused="false"] .liquio__sprite {
+    animation: liquio-breathe 4.8s steps(2, end) infinite;
+  }
+}
+@keyframes liquio-breathe {
+  0%, 100% { transform: scaleY(1); }
+  50% { transform: scaleY(.99); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .liquio__sprite { animation: none !important; transform: none !important; }
+}

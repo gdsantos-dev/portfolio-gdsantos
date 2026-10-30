@@ -1,0 +1,96 @@
+{
+  "runs": [
+    {
+      "name": "Build",
+      "status": "passed",
+      "stdout": "Liquio 1.0.0: distribution built with SHA-256 manifest.\n",
+      "stderr": ""
+    },
+    {
+      "name": "Standalone unit tests",
+      "status": "passed",
+      "stdout": "✔ first blink near 3 seconds; one expression at a time; normal restored (1.5079ms)\n✔ long cycle covers all specials, never repeats consecutively, starts within 10–15 s (9.9938ms)\n✔ reset after hidden tab clears pending expressions and restarts intervals (0.2413ms)\n✔ every authored animation ends in neutral; invalid names rejected (0.9071ms)\n✔ idempotent initialization and destruction leave host content intact (2.4622ms)\n✔ hidden tab cancels all timers and resumes without accumulated events (1.979ms)\n✔ reduced motion is static at initialization and reacts to preference changes (0.316ms)\n✔ 100 mount/destroy cycles do not accumulate listeners or timers (3.9392ms)\n✔ invalid host fails before adding events (0.4814ms)\nℹ tests 9\nℹ suites 0\nℹ pass 9\nℹ fail 0\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 175.3816\n",
+      "stderr": ""
+    },
+    {
+      "name": "Distribution update",
+      "status": "passed",
+      "stdout": "Liquio 1.0.0 installed. Run portfolio checks and browser QA before publication.\n",
+      "stderr": ""
+    },
+    {
+      "name": "Repeated update is idempotent",
+      "status": "passed",
+      "stdout": "Liquio 1.0.0 installed. Run portfolio checks and browser QA before publication.\n",
+      "stderr": ""
+    },
+    {
+      "name": "Integration contract",
+      "status": "passed",
+      "stdout": "Liquio: versioned checksums, 4 homepages, 3 case exclusions, isolated bootstrap and anchored placement OK.\n",
+      "stderr": ""
+    },
+    {
+      "name": "Existing server syntax",
+      "status": "passed",
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "name": "Syntax public/main.js",
+      "status": "passed",
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "name": "Syntax public/project-case.js",
+      "status": "passed",
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "name": "Syntax public/projects-cinema.js",
+      "status": "passed",
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "name": "Syntax public/section-tracker.js",
+      "status": "passed",
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "name": "Syntax public/assets/liquio-contact.js",
+      "status": "passed",
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "name": "Syntax scripts/smoke-liquio-docker.mjs",
+      "status": "passed",
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "name": "Existing showcase",
+      "status": "passed",
+      "stdout": "Portfolio: compact project index in PT/EN/ES and case routes OK.\n",
+      "stderr": ""
+    },
+    {
+      "name": "Existing SEO HTTP",
+      "status": "passed",
+      "stdout": "SEO: 3 localized home titles, 6 project meta responses, 9 sitemap routes, GET/HEAD OK.\n",
+      "stderr": ""
+    },
+    {
+      "name": "Existing section tracker",
+      "status": "passed",
+      "stdout": "Homepage URL tracker: hero and four scroll sections, clean history, locales and case isolation OK.\n",
+      "stderr": ""
+    }
+  ],
+  "git": "## feat/liquio-contact\n M .github/workflows/validate-project-pages.yml\n M README.md\n M package.json\n M public/en/index.html\n M public/es/index.html\n M public/index.html\n M public/pt/index.html\n?? docs/LIQUIO.md\n?? public/assets/liquio-contact.css\n?? public/assets/liquio-contact.js\n?? public/assets/liquio/\n?? scripts/smoke-liquio-docker.mjs\n?? scripts/validate-liquio.mjs\n",
+  "diff": " .github/workflows/validate-project-pages.yml | 7 +++++++\n README.md                                    | 4 ++++\n package.json                                 | 3 ++-\n public/en/index.html                         | 4 ++--\n public/es/index.html                         | 4 ++--\n public/index.html                            | 4 ++--\n public/pt/index.html                         | 4 ++--\n 7 files changed, 21 insertions(+), 9 deletions(-)\n"
+}
