@@ -21,7 +21,11 @@ for(const lang of ['','pt/','en/','es/']){
  assert.ok(html.includes('/assets/liquio-contact.css?v='+contactCssHash+'"'), 'Contact CSS cache key mismatch: '+lang);
  assert.ok(/<section id="contato"[^>]*><div class="contact-liquio"/.test(html));
 }
-for(const lang of ['pt','en','es']) assert.ok(!(await fs.readFile(path.join(root,'public',lang,'projeto/index.html'),'utf8')).includes('liquio'));
+for(const lang of ['pt','en','es']) {
+ const html=await fs.readFile(path.join(root,'public',lang,'projeto/index.html'),'utf8');
+ assert.ok(!html.includes('data-liquio'), lang+': animated Liquio slot must not appear on case pages');
+ assert.ok(!html.includes('/assets/liquio-contact.js'), lang+': animation bootstrap must not appear on case pages');
+}
 const js=await fs.readFile(path.join(root,'public/assets/liquio-contact.js'),'utf8');
 assert.ok(js.includes("./liquio/"+version+"/liquio.js"));
 assert.ok(!js.includes('setTimeout'));
