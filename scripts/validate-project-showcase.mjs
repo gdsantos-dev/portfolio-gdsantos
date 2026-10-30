@@ -39,6 +39,10 @@ for (const [lang, locale] of Object.entries(locales)) {
   assert.ok(detail.includes('lang="' + locale + '"'));
   assert.ok(home.includes('id="projetos"'), "No projects section on " + lang);
   assert.ok(home.includes('data-projects-reel'));
+  assert.ok(home.includes('/style.css?v=20261029-gallery3'), "Portfolio CSS must have a versioned URL: " + lang);
+  assert.ok(home.includes('/projects-cinema.css?v=20261029-gallery3'), "Gallery CSS must have a versioned URL: " + lang);
+  assert.ok(home.includes('/projects-cinema.js?v=20261029-gallery3'), "Gallery JS must have the same release version: " + lang);
+  assert.ok(detail.includes('/style.css?v=20261029-gallery3') && detail.includes('/project-case.css?v=20261029-gallery3'), "Project case CSS must be versioned: " + lang);
   assert.ok(home.includes('/projects-cinema.js') && home.includes('/projects-cinema.css'));
   assert.ok(!home.includes("projects-cinema__index"), "Old project counter navigation still present");
   assert.ok(detail.includes('data-case-root') && detail.includes('/project-case.js') && detail.includes('/project-case.css'));
@@ -70,5 +74,6 @@ const caseCss = read("public/project-case.css");
 assert.ok(caseCss.includes(".case-facts>div:last-child{border-bottom:0}"), "Case facts should not end with a closing divider");
 assert.ok(read("public/projects-cinema.css").includes("prefers-reduced-motion"));
 assert.ok(existsSync(path.join(root,"public/pt/index.html")));
+assert.ok(read("server.mjs").includes("isData || isHtml || isCode"), "CSS and JS should revalidate on subsequent visits");
 
 console.log("Portfolio: galleries, assets, PT/EN/ES, case chapters and collaboration notes OK.");

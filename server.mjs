@@ -69,9 +69,10 @@ http.createServer(async (req, res) => {
     if (!type) throw new Error('Unsupported file');
     const isData = pathname.startsWith('/data/');
     const isHtml = path.extname(file) === '.html';
+    const isCode = ['.css', '.js'].includes(path.extname(file).toLowerCase());
     res.writeHead(200, {
       'Content-Type': type,
-      'Cache-Control': type === 'application/pdf' ? 'no-store' : (isData || isHtml) ? 'no-cache' : 'public, max-age=3600',
+      'Cache-Control': type === 'application/pdf' ? 'no-store' : (isData || isHtml || isCode) ? 'no-cache' : 'public, max-age=3600',
     });
     return res.end(req.method === 'HEAD' ? undefined : bytes);
   } catch {
