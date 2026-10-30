@@ -2,6 +2,7 @@ import http from 'node:http';
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { projectCaseSEO } from './scripts/project-seo.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), 'public');
 const port = Number(process.env.PORT || 3000);
@@ -35,9 +36,10 @@ http.createServer(async (req, res) => {
     return res.end();
   }
 
-  let pathname;
+  let pathname, requestUrl;
   try {
-    pathname = decodeURIComponent(new URL(req.url, 'http://localhost').pathname);
+    requestUrl = new URL(req.url, 'http://localhost');
+    pathname = decodeURIComponent(requestUrl.pathname);
     if (pathname.includes('\\') || pathname.includes('\0') || pathname.split('/').some(part => part.startsWith('.'))) throw new Error('Invalid path');
   } catch {
     res.writeHead(400);
@@ -64,14 +66,24 @@ http.createServer(async (req, res) => {
   try {
     const stat = await fs.stat(file);
     if (stat.isDirectory()) file = path.join(file, 'index.html');
-    const bytes = await fs.readFile(file);
+    let bytes = await fs.readFile(file);
+    // The HTML body remains client-rendered. The server supplies exact SEO
+    // metadata for known cases so link previews do not depend on JavaScript.
+    const caseRoute = /^\/(pt|en|es)\/projeto\/?$/.exec(pathname);
+    const projectId = requestUrl.searchParams.get('id');
+    if (caseRoute && projectId && /^[a-z0-9-]+$/.test(projectId)) {
+      const records = JSON.parse(await fs.readFile(path.join(root, 'data/projects.json'), 'utf8'));
+      const selected = records.find(item => item.id === projectId);
+      if (selected) bytes = Buffer.from(projectCaseSEO(bytes.toString('utf8'), selected, caseRoute[1]));
+    }
     const type = mime[path.extname(file).toLowerCase()];
     if (!type) throw new Error('Unsupported file');
     const isData = pathname.startsWith('/data/');
     const isHtml = path.extname(file) === '.html';
+    const isCode = ['.css', '.js'].includes(path.extname(file).toLowerCase());
     res.writeHead(200, {
       'Content-Type': type,
-      'Cache-Control': type === 'application/pdf' ? 'no-store' : (isData || isHtml) ? 'no-cache' : 'public, max-age=3600',
+      'Cache-Control': type === 'application/pdf' ? 'no-store' : (isData || isHtml || isCode) ? 'no-cache' : 'public, max-age=3600',
     });
     return res.end(req.method === 'HEAD' ? undefined : bytes);
   } catch {

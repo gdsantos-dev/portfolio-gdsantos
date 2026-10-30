@@ -1,9 +1,10 @@
-name: Gerar currículo definitivo
+name: Gerar curriculos PT EN ES
 
 on:
   push:
     paths:
       - 'scripts/gerar_curriculo.py'
+      - 'scripts/gerar_curriculos_traduzidos.py'
       - '.github/workflows/atualizar-cores-curriculo.yml'
   workflow_dispatch:
 
@@ -11,7 +12,7 @@ permissions:
   contents: write
 
 jobs:
-  build-curriculo:
+  build-curriculos:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -20,39 +21,57 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - name: Instalar python-docx e leitor PDF
+      - name: Instalar dependencias
         run: python -m pip install --disable-pip-version-check python-docx==1.2.0 pymupdf==1.26.5
-      - name: Gerar currículo editável
-        run: python scripts/gerar_curriculo.py
-      - name: Instalar conversor PDF, se necessário
+      - name: Gerar os tres documentos editaveis
+        run: |
+          python scripts/gerar_curriculo.py
+          python scripts/gerar_curriculos_traduzidos.py
+      - name: Instalar conversor PDF se necessario
         run: |
           if ! command -v libreoffice >/dev/null 2>&1; then
             sudo apt-get update -qq
             sudo apt-get install -y -qq libreoffice-writer
           fi
-      - name: Gerar PDF da versão editável
+      - name: Gerar PDF em cada idioma
         run: |
-          libreoffice -env:UserInstallation=file:///tmp/lo-curriculo-${{ github.run_id }} --headless --convert-to pdf --outdir public/data/curriculos public/data/curriculos/guilherme-dos-santos-curriculo-pt.docx
-      - name: Validar conteúdo, links e paginação
+          libreoffice -env:UserInstallation=file:///tmp/lo-curriculos-${{ github.run_id }} --headless --convert-to pdf --outdir public/data/curriculos public/data/curriculos/*.docx
+      - name: Validar documentos PDF e links
         run: |
           python - <<'PY'
           from pathlib import Path
           import fitz
-          path = Path('public/data/curriculos/guilherme-dos-santos-curriculo-pt.pdf')
-          with fitz.open(path) as doc:
-              assert len(doc) == 1, 'O currículo deve ter uma página'
-              text = doc[0].get_text()
-              for phrase in ('HABILIDADES TÉCNICAS','Ferramentas e práticas','Back-end e dados','Web:'):
-                  assert phrase in text, f'Faltou: {phrase}'
-              assert len(doc[0].get_links()) >= 4, 'Links do currículo não estão clicáveis'
-          print('Currículo validado:',path.stat().st_size,'bytes')
+          directory = Path('public/data/curriculos')
+          markers = {
+              'pt': ('OBJETIVO PROFISSIONAL', 'HABILIDADES TÉCNICAS', 'IDIOMAS'),
+              'en': ('PROFESSIONAL OBJECTIVE', 'TECHNICAL SKILLS', 'LANGUAGES'),
+              'es': ('OBJETIVO PROFESIONAL', 'COMPETENCIAS TÉCNICAS', 'IDIOMAS'),
+          }
+          for locale, phrases in markers.items():
+              pdf = directory / f'guilherme-dos-santos-curriculo-{locale}.pdf'
+              word = directory / f'guilherme-dos-santos-curriculo-{locale}.docx'
+              assert pdf.exists() and word.exists(), f'Missing resume files: {locale}'
+              with fitz.open(pdf) as doc:
+                  assert len(doc) == 1, f'{locale}: expected one page, got {len(doc)}'
+                  page = doc[0]
+                  body = page.get_text()
+                  for phrase in phrases:
+                      assert phrase in body, f'{locale}: missing {phrase}'
+                  assert len(page.get_links()) >= 4, f'{locale}: clickable links missing'
+                  for block in page.get_text('dict')['blocks']:
+                      if block.get('type') != 0: continue
+                      for line in block['lines']:
+                          for span in line['spans']:
+                              x0, y0, x1, y1 = span['bbox']
+                              assert min(x0, y0) >= -1 and x1 <= page.rect.width + 1 and y1 <= page.rect.height + 1, f'{locale}: text out of bounds'
+              print(locale, 'one page, translated sections, clickable links')
           PY
-      - name: Publicar PDF e DOCX no repositório
+      - name: Publicar PDF e Word
         run: |
-          git add public/data/curriculos/guilherme-dos-santos-curriculo-pt.pdf public/data/curriculos/guilherme-dos-santos-curriculo-pt.docx
+          git add public/data/curriculos/guilherme-dos-santos-curriculo-{pt,en,es}.{pdf,docx}
           if ! git diff --cached --quiet; then
             git config user.name "github-actions[bot]"
             git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-            git commit -m "docs: publica currículo definitivo em PDF e Word [skip ci]"
+            git commit -m "docs: curriculos em tres idiomas PDF e DOCX [skip ci]"
             git push
           fi

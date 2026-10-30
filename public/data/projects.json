@@ -9,7 +9,7 @@
       "FastAPI",
       "SQLite"
     ],
-    "repository": "",
+    "repository": "https://github.com/gdsantos-dev/ScoutLIQ",
     "texts": {
       "pt": {
         "title": "ScoutLIQ",
@@ -19,7 +19,7 @@
         "description": "Uma aplicação para pesquisar empresas, reunir evidências e acompanhar oportunidades comerciais sem dispersar o trabalho entre ferramentas.",
         "focus": "Busca, qualificação e acompanhamento",
         "role": "Concepção, desenvolvimento e validação",
-        "details": "A aplicação reúne busca unificada, registros de empresas, Score 3.0, Radar, Pipeline e automações supervisionadas. O desenvolvimento envolve decisões de produto, APIs, persistência, testes e documentação. O código permanece privado enquanto a publicação é revisada.",
+        "details": "A aplicação reúne busca unificada, registros de empresas, Score 3.0, Radar, Pipeline e automações supervisionadas. O desenvolvimento envolve decisões de produto, APIs, persistência, testes e documentação. O código-fonte está disponível publicamente no GitHub.",
         "case": {
           "lead": "Uma aplicação para transformar pesquisas dispersas em um processo comercial rastreável.",
           "question": "Como pesquisar empresas sem perder a origem das informações?",
@@ -45,7 +45,7 @@
             }
           ],
           "decisionsTitle": "Decisões de engenharia",
-          "decisionsDescription": "A implementação prioriza continuidade e limites explícitos.",
+          "decisionsDescription": "Três prioridades orientam o desenvolvimento: responsabilidades claras, automações revisáveis e mudanças que possam ser testadas.",
           "decisions": [
             {
               "title": "Separar responsabilidades",
@@ -60,11 +60,13 @@
               "description": "Testes e migrações aditivas protegem funcionalidades existentes."
             }
           ],
-          "validationTitle": "Validação documentada",
-          "validation": "O HANDOFF da v1.38.7-dev registra 592 testes de backend, 27 testes unitários de frontend e 77 cenários E2E em Chromium. São resultados relatados de validação local, não uma homologação externa ou de produção.",
-          "note": "Código e demonstração pública exigem revisão de segurança e preparação do material.",
-          "collaboration": "Defino o problema, os requisitos e as prioridades. Uso ferramentas de IA como apoio na implementação e na documentação, depois reviso as decisões, os testes e os resultados antes de aceitar alterações."
-        }
+          "validationTitle": "Testes documentados",
+          "validation": "O relatório da versão v1.38.7-dev registra 592 testes de backend, 27 testes unitários de frontend e 77 cenários E2E em Chromium. São resultados informados de testes locais, não uma avaliação independente.",
+          "note": "O código-fonte já está público. As capturas da interface e a demonstração interativa ainda precisam de revisão antes da divulgação.",
+          "collaboration": "Defino os objetivos, requisitos e prioridades do produto. Utilizo IA como apoio na implementação e documentação, revisando as decisões, os testes e os resultados antes de aceitar mudanças.",
+          "availabilityTitle": "Disponibilidade"
+        },
+        "homeSummary": "Uma ferramenta pessoal para pesquisar empresas, organizar evidências e acompanhar oportunidades comerciais em um só lugar."
       },
       "en": {
         "title": "ScoutLIQ",
@@ -74,7 +76,7 @@
         "description": "An application for researching businesses, gathering evidence and tracking sales opportunities without scattering work across tools.",
         "focus": "Search, qualification and follow-up",
         "role": "Product design, development and validation",
-        "details": "The application includes unified search, business records, Score 3.0, Radar, Pipeline and supervised automation. Development covers product decisions, APIs, persistence, testing and documentation. The source code remains private while publication is under review.",
+        "details": "The application includes unified search, business records, Score 3.0, Radar, Pipeline and supervised automation. Development covers product decisions, APIs, persistence, testing and documentation. The source code is publicly available on GitHub.",
         "case": {
           "lead": "An application designed to turn scattered research into a traceable sales workflow.",
           "question": "How do you research businesses without losing the source of each finding?",
@@ -100,7 +102,7 @@
             }
           ],
           "decisionsTitle": "Engineering decisions",
-          "decisionsDescription": "The implementation prioritizes continuity and explicit constraints.",
+          "decisionsDescription": "Three priorities guide the work: clear responsibilities, reviewable automation and changes that can be tested.",
           "decisions": [
             {
               "title": "Clear responsibilities",
@@ -115,11 +117,13 @@
               "description": "Tests and additive migrations protect existing functionality."
             }
           ],
-          "validationTitle": "Documented validation",
-          "validation": "The v1.38.7-dev HANDOFF reports 592 backend tests, 27 frontend unit tests and 77 Chromium E2E scenarios. These are reported local validation results, not external or production certification.",
-          "note": "Public source and a demo require a security review and publication-ready material.",
-          "collaboration": "I define the problem, requirements and priorities. I use AI tools to support implementation and documentation, then review decisions, tests and outcomes before accepting changes."
-        }
+          "validationTitle": "Documented tests",
+          "validation": "The v1.38.7-dev report lists 592 backend tests, 27 frontend unit tests and 77 Chromium E2E scenarios. These are reported local results, not an independent assessment.",
+          "note": "The source code is already public. Interface screenshots and an interactive demo still need review before publication.",
+          "collaboration": "I define product goals, requirements and priorities. AI tools support implementation and documentation, while I review decisions, tests and outcomes before accepting changes.",
+          "availabilityTitle": "Availability"
+        },
+        "homeSummary": "A personal tool to research businesses, organize evidence and follow commercial opportunities in one place."
       },
       "es": {
         "title": "ScoutLIQ",
@@ -129,7 +133,7 @@
         "description": "Una aplicación para investigar empresas, reunir evidencias y dar seguimiento a oportunidades comerciales sin dispersar el trabajo entre herramientas.",
         "focus": "Búsqueda, evaluación y seguimiento",
         "role": "Diseño del producto, desarrollo y validación",
-        "details": "La aplicación reúne búsqueda unificada, fichas de empresas, Score 3.0, Radar, Pipeline y automatizaciones supervisadas. El desarrollo abarca decisiones de producto, API, persistencia, pruebas y documentación. El código sigue privado mientras se revisa su publicación.",
+        "details": "La aplicación reúne búsqueda unificada, fichas de empresas, Score 3.0, Radar, Pipeline y automatizaciones supervisadas. El desarrollo abarca decisiones de producto, API, persistencia, pruebas y documentación. El código fuente está disponible públicamente en GitHub.",
         "case": {
           "lead": "Una aplicación para convertir investigaciones dispersas en un proceso comercial trazable.",
           "question": "¿Cómo investigar empresas sin perder el origen de cada dato?",
@@ -155,7 +159,7 @@
             }
           ],
           "decisionsTitle": "Decisiones de ingeniería",
-          "decisionsDescription": "La implementación prioriza continuidad y límites explícitos.",
+          "decisionsDescription": "Tres prioridades guían el trabajo: responsabilidades claras, automatizaciones revisables y cambios que puedan probarse.",
           "decisions": [
             {
               "title": "Responsabilidades claras",
@@ -170,13 +174,16 @@
               "description": "Pruebas y migraciones aditivas protegen las funciones existentes."
             }
           ],
-          "validationTitle": "Validación documentada",
-          "validation": "El HANDOFF de v1.38.7-dev registra 592 pruebas de backend, 27 pruebas unitarias de frontend y 77 escenarios E2E en Chromium. Son resultados comunicados de pruebas locales, no una certificación externa o de producción.",
-          "note": "La publicación de código y demostraciones requiere una revisión de seguridad.",
-          "collaboration": "Defino el problema, los requisitos y las prioridades. Utilizo herramientas de IA como apoyo en la implementación y la documentación, y reviso decisiones, pruebas y resultados antes de aceptar cambios."
-        }
+          "validationTitle": "Pruebas documentadas",
+          "validation": "El informe de v1.38.7-dev registra 592 pruebas de backend, 27 pruebas unitarias de frontend y 77 escenarios E2E en Chromium. Son resultados comunicados de pruebas locales, no una evaluación independiente.",
+          "note": "El código fuente ya es público. Las capturas de la interfaz y una demostración interactiva aún deben revisarse antes de su publicación.",
+          "collaboration": "Defino los objetivos, requisitos y prioridades del producto. Utilizo IA como apoyo en la implementación y documentación, revisando decisiones, pruebas y resultados antes de aceptar cambios.",
+          "availabilityTitle": "Disponibilidad"
+        },
+        "homeSummary": "Una herramienta personal para investigar empresas, organizar evidencias y seguir oportunidades comerciales en un mismo lugar."
       }
-    }
+    },
+    "images": []
   },
   {
     "id": "dashliq",
@@ -193,167 +200,174 @@
         "title": "DashLIQ",
         "category": "Gestão financeira",
         "phase": "Em desenvolvimento",
-        "scene": "Registros / Indicadores / Rotina",
-        "description": "Um sistema pessoal de acompanhamento financeiro e operacional, com registros, metas e indicadores organizados para consulta no dia a dia.",
-        "focus": "Finanças, operações e acompanhamento",
+        "scene": "Registros / Metas / Visão financeira",
+        "description": "Um sistema pessoal para registrar receitas e despesas, organizar metas e acompanhar as finanças com clareza.",
+        "focus": "Organização financeira e acompanhamento de metas",
         "role": "Concepção, desenvolvimento e evolução do produto",
-        "details": "O projeto reúne módulos de registro, acompanhamento de resultados, metas e notificações. A evolução considera consistência dos dados, clareza das informações e uso em dispositivos móveis. Não há uma versão pública de demonstração neste momento.",
+        "details": "O projeto reúne lançamentos financeiros, categorias, metas, compromissos previstos e indicadores em uma experiência de consulta simples.",
         "case": {
-          "lead": "Um ambiente pessoal para registrar movimentações, acompanhar resultados e organizar decisões financeiras.",
-          "question": "Como reunir uma rotina financeira sem misturar informações diferentes?",
-          "context": "Registros, metas, operações e compromissos perdem contexto quando ficam dispersos. O DashLIQ explora a organização dessas informações em uma única aplicação.",
-          "flowTitle": "Registrar, acompanhar, interpretar",
-          "flowDescription": "O dado deve continuar compreensível desde o registro até sua consulta.",
+          "lead": "Um espaço pessoal para registrar movimentações financeiras e compreender a rotina com mais clareza.",
+          "question": "Como acompanhar as finanças sem espalhar informações?",
+          "context": "Anotações isoladas dificultam entender os gastos, os compromissos previstos e a evolução das metas. O DashLIQ reúne essas informações em um lugar e facilita a consulta ao longo do tempo.",
+          "flowTitle": "Registrar, organizar, acompanhar",
+          "flowDescription": "Cada lançamento mantém seu contexto. As consultas mostram como as finanças evoluem ao longo do tempo.",
           "steps": [
             {
-              "title": "Registros",
-              "description": "Movimentações e operações com contexto próprio."
+              "title": "Lançamentos",
+              "description": "Registrar receitas e despesas com data, valor e categoria."
             },
             {
               "title": "Organização",
-              "description": "Categorias, datas e estados mantidos de forma consistente."
+              "description": "Separar gastos, compromissos e metas de maneira consistente."
             },
             {
-              "title": "Indicadores",
-              "description": "Metas e consultas por período para acompanhar resultados."
+              "title": "Acompanhamento",
+              "description": "Consultar períodos e indicadores para entender a situação financeira."
             },
             {
-              "title": "Rotina",
-              "description": "Lembretes e notificações para apoiar o acompanhamento."
+              "title": "Planejamento",
+              "description": "Manter metas e despesas previstas visíveis no cotidiano."
             }
           ],
-          "decisionsTitle": "Decisões de produto",
-          "decisionsDescription": "Clareza e consistência importam mais que concentrar informações em uma única tela.",
+          "decisionsTitle": "Escolhas de produto",
+          "decisionsDescription": "A prioridade é tornar a informação fácil de registrar, localizar e compreender.",
           "decisions": [
             {
-              "title": "Separar conceitos",
-              "description": "Caixa operacional, valores investidos, gastos e metas não são equivalentes."
+              "title": "Contexto em cada registro",
+              "description": "Datas, categorias e histórico ajudam a interpretar os lançamentos."
             },
             {
-              "title": "Preservar contexto",
-              "description": "Datas, status e histórico reduzem ambiguidades nos resultados."
+              "title": "Conceitos bem separados",
+              "description": "Receitas, despesas e metas aparecem de forma distinta nas consultas."
             },
             {
-              "title": "Projetar para uso cotidiano",
-              "description": "Desktop e celular com legibilidade e controles de acessibilidade."
+              "title": "Uso no dia a dia",
+              "description": "Leitura confortável e controles claros no computador e no celular."
             }
           ],
           "validationTitle": "Estado do desenvolvimento",
-          "validation": "O DashLIQ permanece em desenvolvimento. Ainda não há métricas públicas verificadas, demonstração aberta ou resultados de testes independentes apresentados nesta página.",
-          "note": "Uma demonstração será indicada quando existir uma versão adequada para apresentação.",
-          "collaboration": "Defino o problema, os requisitos e as prioridades. Uso ferramentas de IA como apoio na implementação e na documentação, depois reviso as decisões, os testes e os resultados antes de aceitar alterações."
-        }
+          "validation": "O DashLIQ está em desenvolvimento para uso pessoal. Esta página apresenta seus objetivos e decisões de produto, sem divulgar métricas de uso ou resultados de testes independentes.",
+          "note": "Capturas e demonstrações serão disponibilizadas após uma revisão das telas.",
+          "collaboration": "Defino os objetivos, requisitos e prioridades do produto. Utilizo IA como apoio na implementação e documentação, revisando as decisões, os testes e os resultados antes de aceitar mudanças.",
+          "availabilityTitle": "Apresentação pública"
+        },
+        "homeSummary": "Um sistema pessoal para registrar receitas e despesas, organizar metas e acompanhar as finanças do dia a dia."
       },
       "en": {
         "title": "DashLIQ",
         "category": "Financial management",
         "phase": "In development",
-        "scene": "Records / Insights / Workflow",
-        "description": "A personal financial and operational tracking system, bringing records, goals and indicators together for everyday use.",
-        "focus": "Finances, operations and tracking",
+        "scene": "Records / Goals / Financial overview",
+        "description": "A personal system for recording income and expenses, organizing goals and tracking finances clearly.",
+        "focus": "Personal finance and goal tracking",
         "role": "Product design, development and iteration",
-        "details": "The project includes records, result tracking, goals and notifications. Ongoing work focuses on data consistency, readable information and mobile use. There is no public demo at this time.",
+        "details": "The project brings together financial entries, categories, goals, upcoming commitments and indicators in a straightforward interface.",
         "case": {
-          "lead": "A personal environment for tracking activity, results and financial decisions.",
-          "question": "How do you organize financial routines without mixing distinct information?",
-          "context": "Records, goals, operations and commitments lose context when scattered. DashLIQ explores bringing them into a single application.",
-          "flowTitle": "Record, track, interpret",
-          "flowDescription": "Information should remain understandable from entry to review.",
+          "lead": "A personal space to record financial activity and understand everyday finances more clearly.",
+          "question": "How can you keep track of finances without scattering information?",
+          "context": "Disconnected notes make it harder to understand expenses, upcoming commitments and progress toward goals. DashLIQ brings that information together and makes it easier to review over time.",
+          "flowTitle": "Record, organize, track",
+          "flowDescription": "Every entry keeps its context. Views make it easier to see how finances change over time.",
           "steps": [
             {
-              "title": "Records",
-              "description": "Transactions and operations with their own context."
+              "title": "Entries",
+              "description": "Record income and expenses with dates, amounts and categories."
             },
             {
-              "title": "Structure",
-              "description": "Consistent categories, dates and states."
+              "title": "Organization",
+              "description": "Keep spending, commitments and goals clearly separated."
             },
             {
-              "title": "Indicators",
-              "description": "Goals and period views for tracking results."
+              "title": "Tracking",
+              "description": "Review periods and indicators to understand your financial position."
             },
             {
-              "title": "Routine",
-              "description": "Reminders and notifications supporting follow-up."
+              "title": "Planning",
+              "description": "Keep goals and upcoming expenses visible in everyday use."
             }
           ],
-          "decisionsTitle": "Product decisions",
-          "decisionsDescription": "Clarity and consistency matter more than packing everything into one screen.",
+          "decisionsTitle": "Product choices",
+          "decisionsDescription": "The priority is to make information easy to record, find and understand.",
           "decisions": [
             {
-              "title": "Separate concepts",
-              "description": "Operational cash, invested amounts, expenses and goals are not interchangeable."
+              "title": "Context for every entry",
+              "description": "Dates, categories and history help explain financial records."
             },
             {
-              "title": "Preserve context",
-              "description": "Dates, statuses and history reduce ambiguity."
+              "title": "Clear distinctions",
+              "description": "Income, expenses and goals remain distinct in financial views."
             },
             {
-              "title": "Design for everyday use",
-              "description": "Desktop and mobile readability, with accessibility controls."
+              "title": "Everyday usability",
+              "description": "Comfortable reading and clear controls on desktop and mobile."
             }
           ],
           "validationTitle": "Development status",
-          "validation": "DashLIQ is still under development. This page does not claim verified public usage metrics, an open demo or independently validated test results.",
-          "note": "A demo will be linked when a presentation-ready version is available.",
-          "collaboration": "I define the problem, requirements and priorities. I use AI tools to support implementation and documentation, then review decisions, tests and outcomes before accepting changes."
-        }
+          "validation": "DashLIQ is under development for personal use. This page describes product goals and decisions without publishing usage metrics or independent test results.",
+          "note": "Screenshots and a demo will be shared after the interface has been reviewed.",
+          "collaboration": "I define product goals, requirements and priorities. AI tools support implementation and documentation, while I review decisions, tests and outcomes before accepting changes.",
+          "availabilityTitle": "Public presentation"
+        },
+        "homeSummary": "A personal system to record income and expenses, organize goals and keep track of everyday finances."
       },
       "es": {
         "title": "DashLIQ",
         "category": "Gestión financiera",
         "phase": "En desarrollo",
-        "scene": "Registros / Indicadores / Rutina",
-        "description": "Un sistema personal de seguimiento financiero y operativo, que reúne registros, objetivos e indicadores para el uso diario.",
-        "focus": "Finanzas, operaciones y seguimiento",
+        "scene": "Registros / Objetivos / Visión financiera",
+        "description": "Un sistema personal para registrar ingresos y gastos, organizar objetivos y seguir las finanzas con claridad.",
+        "focus": "Finanzas personales y seguimiento de objetivos",
         "role": "Diseño, desarrollo y evolución del producto",
-        "details": "El proyecto incluye registros, seguimiento de resultados, metas y notificaciones. Su evolución prioriza la consistencia de los datos, la claridad y el uso móvil. Por ahora no hay una demostración pública.",
+        "details": "El proyecto reúne registros financieros, categorías, objetivos, compromisos previstos e indicadores en una interfaz sencilla de consultar.",
         "case": {
-          "lead": "Un entorno personal para registrar movimientos, seguir resultados y organizar decisiones financieras.",
-          "question": "¿Cómo organizar la rutina financiera sin mezclar información distinta?",
-          "context": "Los registros, objetivos, operaciones y compromisos pierden contexto cuando están dispersos. DashLIQ explora reunirlos en una sola aplicación.",
-          "flowTitle": "Registrar, seguir, interpretar",
-          "flowDescription": "La información debe mantener su significado desde el registro hasta la consulta.",
+          "lead": "Un espacio personal para registrar movimientos financieros y comprender mejor la economía diaria.",
+          "question": "¿Cómo seguir las finanzas sin dispersar la información?",
+          "context": "Las notas separadas dificultan entender los gastos, los compromisos previstos y la evolución de los objetivos. DashLIQ reúne esa información y facilita su consulta a lo largo del tiempo.",
+          "flowTitle": "Registrar, organizar, seguir",
+          "flowDescription": "Cada registro conserva su contexto. Las consultas permiten ver cómo cambian las finanzas con el tiempo.",
           "steps": [
             {
               "title": "Registros",
-              "description": "Movimientos y operaciones con su propio contexto."
+              "description": "Registrar ingresos y gastos con fecha, importe y categoría."
             },
             {
               "title": "Organización",
-              "description": "Categorías, fechas y estados consistentes."
+              "description": "Separar gastos, compromisos y objetivos de forma consistente."
             },
             {
-              "title": "Indicadores",
-              "description": "Objetivos y consultas por período."
+              "title": "Seguimiento",
+              "description": "Consultar períodos e indicadores para comprender la situación financiera."
             },
             {
-              "title": "Rutina",
-              "description": "Recordatorios y notificaciones de seguimiento."
+              "title": "Planificación",
+              "description": "Mantener visibles los objetivos y los gastos previstos."
             }
           ],
           "decisionsTitle": "Decisiones de producto",
-          "decisionsDescription": "La claridad y la consistencia importan más que reunir todo en una sola pantalla.",
+          "decisionsDescription": "La prioridad es facilitar el registro, la búsqueda y la comprensión de la información.",
           "decisions": [
             {
-              "title": "Separar conceptos",
-              "description": "Caja operativa, valores invertidos, gastos y objetivos no son equivalentes."
+              "title": "Contexto para cada registro",
+              "description": "Fechas, categorías e historial ayudan a interpretar los movimientos."
             },
             {
-              "title": "Preservar contexto",
-              "description": "Fechas, estados e historial reducen la ambigüedad."
+              "title": "Conceptos diferenciados",
+              "description": "Ingresos, gastos y objetivos permanecen separados en las consultas."
             },
             {
-              "title": "Diseñar para el uso diario",
-              "description": "Legibilidad en escritorio y móvil, con controles de accesibilidad."
+              "title": "Uso cotidiano",
+              "description": "Lectura cómoda y controles claros en escritorio y móvil."
             }
           ],
           "validationTitle": "Estado del desarrollo",
-          "validation": "DashLIQ sigue en desarrollo. Esta página no presenta cifras públicas verificadas, una demo abierta ni resultados de pruebas independientes.",
-          "note": "Se añadirá una demostración cuando exista una versión adecuada.",
-          "collaboration": "Defino el problema, los requisitos y las prioridades. Utilizo herramientas de IA como apoyo en la implementación y la documentación, y reviso decisiones, pruebas y resultados antes de aceptar cambios."
-        }
+          "validation": "DashLIQ sigue en desarrollo para uso personal. Esta página describe objetivos y decisiones del producto sin publicar métricas de uso ni resultados de pruebas independientes.",
+          "note": "Las capturas y una demostración se compartirán después de revisar la interfaz.",
+          "collaboration": "Defino los objetivos, requisitos y prioridades del producto. Utilizo IA como apoyo en la implementación y documentación, revisando decisiones, pruebas y resultados antes de aceptar cambios.",
+          "availabilityTitle": "Presentación pública"
+        },
+        "homeSummary": "Un sistema personal para registrar ingresos y gastos, organizar objetivos y seguir las finanzas cotidianas."
       }
-    }
+    },
+    "images": []
   }
 ]
