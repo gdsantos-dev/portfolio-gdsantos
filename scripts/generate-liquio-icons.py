@@ -19,15 +19,12 @@ for size, name in (
     source.resize((size, size), Image.Resampling.NEAREST).save(output, optimize=True)
     print(f"{output.relative_to(root)}: {size}x{size}")
 
-# Make the small browser tab icon focus on the hood and eyes rather than
-# shrinking the entire body into an illegible 16px silhouette.
-head = source.crop((18, 12, 56, 51))
-def favicon(size):
-    background = Image.new("RGBA", (size, size), "#0d0d0f")
-    inner = head.resize((int(size * 0.9), int(size * 0.9)), Image.Resampling.NEAREST)
-    background.alpha_composite(inner, ((size - inner.width)//2, (size - inner.height)//2))
-    return background.convert("RGB")
+# Browser favicons retain the original G identity; mobile homescreen icons stay Liquio.
+from io import BytesIO
+import cairosvg
 
-favicon(32).save(assets / "favicon-32.png", optimize=True)
-favicon(64).save(root / "public" / "favicon.ico", format="ICO", sizes=[(16, 16), (32, 32), (48, 48)])
-print("PNG/iOS/Android favicons and ICO generated")
+svg = (assets / "favicon.svg").read_bytes()
+g = Image.open(BytesIO(cairosvg.svg2png(bytestring=svg, output_width=192, output_height=192))).convert("RGBA")
+g.resize((32, 32), Image.Resampling.LANCZOS).save(assets / "favicon-32.png", optimize=True)
+g.save(root / "public" / "favicon.ico", format="ICO", sizes=[(16, 16), (32, 32), (48, 48)])
+print("Crimson G browser favicons + Liquio iOS/Android icons generated")

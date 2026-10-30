@@ -32,8 +32,11 @@ for (const locale of ['', 'pt/', 'en/', 'es/', 'pt/projeto/', 'en/projeto/', 'es
   const html = (await read(locale+'index.html')).toString();
   assert.ok(html.includes('apple-mobile-web-app-title" content="GDSantos"'),locale);
   assert.ok(html.includes('/assets/apple-touch-icon.png?v=liquio1'),locale);
-  assert.ok(html.includes('/assets/favicon-32.png?v=liquio1'),locale);
+  assert.ok(html.includes('/assets/favicon-32.png?v=gds2'),locale);
   assert.ok(html.includes('/manifest.webmanifest'),locale);
-  assert.ok(html.includes('/assets/favicon.svg?v=liquio1'),locale);
+  assert.ok(html.includes('/assets/favicon.svg?v=gds2'),locale);
+  assert.ok(html.includes('/favicon.ico?v=gds2'),locale);
 }
-console.log('Liquio icon assets, seven pages, PWA/iOS metadata and sizes OK.');
+const faviconSvg = (await read('assets/favicon.svg')).toString();
+assert.ok(faviconSvg.includes('font-family="Georgia,serif"') && faviconSvg.includes('fill="#e63950">G</text>'),'Browser favicon must be original crimson G');
+console.log('Original G browser favicon, Liquio iOS/Android icons, manifest and seven pages OK.');
