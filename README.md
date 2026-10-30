@@ -49,3 +49,9 @@ As páginas de case são `/{pt|en|es}/projeto/?id=scoutliq` e `/{pt|en|es}/proje
 As páginas do site não usam navegação que bloqueie o scroll. As transições são discretas, e `prefers-reduced-motion` é respeitado. A validação visual em desktop e celular deve acontecer antes de integrar esta alteração à branch principal.
 
 > O currículo em `public/data/curriculos/` é parte do site público e também fica acessível neste repositório.
+
+## Cache do navegador após atualizações
+
+Os arquivos CSS e JavaScript públicos são revalidados pelo servidor para evitar que uma versão antiga de estilos seja combinada com o HTML/JS novo. As páginas referenciam os estilos e scripts da vitrine com uma versão de publicação no URL.
+
+Se o layout após deploy mostrar imagens empilhadas ou fontes sem o estilo esperado, confirme a pasta publicada e recarregue forçando atualização do navegador (`Ctrl + Shift + R` no Chrome desktop). Não altere apenas o HTML sem atualizar os arquivos CSS/JS correspondentes.
