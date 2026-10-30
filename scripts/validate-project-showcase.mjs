@@ -61,6 +61,13 @@ assert.ok(read("public/project-case.js").includes("case-chapters"), "Case chapte
 assert.ok(read("public/project-case.js").includes("story.collaboration"), "Process transparency missing");
 assert.ok(read("public/project-case.css").includes("scroll-margin-top"), "Anchor offset missing");
 assert.ok(read("public/project-case.css").includes("prefers-reduced-motion"));
+const portfolioCss = read("public/style.css");
+assert.ok(portfolioCss.includes(".education div:last-child{border-bottom:0}"), "Final education row must not have a redundant divider");
+assert.ok(/@container\(max-width:680px\)\{[\s\S]*?\.education div\{border-bottom:0/.test(portfolioCss), "Mobile education divider cleanup missing");
+assert.ok(/\.interest-row,\.interest-row:last-child\{[^}]*border-top:0/.test(portfolioCss), "Mobile interest separators must use spacing");
+assert.ok(/\.contact-channel,\.contact-channel:first-child,\.contact-channel:last-child\{[^}]*border-bottom:0/.test(portfolioCss), "Mobile contact lines must use spacing");
+const caseCss = read("public/project-case.css");
+assert.ok(caseCss.includes(".case-facts>div:last-child{border-bottom:0}"), "Case facts should not end with a closing divider");
 assert.ok(read("public/projects-cinema.css").includes("prefers-reduced-motion"));
 assert.ok(existsSync(path.join(root,"public/pt/index.html")));
 
