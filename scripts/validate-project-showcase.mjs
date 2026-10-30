@@ -43,6 +43,8 @@ for (const [lang, locale] of Object.entries(locales)) {
   assert.ok(detail.includes('lang="' + locale + '"'));
   assert.ok(home.includes('id="projetos"'), "No projects section on " + lang);
   assert.ok(home.includes('data-projects-reel'));
+  assert.ok(home.includes('/data/curriculos/guilherme-dos-santos-curriculo-' + lang + '.pdf'), "CV must match selected language: " + lang);
+  assert.ok(home.includes('Guilherme-dos-Santos-CV-' + lang.toUpperCase() + '.pdf'), "Localized download name missing: " + lang);
   assert.ok(home.includes('/style.css?v=20261029-gallery3'), "Portfolio CSS must have a versioned URL: " + lang);
   assert.ok(home.includes('/projects-cinema.css?v=20261029-home4'), "Gallery CSS must have a versioned URL: " + lang);
   assert.ok(home.includes('/projects-cinema.js?v=20261029-home4'), "Gallery JS must have the same release version: " + lang);
@@ -52,6 +54,9 @@ for (const [lang, locale] of Object.entries(locales)) {
   assert.ok(detail.includes('data-case-root') && detail.includes('/project-case.js') && detail.includes('/project-case.css'));
   assert.ok(detail.includes('data-case-language="' + lang + '"'));
 }
+const profile = JSON.parse(read("public/data/profile.json"));
+assert.ok(profile.resume.endsWith('-pt.pdf') && profile.resume_en.endsWith('-en.pdf') && profile.resume_es.endsWith('-es.pdf'), "Profile must route to three localized PDFs");
+assert.ok(read("public/main.js").includes("e.resume_es"), "ES CV not supported in main.js");
 const homeJs = read("public/projects-cinema.js");
 assert.ok(homeJs.includes('"/projeto/?id="'), "Project detail link missing");
 assert.ok(homeJs.includes("project-feature__case-link"), "Project CTA missing");

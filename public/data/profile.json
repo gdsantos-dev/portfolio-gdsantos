@@ -1,1 +1,9 @@
-{"name":"Guilherme Dos Santos","email":"guilhermesantos_26@hotmail.com","linkedin":"https://www.linkedin.com/in/gdsantos-dev/","resume":"/data/curriculos/guilherme-dos-santos-curriculo-pt.pdf","resume_en":"","resume_version":"20261029-1c9bec5d"}
+{
+  "name": "Guilherme Dos Santos",
+  "email": "guilhermesantos_26@hotmail.com",
+  "linkedin": "https://www.linkedin.com/in/gdsantos-dev/",
+  "resume": "/data/curriculos/guilherme-dos-santos-curriculo-pt.pdf",
+  "resume_en": "/data/curriculos/guilherme-dos-santos-curriculo-en.pdf",
+  "resume_version": "20261029-multilingual1",
+  "resume_es": "/data/curriculos/guilherme-dos-santos-curriculo-es.pdf"
+}

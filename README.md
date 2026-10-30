@@ -67,3 +67,7 @@ No estudo de caso do DashLIQ, os textos foram revistos nos três idiomas para ex
 ## Disponibilidade pública do ScoutLIQ
 
 O repositório do ScoutLIQ está público em https://github.com/gdsantos-dev/ScoutLIQ. O estudo de caso inclui o link “Ver código no GitHub” na seção de disponibilidade, com traduções em inglês e espanhol. A publicação do código **não implica** que existam uma demonstração interativa ou capturas da interface aprovadas para divulgação.
+
+## Currículo multilíngue
+
+A versão portuguesa é a referência do currículo. O script `scripts/gerar_curriculos_traduzidos.py` gera versões em inglês e espanhol a partir do Word original, preservando os dados, identidade Black & Crimson e links. O workflow `atualizar-cores-curriculo.yml` gera PDF e DOCX para PT/EN/ES e valida os documentos. Os botões “Ver currículo” e “Baixar PDF” exibem/baixam o idioma correspondente à página acessada.
