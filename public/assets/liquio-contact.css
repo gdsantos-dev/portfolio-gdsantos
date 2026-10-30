@@ -3,19 +3,19 @@
 #contato > .contact-liquio {
   position: absolute;
   bottom: calc(100% - 3px);
-  right: calc(18.8% - 32px);
-  width: 64px;
-  height: 80px;
+  right: calc(18.8% - 54px);
+  width: 108px;
+  height: 135px;
   pointer-events: none;
   user-select: none;
-  --liquio-width: 64px;
+  --liquio-width: 108px;
 }
 @media (max-width: 700px) {
   #contato > .contact-liquio {
     right: 20px;
     bottom: calc(100% - 2px);
-    width: 48px;
-    height: 60px;
-    --liquio-width: 48px;
+    width: 72px;
+    height: 90px;
+    --liquio-width: 72px;
   }
 }

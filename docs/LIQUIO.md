@@ -9,7 +9,7 @@ Componente: Liquio 1.0.0
 
 Liquio aparece somente no contato das páginas PT, EN e ES e na entrada raiz em português. Não aparece nos estudos de caso. Hero, currículo, navegação, projetos, rodapé, textos, imagens existentes e servidor foram preservados.
 
-O slot `.contact-liquio` é filho de `#contato`, com posicionamento absoluto relativo ao card. No desktop, o centro fica aproximadamente a 81,2% da largura do card, correspondendo à região direita da captura fornecida. A área é 64 × 80 px; no mobile, 48 × 60 px e margem direita de 20 px. A pequena compensação vertical alinha os pés à borda. Não há posicionamento fixo ou acompanhamento independente do scroll.
+O slot `.contact-liquio` é filho de `#contato`, com posicionamento absoluto relativo ao card. No desktop, o centro fica aproximadamente a 81,2% da largura do card, correspondendo à região direita da captura fornecida. A área visual do personagem é 108 × 135 px no desktop, alinhada pela base à borda superior do card, com o mesmo centro horizontal anterior. No mobile, 72 × 90 px e margem direita de 20 px. A pequena compensação vertical alinha os pés à borda. Não há posicionamento fixo ou acompanhamento independente do scroll.
 
 O slot não recebe ponteiro nem foco e é oculto da árvore de acessibilidade. Todos os links de contato foram testados por hit-test. A presença do slot não altera a grade do card.
 
