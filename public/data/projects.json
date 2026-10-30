@@ -9,7 +9,7 @@
       "FastAPI",
       "SQLite"
     ],
-    "repository": "",
+    "repository": "https://github.com/gdsantos-dev/ScoutLIQ",
     "texts": {
       "pt": {
         "title": "ScoutLIQ",
@@ -19,7 +19,7 @@
         "description": "Uma aplicação para pesquisar empresas, reunir evidências e acompanhar oportunidades comerciais sem dispersar o trabalho entre ferramentas.",
         "focus": "Busca, qualificação e acompanhamento",
         "role": "Concepção, desenvolvimento e validação",
-        "details": "A aplicação reúne busca unificada, registros de empresas, Score 3.0, Radar, Pipeline e automações supervisionadas. O desenvolvimento envolve decisões de produto, APIs, persistência, testes e documentação. O código permanece privado enquanto a publicação é revisada.",
+        "details": "A aplicação reúne busca unificada, registros de empresas, Score 3.0, Radar, Pipeline e automações supervisionadas. O desenvolvimento envolve decisões de produto, APIs, persistência, testes e documentação. O código-fonte está disponível publicamente no GitHub.",
         "case": {
           "lead": "Uma aplicação para transformar pesquisas dispersas em um processo comercial rastreável.",
           "question": "Como pesquisar empresas sem perder a origem das informações?",
@@ -62,7 +62,7 @@
           ],
           "validationTitle": "Testes documentados",
           "validation": "O relatório da versão v1.38.7-dev registra 592 testes de backend, 27 testes unitários de frontend e 77 cenários E2E em Chromium. São resultados informados de testes locais, não uma avaliação independente.",
-          "note": "A divulgação do código e das capturas depende de revisão de segurança e da preparação das telas.",
+          "note": "O código-fonte já está público. As capturas da interface e a demonstração interativa ainda precisam de revisão antes da divulgação.",
           "collaboration": "Defino os objetivos, requisitos e prioridades do produto. Utilizo IA como apoio na implementação e documentação, revisando as decisões, os testes e os resultados antes de aceitar mudanças.",
           "availabilityTitle": "Disponibilidade"
         },
@@ -76,7 +76,7 @@
         "description": "An application for researching businesses, gathering evidence and tracking sales opportunities without scattering work across tools.",
         "focus": "Search, qualification and follow-up",
         "role": "Product design, development and validation",
-        "details": "The application includes unified search, business records, Score 3.0, Radar, Pipeline and supervised automation. Development covers product decisions, APIs, persistence, testing and documentation. The source code remains private while publication is under review.",
+        "details": "The application includes unified search, business records, Score 3.0, Radar, Pipeline and supervised automation. Development covers product decisions, APIs, persistence, testing and documentation. The source code is publicly available on GitHub.",
         "case": {
           "lead": "An application designed to turn scattered research into a traceable sales workflow.",
           "question": "How do you research businesses without losing the source of each finding?",
@@ -119,7 +119,7 @@
           ],
           "validationTitle": "Documented tests",
           "validation": "The v1.38.7-dev report lists 592 backend tests, 27 frontend unit tests and 77 Chromium E2E scenarios. These are reported local results, not an independent assessment.",
-          "note": "Public code and screenshots depend on a security review and publication-ready screens.",
+          "note": "The source code is already public. Interface screenshots and an interactive demo still need review before publication.",
           "collaboration": "I define product goals, requirements and priorities. AI tools support implementation and documentation, while I review decisions, tests and outcomes before accepting changes.",
           "availabilityTitle": "Availability"
         },
@@ -133,7 +133,7 @@
         "description": "Una aplicación para investigar empresas, reunir evidencias y dar seguimiento a oportunidades comerciales sin dispersar el trabajo entre herramientas.",
         "focus": "Búsqueda, evaluación y seguimiento",
         "role": "Diseño del producto, desarrollo y validación",
-        "details": "La aplicación reúne búsqueda unificada, fichas de empresas, Score 3.0, Radar, Pipeline y automatizaciones supervisadas. El desarrollo abarca decisiones de producto, API, persistencia, pruebas y documentación. El código sigue privado mientras se revisa su publicación.",
+        "details": "La aplicación reúne búsqueda unificada, fichas de empresas, Score 3.0, Radar, Pipeline y automatizaciones supervisadas. El desarrollo abarca decisiones de producto, API, persistencia, pruebas y documentación. El código fuente está disponible públicamente en GitHub.",
         "case": {
           "lead": "Una aplicación para convertir investigaciones dispersas en un proceso comercial trazable.",
           "question": "¿Cómo investigar empresas sin perder el origen de cada dato?",
@@ -176,7 +176,7 @@
           ],
           "validationTitle": "Pruebas documentadas",
           "validation": "El informe de v1.38.7-dev registra 592 pruebas de backend, 27 pruebas unitarias de frontend y 77 escenarios E2E en Chromium. Son resultados comunicados de pruebas locales, no una evaluación independiente.",
-          "note": "El código y las capturas públicas requieren una revisión de seguridad y pantallas preparadas para su presentación.",
+          "note": "El código fuente ya es público. Las capturas de la interfaz y una demostración interactiva aún deben revisarse antes de su publicación.",
           "collaboration": "Defino los objetivos, requisitos y prioridades del producto. Utilizo IA como apoyo en la implementación y documentación, revisando decisiones, pruebas y resultados antes de aceptar cambios.",
           "availabilityTitle": "Disponibilidad"
         },

@@ -63,3 +63,7 @@ Os dois estudos de caso usam o mesmo tema Black & Crimson e a hierarquia editori
 ## Refinamento de linguagem e alinhamento
 
 No estudo de caso do DashLIQ, os textos foram revistos nos três idiomas para explicar organização de receitas, despesas, compromissos e metas pessoais, sem associações com apostas. Os rótulos dos capítulos ficam acima de seus títulos, ambos alinhados à margem esquerda, preservando o visual editorial do portfólio também no mobile. O destaque do capítulo ativo agora acompanha a posição real da leitura e restaura âncoras abertas diretamente por URL.
+
+## Disponibilidade pública do ScoutLIQ
+
+O repositório do ScoutLIQ está público em https://github.com/gdsantos-dev/ScoutLIQ. O estudo de caso inclui o link “Ver código no GitHub” na seção de disponibilidade, com traduções em inglês e espanhol. A publicação do código **não implica** que existam uma demonstração interativa ou capturas da interface aprovadas para divulgação.

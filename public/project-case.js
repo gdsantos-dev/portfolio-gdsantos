@@ -5,9 +5,9 @@
   const lang = ["en", "es"].find(code => document.documentElement.lang.startsWith(code)) || "pt";
   const id = new URLSearchParams(location.search).get("id");
   const copy = {
-    pt: { back:"Voltar aos projetos",home:"Portfólio",section:"Projeto",process:"Como funciona",engineering:"Decisões",validation:"Validação e limites",status:"Estado",role:"Participação",stack:"Tecnologias",explore:"Explorar processo",next:"Próximo projeto",missing:"Projeto não encontrado",missingText:"O endereço pode estar incorreto." },
-    en: { back:"Back to projects",home:"Portfolio",section:"Project",process:"How it works",engineering:"Decisions",validation:"Validation and limits",status:"Status",role:"My role",stack:"Technologies",explore:"Explore the process",next:"Next project",missing:"Project not found",missingText:"The address might be incorrect." },
-    es: { back:"Volver a proyectos",home:"Portafolio",section:"Proyecto",process:"Cómo funciona",engineering:"Decisiones",validation:"Validación y límites",status:"Estado",role:"Participación",stack:"Tecnologías",explore:"Explorar proceso",next:"Siguiente proyecto",missing:"Proyecto no encontrado",missingText:"Puede que la dirección sea incorrecta." }
+    pt: { back:"Voltar aos projetos",home:"Portfólio",section:"Projeto",process:"Como funciona",engineering:"Decisões",validation:"Validação e limites",status:"Estado",role:"Participação",stack:"Tecnologias",explore:"Explorar processo",next:"Próximo projeto",repository:"Ver código no GitHub",missing:"Projeto não encontrado",missingText:"O endereço pode estar incorreto." },
+    en: { back:"Back to projects",home:"Portfolio",section:"Project",process:"How it works",engineering:"Decisions",validation:"Validation and limits",status:"Status",role:"My role",stack:"Technologies",explore:"Explore the process",next:"Next project",repository:"View code on GitHub",missing:"Project not found",missingText:"The address might be incorrect." },
+    es: { back:"Volver a proyectos",home:"Portafolio",section:"Proyecto",process:"Cómo funciona",engineering:"Decisiones",validation:"Validación y límites",status:"Estado",role:"Participación",stack:"Tecnologías",explore:"Explorar proceso",next:"Siguiente proyecto",repository:"Ver código en GitHub",missing:"Proyecto no encontrado",missingText:"Puede que la dirección sea incorrecta." }
   }[lang];
   const backLink = "/" + lang + "/#projetos";
   const chapterCopy = {"pt":{"name":"Capítulos do projeto","labels":["Contexto","Funcionamento","Decisões","Validação"],"collab":"Processo de desenvolvimento"},"en":{"name":"Project chapters","labels":["Context","Workflow","Decisions","Validation"],"collab":"Development process"},"es":{"name":"Capítulos del proyecto","labels":["Contexto","Funcionamiento","Decisiones","Validación"],"collab":"Proceso de desarrollo"}};
@@ -95,6 +95,12 @@
     const extras=el("div","case-validation__extras");
     const availability=el("div","case-validation__availability");
     availability.append(el("h3","",story.availabilityTitle),el("p","",story.note));
+    if(typeof project.repository==="string" && /^https:\/\/github\.com\/[a-z0-9-]+\/[a-z0-9-]+\/?$/i.test(project.repository)){
+      const repoLink=link(copy.repository,project.repository,"case-validation__repository");
+      repoLink.target="_blank";
+      repoLink.rel="noopener noreferrer";
+      availability.append(repoLink);
+    }
     extras.append(availability);
     if(story.collaboration){
       const collaboration=el("aside","case-collaboration");

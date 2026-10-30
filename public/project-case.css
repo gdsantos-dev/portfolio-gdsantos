@@ -80,3 +80,16 @@
  .case-facts{grid-template-columns:1fr}
 }
 @media(prefers-reduced-motion:reduce){.case-reveal{opacity:1!important;transform:none!important;transition:none!important}}
+
+/* Code availability is a real external link, not a claim of a live demo. */
+.case-validation__repository{
+  display:inline-flex;
+  align-items:center;
+  min-height:44px;
+  margin-top:14px;
+  border-bottom:1px solid var(--accent);
+  color:var(--text);
+  font-size:.98rem;
+  font-weight:600;
+}
+.case-validation__repository:hover{color:var(--accent-text)}

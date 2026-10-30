@@ -46,7 +46,7 @@ for (const [lang, locale] of Object.entries(locales)) {
   assert.ok(home.includes('/style.css?v=20261029-gallery3'), "Portfolio CSS must have a versioned URL: " + lang);
   assert.ok(home.includes('/projects-cinema.css?v=20261029-home4'), "Gallery CSS must have a versioned URL: " + lang);
   assert.ok(home.includes('/projects-cinema.js?v=20261029-home4'), "Gallery JS must have the same release version: " + lang);
-  assert.ok(detail.includes('/style.css?v=20261029-gallery3') && detail.includes('/project-case.css?v=20261029-case6'), "Project case CSS must be versioned: " + lang);
+  assert.ok(detail.includes('/style.css?v=20261029-gallery3') && detail.includes('/project-case.css?v=20261029-case7'), "Project case CSS must be versioned: " + lang);
   assert.ok(home.includes('/projects-cinema.js') && home.includes('/projects-cinema.css'));
   assert.ok(!home.includes("projects-cinema__index"), "Old project counter navigation still present");
   assert.ok(detail.includes('data-case-root') && detail.includes('/project-case.js') && detail.includes('/project-case.css'));
@@ -65,6 +65,14 @@ assert.ok(read("public/project-case.css").includes("scroll-margin-top"), "Anchor
 assert.ok(read("public/project-case.css").includes("--case-accent:var(--accent)"), "Crimson accent should be shared");
 assert.ok(!/#(?:68aaff|a5b7cb|e9f3ff|101a26)/i.test(read("public/project-case.css")), "Blue theme still present");
 assert.ok(read("public/project-case.js").includes("link(copy.next,"), "Next project CTA missing");
+const scout = projects.find(p=>p.id==="scoutliq");
+assert.equal(scout?.repository,"https://github.com/gdsantos-dev/ScoutLIQ","ScoutLIQ must link to its public repository");
+for (const lang of Object.keys(locales)) {
+  assert.ok(!/código permanece privado|source code remains private|código sigue privado/i.test(scout.texts[lang].details),"Outdated private-code claim: "+lang);
+  assert.ok(/github|público|public/i.test(scout.texts[lang].case.note),"Public source availability missing: "+lang);
+}
+assert.ok(read("public/project-case.js").includes("case-validation__repository"),"Public code link not rendered");
+
 assert.ok(read("public/project-case.js").includes("location.hash?.slice(1)"), "Dynamic chapter deep-link restoration missing");
 assert.ok(read("public/project-case.js").includes("getBoundingClientRect().bottom"), "Chapter navigation must track reading position");
 const cssCase = read("public/project-case.css");
