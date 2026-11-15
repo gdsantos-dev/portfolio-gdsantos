@@ -76,7 +76,11 @@ http.createServer(async (req, res) => {
     if (caseRoute && projectId && /^[a-z0-9-]+$/.test(projectId)) {
       const records = JSON.parse(await fs.readFile(path.join(root, 'data/projects.json'), 'utf8'));
       const selected = records.find(item => item.id === projectId);
-      if (selected) bytes = Buffer.from(projectCaseSEO(bytes.toString('utf8'), selected, caseRoute[1]));
+      if (!selected) {
+        res.writeHead(404, { 'Content-Type': 'text/plain; charset=utf-8', 'Cache-Control': 'no-store' });
+        return res.end(req.method === 'HEAD' ? undefined : 'Página não encontrada');
+      }
+      bytes = Buffer.from(projectCaseSEO(bytes.toString('utf8'), selected, caseRoute[1]));
     }
     const type = mime[path.extname(file).toLowerCase()];
     if (!type) throw new Error('Unsupported file');

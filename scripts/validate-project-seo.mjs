@@ -63,6 +63,11 @@ try{
     assert.equal(headResponse.status,200);
     assert.equal(await headResponse.text(),'');
   }
+  // Case IDs absent from the public catalog must not resolve as published pages.
+  for (const lang of Object.keys(locales)) {
+    const unpublished = await fetch(origin+'/'+lang+'/projeto/?id=unpublished-project');
+    assert.equal(unpublished.status,404,'Unpublished case exposed for '+lang);
+  }
   const response=await fetch(origin+'/sitemap.xml');
   assert.equal(response.status,200);
   assert.equal(await response.text(),sitemap);
@@ -73,4 +78,4 @@ try{
   child.kill();
   if(child.exitCode===null)await Promise.race([once(child,'exit'),new Promise(resolve=>setTimeout(resolve,2000))]);
 }
-console.log('SEO: 3 localized home titles, 6 project meta responses, 9 sitemap routes, GET/HEAD OK.');
+console.log('SEO: 3 localized home titles, '+(projects.length*3)+' project meta responses, '+allURLs.length+' sitemap routes, GET/HEAD OK.');
