@@ -73,4 +73,4 @@ try{
   child.kill();
   if(child.exitCode===null)await Promise.race([once(child,'exit'),new Promise(resolve=>setTimeout(resolve,2000))]);
 }
-console.log('SEO: 3 localized home titles, 6 project meta responses, 9 sitemap routes, GET/HEAD OK.');
+console.log('SEO: 3 localized home titles, '+(projects.length*3)+' project meta responses, '+allURLs.length+' sitemap routes, GET/HEAD OK.');
