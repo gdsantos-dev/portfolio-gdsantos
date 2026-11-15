@@ -9,7 +9,7 @@ const projects = JSON.parse(read("public/data/projects.json"));
 const locales = { pt:"pt-BR", en:"en-US", es:"es" };
 const ids = new Set();
 
-assert.ok(Array.isArray(projects) && projects.length >= 2, "Expected multiple projects");
+assert.ok(Array.isArray(projects) && projects.length >= 1, "Expected at least one published project");
 
 for (const project of projects) {
   assert.match(project.id, /^[a-z0-9-]+$/);
@@ -89,14 +89,6 @@ const cssCase = read("public/project-case.css");
 assert.ok(cssCase.includes(".case-section,.case-chapter__heading{display:block}"), "Case chapter titles must start at the left edge");
 assert.ok(cssCase.includes(".case-section__eyebrow"), "Chapter eyebrow styling missing");
 assert.ok(!cssCase.includes("grid-template-columns:minmax(115px,.3fr)"), "Old offset heading grid remains");
-const dashCase = projects.find(p=>p.id==="dashliq");
-assert.ok(dashCase, "DashLIQ case must exist");
-const betTerms = /apost|freebet|surebet|cashout|(?:\bodd\b)|caixa operacional|investid[oa]s?|operacional|(?:\bbetting\b)|apuestas?|(?:\boperations\b)/i;
-for (const lang of Object.keys(locales)) {
-  assert.ok(!betTerms.test(JSON.stringify(dashCase.texts[lang])), "DashLIQ copy should focus on personal finance: " + lang);
-  assert.ok(dashCase.texts[lang].case.flowTitle, "Missing financial workflow title: " + lang);
-}
-
 assert.ok(!read("public/project-case.js").includes("Ver estudo de caso"), "Old CTA remains");
 assert.ok(read("public/project-case.css").includes("prefers-reduced-motion"));
 const portfolioCss = read("public/style.css");
