@@ -63,6 +63,11 @@ try{
     assert.equal(headResponse.status,200);
     assert.equal(await headResponse.text(),'');
   }
+  // Case IDs absent from the public catalog must not resolve as published pages.
+  for (const lang of Object.keys(locales)) {
+    const unpublished = await fetch(origin+'/'+lang+'/projeto/?id=unpublished-project');
+    assert.equal(unpublished.status,404,'Unpublished case exposed for '+lang);
+  }
   const response=await fetch(origin+'/sitemap.xml');
   assert.equal(response.status,200);
   assert.equal(await response.text(),sitemap);
