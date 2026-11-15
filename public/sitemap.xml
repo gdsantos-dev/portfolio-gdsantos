@@ -36,4 +36,22 @@
     <xhtml:link rel="alternate" hreflang="en-US" href="https://gdsantos-dev.com/en/projeto/?id=scoutliq" />
     <xhtml:link rel="alternate" hreflang="es" href="https://gdsantos-dev.com/es/projeto/?id=scoutliq" />
   </url>
+  <url>
+    <loc>https://gdsantos-dev.com/pt/projeto/?id=dashliq</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://gdsantos-dev.com/pt/projeto/?id=dashliq" />
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://gdsantos-dev.com/en/projeto/?id=dashliq" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://gdsantos-dev.com/es/projeto/?id=dashliq" />
+  </url>
+  <url>
+    <loc>https://gdsantos-dev.com/en/projeto/?id=dashliq</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://gdsantos-dev.com/pt/projeto/?id=dashliq" />
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://gdsantos-dev.com/en/projeto/?id=dashliq" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://gdsantos-dev.com/es/projeto/?id=dashliq" />
+  </url>
+  <url>
+    <loc>https://gdsantos-dev.com/es/projeto/?id=dashliq</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://gdsantos-dev.com/pt/projeto/?id=dashliq" />
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://gdsantos-dev.com/en/projeto/?id=dashliq" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://gdsantos-dev.com/es/projeto/?id=dashliq" />
+  </url>
 </urlset>

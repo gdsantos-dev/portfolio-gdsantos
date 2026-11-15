@@ -72,7 +72,7 @@ jobs:
           done
           test "$ok" -eq 1
           curl -fsS 'http://127.0.0.1:3100/pt/projeto/?id=scoutliq' | grep -Fq '<title>ScoutLIQ | Guilherme Santos</title>'
-          test "$(curl -sS -o /dev/null -w '%{http_code}' 'http://127.0.0.1:3100/en/projeto/?id=unpublished-project')" = "404"
+          curl -fsS 'http://127.0.0.1:3100/en/projeto/?id=dashliq' | grep -Fq '<title>DashLIQ | Guilherme Santos</title>'
           curl -fsS 'http://127.0.0.1:3100/sitemap.xml' | grep -Fq 'id=scoutliq'
 
 

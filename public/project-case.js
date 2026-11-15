@@ -26,7 +26,7 @@
     const t=project.texts[lang],story=t.case;
     if (!story || !Array.isArray(story.steps) || !Array.isArray(story.decisions)) { fail(); return; }
     document.title=t.title+" | Guilherme Santos";
-    root.dataset.theme=project.theme || "scoutliq";
+    root.dataset.theme=project.theme==="dashliq"?"dashliq":"scoutliq";
     document.querySelectorAll("[data-case-language]").forEach(node=>{
       node.href="/"+node.dataset.caseLanguage+"/projeto/?id="+encodeURIComponent(project.id);
     });
@@ -110,17 +110,13 @@
     valBody.append(extras);
     validation.append(el("p","case-section__eyebrow",copy.validation),valBody);
 
-    const sectionsToShow=[crumbs,hero,chapters,overview,process,engineering,validation];
-    if (other && other.id !== project.id) {
-      const finale=segment("case-next","case-next");
-      const nextBody=el("div");
-      nextBody.append(el("h2","",other.texts[lang].title));
-      const nextLink=link(copy.next,"/"+lang+"/projeto/?id="+encodeURIComponent(other.id),"case-next__link");
-      nextLink.setAttribute("aria-label",copy.next+": "+other.texts[lang].title);
-      finale.append(nextBody,nextLink);
-      sectionsToShow.push(finale);
-    }
-    root.replaceChildren(...sectionsToShow);
+    const finale=segment("case-next","case-next");
+    const nextBody=el("div");
+    nextBody.append(el("h2","",other.texts[lang].title));
+    const nextLink=link(copy.next,"/"+lang+"/projeto/?id="+encodeURIComponent(other.id),"case-next__link");
+    nextLink.setAttribute("aria-label",copy.next+": "+other.texts[lang].title);
+    finale.append(nextBody,nextLink);
+    root.replaceChildren(crumbs,hero,chapters,overview,process,engineering,validation,finale);
     const chapterAnchors=Array.from(chapters.querySelectorAll("a"));
     const setActive=index=>chapterAnchors.forEach((anchor,i)=>{
       if(index===i)anchor.setAttribute("aria-current","location");
@@ -169,11 +165,11 @@
   fetch("/data/projects.json",{cache:"no-cache"})
     .then(r=>{if(!r.ok)throw new Error("Missing JSON");return r.json();})
     .then(projects=>{
-      if(!Array.isArray(projects)||projects.length<1)throw new Error("Missing projects");
+      if(!Array.isArray(projects)||projects.length<2)throw new Error("Missing projects");
       const index=projects.findIndex(p=>p.id===id&&p.texts?.[lang]?.case);
       if(index<0)throw new Error("Unknown project");
-      const other=projects.length>1 ? projects[(index+1)%projects.length] : null;
-      if(other && !other.texts?.[lang])throw new Error("Missing translation");
+      const other=projects[(index+1)%projects.length];
+      if(!other.texts?.[lang])throw new Error("Missing translation");
       render(projects[index],other,index);
     }).catch(fail);
 })();

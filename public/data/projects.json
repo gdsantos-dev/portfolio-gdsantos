@@ -184,5 +184,190 @@
       }
     },
     "images": []
+  },
+  {
+    "id": "dashliq",
+    "theme": "dashliq",
+    "year": "2026",
+    "technologies": [
+      "Aplicação web",
+      "Dados",
+      "Automações"
+    ],
+    "repository": "",
+    "texts": {
+      "pt": {
+        "title": "DashLIQ",
+        "category": "Gestão financeira",
+        "phase": "Em desenvolvimento",
+        "scene": "Registros / Metas / Visão financeira",
+        "description": "Um sistema pessoal para registrar receitas e despesas, organizar metas e acompanhar as finanças com clareza.",
+        "focus": "Organização financeira e acompanhamento de metas",
+        "role": "Concepção, desenvolvimento e evolução do produto",
+        "details": "O projeto reúne lançamentos financeiros, categorias, metas, compromissos previstos e indicadores em uma experiência de consulta simples.",
+        "case": {
+          "lead": "Um espaço pessoal para registrar movimentações financeiras e compreender a rotina com mais clareza.",
+          "question": "Como acompanhar as finanças sem espalhar informações?",
+          "context": "Anotações isoladas dificultam entender os gastos, os compromissos previstos e a evolução das metas. O DashLIQ reúne essas informações em um lugar e facilita a consulta ao longo do tempo.",
+          "flowTitle": "Registrar, organizar, acompanhar",
+          "flowDescription": "Cada lançamento mantém seu contexto. As consultas mostram como as finanças evoluem ao longo do tempo.",
+          "steps": [
+            {
+              "title": "Lançamentos",
+              "description": "Registrar receitas e despesas com data, valor e categoria."
+            },
+            {
+              "title": "Organização",
+              "description": "Separar gastos, compromissos e metas de maneira consistente."
+            },
+            {
+              "title": "Acompanhamento",
+              "description": "Consultar períodos e indicadores para entender a situação financeira."
+            },
+            {
+              "title": "Planejamento",
+              "description": "Manter metas e despesas previstas visíveis no cotidiano."
+            }
+          ],
+          "decisionsTitle": "Escolhas de produto",
+          "decisionsDescription": "A prioridade é tornar a informação fácil de registrar, localizar e compreender.",
+          "decisions": [
+            {
+              "title": "Contexto em cada registro",
+              "description": "Datas, categorias e histórico ajudam a interpretar os lançamentos."
+            },
+            {
+              "title": "Conceitos bem separados",
+              "description": "Receitas, despesas e metas aparecem de forma distinta nas consultas."
+            },
+            {
+              "title": "Uso no dia a dia",
+              "description": "Leitura confortável e controles claros no computador e no celular."
+            }
+          ],
+          "validationTitle": "Estado do desenvolvimento",
+          "validation": "O DashLIQ está em desenvolvimento para uso pessoal. Esta página apresenta seus objetivos e decisões de produto, sem divulgar métricas de uso ou resultados de testes independentes.",
+          "note": "Capturas e demonstrações serão disponibilizadas após uma revisão das telas.",
+          "collaboration": "Defino os objetivos, requisitos e prioridades do produto. Utilizo IA como apoio na implementação e documentação, revisando as decisões, os testes e os resultados antes de aceitar mudanças.",
+          "availabilityTitle": "Apresentação pública"
+        },
+        "homeSummary": "Um sistema pessoal para registrar receitas e despesas, organizar metas e acompanhar as finanças do dia a dia."
+      },
+      "en": {
+        "title": "DashLIQ",
+        "category": "Financial management",
+        "phase": "In development",
+        "scene": "Records / Goals / Financial overview",
+        "description": "A personal system for recording income and expenses, organizing goals and tracking finances clearly.",
+        "focus": "Personal finance and goal tracking",
+        "role": "Product design, development and iteration",
+        "details": "The project brings together financial entries, categories, goals, upcoming commitments and indicators in a straightforward interface.",
+        "case": {
+          "lead": "A personal space to record financial activity and understand everyday finances more clearly.",
+          "question": "How can you keep track of finances without scattering information?",
+          "context": "Disconnected notes make it harder to understand expenses, upcoming commitments and progress toward goals. DashLIQ brings that information together and makes it easier to review over time.",
+          "flowTitle": "Record, organize, track",
+          "flowDescription": "Every entry keeps its context. Views make it easier to see how finances change over time.",
+          "steps": [
+            {
+              "title": "Entries",
+              "description": "Record income and expenses with dates, amounts and categories."
+            },
+            {
+              "title": "Organization",
+              "description": "Keep spending, commitments and goals clearly separated."
+            },
+            {
+              "title": "Tracking",
+              "description": "Review periods and indicators to understand your financial position."
+            },
+            {
+              "title": "Planning",
+              "description": "Keep goals and upcoming expenses visible in everyday use."
+            }
+          ],
+          "decisionsTitle": "Product choices",
+          "decisionsDescription": "The priority is to make information easy to record, find and understand.",
+          "decisions": [
+            {
+              "title": "Context for every entry",
+              "description": "Dates, categories and history help explain financial records."
+            },
+            {
+              "title": "Clear distinctions",
+              "description": "Income, expenses and goals remain distinct in financial views."
+            },
+            {
+              "title": "Everyday usability",
+              "description": "Comfortable reading and clear controls on desktop and mobile."
+            }
+          ],
+          "validationTitle": "Development status",
+          "validation": "DashLIQ is under development for personal use. This page describes product goals and decisions without publishing usage metrics or independent test results.",
+          "note": "Screenshots and a demo will be shared after the interface has been reviewed.",
+          "collaboration": "I define product goals, requirements and priorities. AI tools support implementation and documentation, while I review decisions, tests and outcomes before accepting changes.",
+          "availabilityTitle": "Public presentation"
+        },
+        "homeSummary": "A personal system to record income and expenses, organize goals and keep track of everyday finances."
+      },
+      "es": {
+        "title": "DashLIQ",
+        "category": "Gestión financiera",
+        "phase": "En desarrollo",
+        "scene": "Registros / Objetivos / Visión financiera",
+        "description": "Un sistema personal para registrar ingresos y gastos, organizar objetivos y seguir las finanzas con claridad.",
+        "focus": "Finanzas personales y seguimiento de objetivos",
+        "role": "Diseño, desarrollo y evolución del producto",
+        "details": "El proyecto reúne registros financieros, categorías, objetivos, compromisos previstos e indicadores en una interfaz sencilla de consultar.",
+        "case": {
+          "lead": "Un espacio personal para registrar movimientos financieros y comprender mejor la economía diaria.",
+          "question": "¿Cómo seguir las finanzas sin dispersar la información?",
+          "context": "Las notas separadas dificultan entender los gastos, los compromisos previstos y la evolución de los objetivos. DashLIQ reúne esa información y facilita su consulta a lo largo del tiempo.",
+          "flowTitle": "Registrar, organizar, seguir",
+          "flowDescription": "Cada registro conserva su contexto. Las consultas permiten ver cómo cambian las finanzas con el tiempo.",
+          "steps": [
+            {
+              "title": "Registros",
+              "description": "Registrar ingresos y gastos con fecha, importe y categoría."
+            },
+            {
+              "title": "Organización",
+              "description": "Separar gastos, compromisos y objetivos de forma consistente."
+            },
+            {
+              "title": "Seguimiento",
+              "description": "Consultar períodos e indicadores para comprender la situación financiera."
+            },
+            {
+              "title": "Planificación",
+              "description": "Mantener visibles los objetivos y los gastos previstos."
+            }
+          ],
+          "decisionsTitle": "Decisiones de producto",
+          "decisionsDescription": "La prioridad es facilitar el registro, la búsqueda y la comprensión de la información.",
+          "decisions": [
+            {
+              "title": "Contexto para cada registro",
+              "description": "Fechas, categorías e historial ayudan a interpretar los movimientos."
+            },
+            {
+              "title": "Conceptos diferenciados",
+              "description": "Ingresos, gastos y objetivos permanecen separados en las consultas."
+            },
+            {
+              "title": "Uso cotidiano",
+              "description": "Lectura cómoda y controles claros en escritorio y móvil."
+            }
+          ],
+          "validationTitle": "Estado del desarrollo",
+          "validation": "DashLIQ sigue en desarrollo para uso personal. Esta página describe objetivos y decisiones del producto sin publicar métricas de uso ni resultados de pruebas independientes.",
+          "note": "Las capturas y una demostración se compartirán después de revisar la interfaz.",
+          "collaboration": "Defino los objetivos, requisitos y prioridades del producto. Utilizo IA como apoyo en la implementación y documentación, revisando decisiones, pruebas y resultados antes de aceptar cambios.",
+          "availabilityTitle": "Presentación pública"
+        },
+        "homeSummary": "Un sistema personal para registrar ingresos y gastos, organizar objetivos y seguir las finanzas cotidianas."
+      }
+    },
+    "images": []
   }
 ]

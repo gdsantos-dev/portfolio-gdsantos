@@ -10,8 +10,8 @@ Portfólio profissional público de Guilherme dos Santos, estudante de Ciência 
 
 - Páginas em português brasileiro, inglês e espanhol.
 - Apresentação, formação, áreas de interesse, projetos e contato.
-- Página inicial com ScoutLIQ: nome, resumo e link para o estudo de caso, em PT/EN/ES.
-- Estudo de caso em página própria, com contexto, processo, escolhas de engenharia e limites de validação.
+- Página inicial compacta de ScoutLIQ e DashLIQ: nome, resumo e link para o estudo de caso, em PT/EN/ES.
+- Estudos de caso em páginas próprias, com contexto, processo, escolhas de engenharia e limites de validação.
 - Currículo em PDF para consulta e download.
 - Layout responsivo e metadados de compartilhamento.
 
@@ -44,7 +44,7 @@ Atualmente, o deploy do site é realizado manualmente no Railway. Alterar o cód
 
 O arquivo `public/data/projects.json` mantém o conteúdo dos projetos próprios exibidos na seção editorial. A apresentação minimalista é gerada por `public/projects-cinema.js` e estilizada por `public/projects-cinema.css`. A página principal não exibe capturas, galerias ou painéis provisórios. As imagens pertencem à experiência aprofundada de **Conhecer o projeto**, cuja revisão visual fica para a etapa seguinte. As capturas de teste do ScoutLIQ permanecem no histórico e no repositório do próprio sistema, mas não devem ser mostradas no portfólio sem aprovação. Para incluir imagens, acrescente `images` a cada item do JSON e publique os arquivos correspondentes em `/public/assets/projects/<id>/`. Links para repositórios privados e demonstrações não publicadas ficam de fora da vitrine.
 
-A página de estudo de caso é `/{pt|en|es}/projeto/?id=scoutliq`; o conteúdo fica em `public/data/projects.json` (chave `texts.<idioma>.case`) e é construído por `public/project-case.js`. A página interna inclui navegação por capítulos com âncoras, leitura sem bloqueio do scroll e uma explicação da colaboração humano–IA. Não divulgamos nomes de modelos ou ferramentas específicas. O script de verificação é `node scripts/validate-project-showcase.mjs`, também executado no GitHub Actions.
+As páginas de case são `/{pt|en|es}/projeto/?id=scoutliq` e `/{pt|en|es}/projeto/?id=dashliq`; o conteúdo fica em `public/data/projects.json` (chave `texts.<idioma>.case`) e é construído por `public/project-case.js`. As páginas internas incluem navegação por capítulos com âncoras, leitura sem bloqueio do scroll e uma explicação da colaboração humano–IA. Não divulgamos nomes de modelos ou ferramentas específicas. O script de verificação é `node scripts/validate-project-showcase.mjs`, também executado no GitHub Actions.
 
 As páginas do site não usam navegação que bloqueie o scroll. As transições são discretas, e `prefers-reduced-motion` é respeitado. A validação visual em desktop e celular deve acontecer antes de integrar esta alteração à branch principal.
 
@@ -58,11 +58,11 @@ Se o layout após deploy mostrar imagens empilhadas ou fontes sem o estilo esper
 
 ## Estudos de caso
 
-O estudo de caso público usa o tema Black & Crimson e a hierarquia editorial do portfólio. As linhas decorativas repetidas foram substituídas por espaçamento; só permanecem separações pontuais de hierarquia. O link “Próximo projeto” só aparece quando existe outro projeto publicado. A seção de validação distingue resultados locais relatados de verificações independentes. A atualização é limitada às páginas de projeto; não modifica os sistemas apresentados.
+Os dois estudos de caso usam o mesmo tema Black & Crimson e a hierarquia editorial do portfólio. As linhas decorativas repetidas foram substituídas por espaçamento; só permanecem separações pontuais de hierarquia. O link final exibe “Próximo projeto”, e a seção de validação distingue resultados locais relatados de verificações independentes. A atualização é limitada às páginas de projeto; não modifica os sistemas apresentados.
 
-## Leitura do estudo de caso
+## Refinamento de linguagem e alinhamento
 
-Os rótulos dos capítulos ficam acima dos títulos, alinhados à margem esquerda também no mobile. O capítulo ativo acompanha a leitura e as âncoras abertas diretamente por URL são restauradas.
+No estudo de caso do DashLIQ, os textos foram revistos nos três idiomas para explicar organização de receitas, despesas, compromissos e metas pessoais, sem associações com apostas. Os rótulos dos capítulos ficam acima de seus títulos, ambos alinhados à margem esquerda, preservando o visual editorial do portfólio também no mobile. O destaque do capítulo ativo agora acompanha a posição real da leitura e restaura âncoras abertas diretamente por URL.
 
 ## Disponibilidade pública do ScoutLIQ
 
@@ -74,11 +74,11 @@ A versão portuguesa é a referência do currículo. O script `scripts/gerar_cur
 
 ## Metadados e sitemap dos projetos
 
-As páginas iniciais mantêm metadados traduzidos em PT, EN e ES. Para links `/{pt|en|es}/projeto/?id=scoutliq`, o servidor entrega o título, descrição, tags Open Graph/Twitter, URL canônica e idiomas alternativos específicos diretamente no HTML inicial, antes de executar o JavaScript. Não são criadas imagens fictícias de prévia. O sitemap (`public/sitemap.xml`) inclui as três páginas principais e as três URLs localizadas do estudo de caso publicado, com relações `hreflang`. Verifique com `node scripts/validate-project-seo.mjs` (integrado ao CI); publicar exige deploy manual.
+As páginas iniciais mantêm metadados traduzidos em PT, EN e ES. Para links `/{pt|en|es}/projeto/?id=scoutliq` e `?id=dashliq`, o servidor entrega o título, descrição, tags Open Graph/Twitter, URL canônica e idiomas alternativos específicos diretamente no HTML inicial, antes de executar o JavaScript. Não são criadas imagens fictícias de prévia. O sitemap (`public/sitemap.xml`) inclui as três páginas principais e os seis estudos de caso, com relações `hreflang`. Verifique com `node scripts/validate-project-seo.mjs` (integrado ao CI); publicar exige deploy manual.
 
 ## Dependências da imagem de produção
 
-O `server.mjs` importa `scripts/project-seo.mjs` para gerar metadados públicos dos estudos de caso. Por isso, ambos precisam ser copiados no Dockerfile. O GitHub Actions constrói a imagem e testa `/health`, a URL do estudo de caso e `sitemap.xml` antes de aprovar atualizações. A configuração do deploy permanece manual e não inclui o restante dos scripts de desenvolvimento.
+O `server.mjs` importa `scripts/project-seo.mjs` para gerar metadados públicos dos estudos de caso. Por isso, ambos precisam ser copiados no Dockerfile. O GitHub Actions constrói a imagem e testa `/health`, URLs dos casos e `sitemap.xml` antes de aprovar atualizações. A configuração do deploy permanece manual e não inclui o restante dos scripts de desenvolvimento.
 
 ## Navegação por rolagem na página inicial
 
