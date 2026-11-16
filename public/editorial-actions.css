@@ -1,0 +1,55 @@
+/* Portfólio: sublinhado editorial progressivo apenas nos links selecionados. */
+:is(.project-feature__case-link,.case-hero__action,.case-validation__repository,.case-next__link){
+  position:relative;
+  border-bottom:0;
+  padding-bottom:5px;
+  color:var(--text);
+  text-decoration:none;
+  transition:color .18s ease;
+}
+:is(.project-feature__case-link,.case-hero__action,.case-validation__repository,.case-next__link)::before,
+:is(.project-feature__case-link,.case-hero__action,.case-validation__repository,.case-next__link)::after{
+  content:"";
+  position:absolute;
+  left:0;
+  right:0;
+  bottom:0;
+  height:2px;
+  background:var(--accent);
+  pointer-events:none;
+}
+:is(.project-feature__case-link,.case-hero__action,.case-validation__repository,.case-next__link)::before{opacity:.3}
+:is(.project-feature__case-link,.case-hero__action,.case-validation__repository,.case-next__link)::after{
+  transform:scaleX(0);
+  transform-origin:left center;
+  transition:transform .42s cubic-bezier(.22,1,.36,1);
+}
+:is(.project-feature__case-link,.case-hero__action,.case-validation__repository,.case-next__link):is(:hover,:focus-visible){color:var(--text)}
+:is(.project-feature__case-link,.case-hero__action,.case-validation__repository,.case-next__link):is(:hover,:focus-visible)::after{transform:scaleX(1)}
+
+/* CV: realce marfim com uma assinatura crimson, sem sombra ou movimento. */
+[data-resume-primary] > a{
+  min-height:50px;
+  padding:12px 23px;
+  border:1px solid var(--text);
+  border-radius:3px;
+  background:var(--text);
+  color:var(--bg);
+  box-shadow:inset 0 -3px 0 var(--accent);
+  letter-spacing:.005em;
+  transition:background-color .2s ease,border-color .2s ease;
+}
+[data-resume-primary] > a:is(:hover,:focus-visible){
+  border-color:#e9e3e4;
+  background:#e9e3e4;
+  color:var(--bg);
+}
+
+/* Sem hover no touch: a linha comunica o link mesmo sem animação. */
+@media(hover:none) and (pointer:coarse){
+  :is(.project-feature__case-link,.case-hero__action,.case-validation__repository,.case-next__link)::after{transform:scaleX(1)}
+}
+@media(prefers-reduced-motion:reduce){
+  :is(.project-feature__case-link,.case-hero__action,.case-validation__repository,.case-next__link)::after{transition:none}
+  [data-resume-primary] > a{transition:none}
+}
