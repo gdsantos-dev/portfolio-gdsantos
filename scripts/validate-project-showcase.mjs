@@ -8,6 +8,7 @@ const read = name => readFileSync(path.join(root, name), "utf8");
 const projects = JSON.parse(read("public/data/projects.json"));
 const locales = { pt:"pt-BR", en:"en-US", es:"es" };
 const ids = new Set();
+const editorialStyleUrl = "/editorial-actions.css?v=20261116-editorial1";
 
 assert.ok(Array.isArray(projects) && projects.length >= 2, "Expected multiple projects");
 
@@ -52,13 +53,25 @@ for (const [lang, locale] of Object.entries(locales)) {
   const styleUrl = home.match(/\/style\.css\?v=[A-Za-z0-9._-]+/)?.[0];
   assert.ok(styleUrl, "Portfolio CSS must have a versioned URL: " + lang);
   assert.ok(home.includes('/projects-cinema.css?v=20261029-home4'), "Gallery CSS must have a versioned URL: " + lang);
+  assert.ok(home.includes(editorialStyleUrl), "Editorial actions CSS missing on homepage: " + lang);
   assert.ok(home.includes('/projects-cinema.js?v=20261029-home4'), "Gallery JS must have the same release version: " + lang);
   assert.ok(detail.includes(styleUrl) && detail.includes('/project-case.css?v=20261029-case7'), "Project case CSS must share the versioned stylesheet: " + lang);
+  assert.ok(detail.includes(editorialStyleUrl), "Editorial actions CSS missing on project page: " + lang);
   assert.ok(home.includes('/projects-cinema.js') && home.includes('/projects-cinema.css'));
   assert.ok(!home.includes("projects-cinema__index"), "Old project counter navigation still present");
   assert.ok(detail.includes('data-case-root') && detail.includes('/project-case.js') && detail.includes('/project-case.css'));
   assert.ok(detail.includes('data-case-language="' + lang + '"'));
 }
+assert.ok(read("public/index.html").includes(editorialStyleUrl), "Editorial actions CSS missing on the root PT homepage");
+const editorialCss = read("public/editorial-actions.css");
+for (const selector of [".project-feature__case-link", ".case-hero__action", ".case-validation__repository", ".case-next__link"]) {
+  assert.ok(editorialCss.includes(selector), "Editorial underline selector missing: " + selector);
+}
+assert.ok(editorialCss.includes(":focus-visible"), "Editorial actions must support keyboard focus");
+assert.ok(editorialCss.includes("@media(hover:none) and (pointer:coarse)"), "Editorial underline must remain visible on touch");
+assert.ok(editorialCss.includes("@media(prefers-reduced-motion:reduce)"), "Editorial actions must respect reduced motion");
+assert.ok(editorialCss.includes("[data-resume-primary] > a"), "Primary resume button refinement missing");
+assert.ok(!/@import|url\s*\(/i.test(editorialCss), "Editorial actions CSS must not load external resources");
 const profile = JSON.parse(read("public/data/profile.json"));
 assert.ok(profile.resume.endsWith('-pt.pdf') && profile.resume_en.endsWith('-en.pdf') && profile.resume_es.endsWith('-es.pdf'), "Profile must route to three localized PDFs");
 assert.ok(read("public/main.js").includes("e.resume_es"), "ES CV not supported in main.js");

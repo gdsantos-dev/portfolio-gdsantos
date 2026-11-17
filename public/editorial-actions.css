@@ -1,0 +1,105 @@
+/* Portfólio: sublinhado editorial progressivo apenas nos links selecionados. */
+:is(.project-feature__case-link,.case-hero__action,.case-validation__repository,.case-next__link){
+  position:relative;
+  border-bottom:0;
+  padding-bottom:5px;
+  color:var(--text);
+  text-decoration:none;
+  transition:color .18s ease;
+}
+:is(.project-feature__case-link,.case-hero__action,.case-validation__repository,.case-next__link)::before,
+:is(.project-feature__case-link,.case-hero__action,.case-validation__repository,.case-next__link)::after{
+  content:"";
+  position:absolute;
+  left:0;
+  right:0;
+  bottom:0;
+  height:2px;
+  background:var(--accent);
+  pointer-events:none;
+}
+:is(.project-feature__case-link,.case-hero__action,.case-validation__repository,.case-next__link)::before{opacity:.3}
+:is(.project-feature__case-link,.case-hero__action,.case-validation__repository,.case-next__link)::after{
+  transform:scaleX(0);
+  transform-origin:left center;
+  transition:transform .42s cubic-bezier(.22,1,.36,1);
+}
+:is(.project-feature__case-link,.case-hero__action,.case-validation__repository,.case-next__link):is(:hover,:focus-visible){color:var(--text)}
+:is(.project-feature__case-link,.case-hero__action,.case-validation__repository,.case-next__link):is(:hover,:focus-visible)::after{transform:scaleX(1)}
+
+/* CV: dois traços crimson partem de cantos opostos e não se encontram. */
+[data-resume-primary] > a{
+  --trace:#e63950;
+  position:relative;
+  min-height:53px;
+  padding:0 25px;
+  border:0;
+  border-radius:0;
+  background:transparent;
+  color:var(--text);
+  box-shadow:none;
+  font-family:inherit;
+  font-size:16px;
+  font-weight:650;
+  letter-spacing:-.01em;
+  isolation:isolate;
+  transition:background-color .28s ease;
+}
+[data-resume-primary] > a::before,
+[data-resume-primary] > a::after{
+  content:"";
+  position:absolute;
+  width:27px;
+  height:18px;
+  border-color:var(--trace);
+  border-style:solid;
+  border-width:0;
+  pointer-events:none;
+  transition:
+    width .68s cubic-bezier(.22,1,.36,1),
+    height .68s cubic-bezier(.22,1,.36,1);
+}
+[data-resume-primary] > a::before{
+  top:0;
+  left:0;
+  border-top-width:1.5px;
+  border-left-width:1.5px;
+}
+[data-resume-primary] > a::after{
+  right:0;
+  bottom:0;
+  border-right-width:1.5px;
+  border-bottom-width:1.5px;
+  transition-delay:.06s;
+}
+[data-resume-primary] > a:is(:hover,:focus-visible){
+  background-color:#171318;
+  color:var(--text);
+}
+[data-resume-primary] > a:is(:hover,:focus-visible)::before,
+[data-resume-primary] > a:is(:hover,:focus-visible)::after{
+  width:calc(100% - 46px);
+  height:calc(100% - 17px);
+}
+[data-resume-primary] > a:focus-visible{
+  outline:2px solid var(--trace);
+  outline-offset:6px;
+}
+[data-resume-primary] > a:active{
+  background-color:#171318;
+  color:var(--text);
+}
+
+/* Sem hover no touch: a linha comunica o link mesmo sem animação. */
+@media(hover:none) and (pointer:coarse){
+  :is(.project-feature__case-link,.case-hero__action,.case-validation__repository,.case-next__link)::after{transform:scaleX(1)}
+  [data-resume-primary] > a{background-color:#131115}
+  [data-resume-primary] > a::before,
+  [data-resume-primary] > a::after{width:30px;height:20px}
+}
+@media(prefers-reduced-motion:reduce){
+  :is(.project-feature__case-link,.case-hero__action,.case-validation__repository,.case-next__link)::after{transition:none}
+  [data-resume-primary] > a,
+  [data-resume-primary] > a::before,
+  [data-resume-primary] > a::after{transition:none}
+}
