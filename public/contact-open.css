@@ -1,5 +1,5 @@
 /* Contato v22: assinatura profissional, sem card ou decoração.
-   Liquio 1.0.0 permanece versionado e seu slot fica temporariamente oculto. */
+   Liquio 1.0.0 permanece versionado, sem carregar seu runtime, e o slot fica temporariamente oculto. */
 #contato.contact{
   position:relative;
   display:flex;
