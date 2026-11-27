@@ -11,3 +11,9 @@ node_modules/
 Thumbs.db
 *.log
 .railway/
+
+/public/assets/liquio/2.*/
+/.local-review/
+
+/public/assets/liquio/.preview-*/
+liquio-studio-2.*.tgz

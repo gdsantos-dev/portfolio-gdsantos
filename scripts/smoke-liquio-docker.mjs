@@ -23,6 +23,10 @@ try{
  for(const route of ['/health','/pt/','/en/','/es/','/sitemap.xml','/assets/liquio/'+version+'/liquio.js','/assets/liquio/'+version+'/sprites/liquio.png',...['pt','en','es'].flatMap(l=>['scoutliq','dashliq'].map(id=>'/'+l+'/projeto/?id='+id))]){
   assert.equal((await fetch(origin+route)).status,200,route);
  }
+ const entry=await fs.readFile(path.join(root,'public/contact-guide.js'),'utf8');
+ const preview=/const entry='([^']+)'/.exec(entry)?.[1];
+ assert.ok(preview,'Pinned preview URL missing');
+ assert.equal((await fetch(origin+preview)).status,404,'Private distribution in release image');
  console.log('Docker: build, health, localized pages, 6 cases, sitemap and Liquio assets OK.');
 }finally{
  if(started)run(['rm','-f',name]);

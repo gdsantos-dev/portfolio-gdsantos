@@ -7,3 +7,8 @@
 **/*.sqlite3
 **/__pycache__
 **/*.log
+
+public/assets/liquio/2.*/
+
+public/assets/liquio/.preview-*/
+**/liquio-studio-2.*.tgz

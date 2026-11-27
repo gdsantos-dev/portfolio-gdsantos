@@ -15,6 +15,8 @@ for(const [file,hash]of Object.entries(manifest.files)){
 for(const lang of ['','pt/','en/','es/']){
  const html=await fs.readFile(path.join(root,'public',lang,'index.html'),'utf8');
  assert.equal((html.match(/data-liquio aria-hidden="true"/g)||[]).length,1);
+ assert.equal((html.match(/<script type="module" src="\/contact-guide\.js"><\/script>/g)||[]).length,1,'Um adaptador atual por início: '+lang);
+ assert.ok(!html.includes('/assets/liquio/2.'),'A distribuição deve ser carregada por demanda');
  assert.ok(!html.includes('/assets/liquio/'+version+'/liquio.css'), lang+': Liquio animation CSS must remain paused');
  assert.ok(!html.includes('/assets/liquio-contact.css'), lang+': Liquio integration CSS must remain paused');
  assert.ok(!html.includes('/assets/liquio-contact.js'), lang+': Liquio animation bootstrap must remain paused');
@@ -23,6 +25,7 @@ for(const lang of ['','pt/','en/','es/']){
 }
 for(const lang of ['pt','en','es']) {
  const html=await fs.readFile(path.join(root,'public',lang,'projeto/index.html'),'utf8');
+ assert.ok(!html.includes('/contact-guide.js'),lang+': adaptador fora de página individual');
  assert.ok(!html.includes('data-liquio'), lang+': animated Liquio slot must not appear on case pages');
  assert.ok(!html.includes('/assets/liquio-contact.js'), lang+': animation bootstrap must not appear on case pages');
 }
@@ -33,4 +36,4 @@ const css=await fs.readFile(path.join(root,'public/assets/liquio-contact.css'),'
 assert.ok(css.includes('pointer-events: none')); assert.ok(!css.includes('fixed'));
 const pausedCss=await fs.readFile(path.join(root,'public/contact-open.css'),'utf8');
 assert.ok(pausedCss.includes('#contato>.contact-liquio{display:none!important}'));
-console.log('Liquio: versioned checksums intact; runtime absent from 4 homepages; slot hidden; 3 case exclusions OK.');
+console.log('Liquio: versioned checksums intact; 1.0.0 runtime paused on 4 homepages; conditional contact adapter present; slot hidden; 3 case exclusions OK.');
