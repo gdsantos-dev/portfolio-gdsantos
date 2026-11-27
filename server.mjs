@@ -92,6 +92,6 @@ http.createServer(async (req, res) => {
     res.writeHead(404, { 'Content-Type': 'text/plain; charset=utf-8', 'Cache-Control': 'no-store' });
     return res.end(req.method === 'HEAD' ? undefined : 'Página não encontrada');
   }
-}).listen(port, '0.0.0.0', () => {
+}).listen(port, process.env.HOST || '0.0.0.0', () => {
   console.log(`Portfólio público escutando na porta ${port}`);
 });
